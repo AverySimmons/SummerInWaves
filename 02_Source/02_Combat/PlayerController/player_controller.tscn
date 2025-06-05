@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlgr35ohlr67a"]
 
-[ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/Controllers/player_controller.gd" id="1_haeba"]
+[ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/PlayerController/player_controller.gd" id="1_haeba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
 radius = 85.0
