@@ -7,6 +7,9 @@ var combat_scene = preload("res://02_Source/02_Combat/CombatManager/combat_manag
 @onready var overworld_level = $Level
 @onready var combat_level = null
 
+func _ready() -> void:
+	SignalBus.switch_game.connect(switch_scenes)
+
 func switch_scenes() -> void:
 	if is_combat:
 		# maybe configure overworld before adding it back
