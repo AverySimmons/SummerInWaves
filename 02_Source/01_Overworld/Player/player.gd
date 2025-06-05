@@ -5,7 +5,12 @@ const TURN_ACC = 5000
 const IDLE_DEACC = 4000
 const MAX_SPEED = 300
 
+var talking = false
+
 func _physics_process(delta: float) -> void:
+	if talking:
+		return
+	
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	
 	var cur_acc = ACC 
@@ -17,3 +22,12 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(input_dir * MAX_SPEED, cur_acc * delta)
 	
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("talk"):
+		var areas = $InteractBox.get_overlapping_areas()
+		if not areas: return
+		
+		var npc: NPC = areas[0]
+		npc.talk()
+		talking = true
+		velocity = Vector2.ZERO
