@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://1bsnpqa6l6dy"]
+[gd_scene load_steps=3 format=3 uid="uid://1bsnpqa6l6dy"]
 
 [ext_resource type="PackedScene" uid="uid://w7qmaxkspqgv" path="res://02_Source/01_Overworld/Player/player.tscn" id="1_727id"]
+[ext_resource type="Script" uid="uid://ceinc6bkfw8xy" path="res://02_Source/01_Overworld/Level/level.gd" id="1_mrg8d"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_mrg8d")
 
 [node name="Player" parent="." instance=ExtResource("1_727id")]
 position = Vector2(640, 360)

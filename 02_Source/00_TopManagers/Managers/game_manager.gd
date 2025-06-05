@@ -10,7 +10,7 @@ var combat_scene = preload("res://02_Source/02_Combat/CombatManager/combat_manag
 func _ready() -> void:
 	SignalBus.switch_game.connect(switch_scenes)
 
-func switch_scenes() -> void:
+func switch_scenes(win: bool) -> void:
 	if is_combat:
 		# maybe configure overworld before adding it back
 		call_deferred("add_child", overworld_level)
