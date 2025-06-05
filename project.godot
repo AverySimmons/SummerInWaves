@@ -60,4 +60,4 @@ click={
 [layer_names]
 
 2d_physics/layer_1="enviroment"
-2d_physics/layer_2="disks"
+2d_physics/layer_2="discs"

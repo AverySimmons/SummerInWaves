@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlgr35ohlr67a"]
+
+[ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/Controllers/player_controller.gd" id="1_haeba"]
+
+[node name="PlayerController" type="Node2D"]
+script = ExtResource("1_haeba")
