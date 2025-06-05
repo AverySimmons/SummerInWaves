@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://w7qmaxkspqgv"]
+
+[ext_resource type="Script" uid="uid://cq04q3yj2ba1l" path="res://02_Source/01_Overworld/Player/player.gd" id="1_nq7d4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwoec"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_nq7d4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lwoec")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
