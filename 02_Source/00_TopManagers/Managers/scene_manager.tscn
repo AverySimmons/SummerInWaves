@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://da77v8khyg6wl" path="res://02_Source/00_TopManagers/TitleScreen/title_screen.gd" id="3_uerde"]
 
 [node name="SceneManager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_bi5nd")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_tn0lg")]
+process_mode = 1
 script = ExtResource("3_uerde")
