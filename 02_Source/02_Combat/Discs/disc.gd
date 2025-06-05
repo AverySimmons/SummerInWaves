@@ -19,8 +19,10 @@ func _physics_process(delta: float) -> void:
 	velocity = move_toward(velocity, 0, FRICTION*delta)
 	
 	# Momentum
-	
-	
+	if has_overlapping_areas():
+		return
+	else:
+		var overlapping
 	pass
 
 
