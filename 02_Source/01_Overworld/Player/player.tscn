@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://w7qmaxkspqgv"]
+[gd_scene load_steps=4 format=3 uid="uid://w7qmaxkspqgv"]
 
 [ext_resource type="Script" uid="uid://cq04q3yj2ba1l" path="res://02_Source/01_Overworld/Player/player.gd" id="1_nq7d4"]
+[ext_resource type="Texture2D" uid="uid://bmn03hsbyejau" path="res://01_Assets/00_DevSprites/player.png" id="2_1n1eg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwoec"]
 radius = 32.0
@@ -13,6 +14,9 @@ script = ExtResource("1_nq7d4")
 shape = SubResource("CircleShape2D_lwoec")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -21)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_1n1eg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
