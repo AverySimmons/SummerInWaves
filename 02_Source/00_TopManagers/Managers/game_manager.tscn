@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://820qvhys32oa"]
+
+[ext_resource type="Script" uid="uid://dcxuq81wlg456" path="res://02_Source/00_TopManagers/Managers/game_manager.gd" id="1_150wq"]
+[ext_resource type="PackedScene" uid="uid://1bsnpqa6l6dy" path="res://02_Source/01_Overworld/Level/level.tscn" id="2_ekp6a"]
+
+[node name="GameManager" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_150wq")
+
+[node name="Level" parent="." instance=ExtResource("2_ekp6a")]

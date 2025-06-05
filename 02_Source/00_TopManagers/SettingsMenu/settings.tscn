@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1r803xh8beb0"]
+
+[ext_resource type="Script" uid="uid://dhbghc5bhceui" path="res://02_Source/00_TopManagers/SettingsMenu/settings.gd" id="1_be54s"]
+[ext_resource type="Texture2D" uid="uid://ddnppa4y3cd1" path="res://01_Assets/00_DevSprites/settingsmenu.png" id="2_i6nck"]
+
+[node name="Settings" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_be54s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_i6nck")

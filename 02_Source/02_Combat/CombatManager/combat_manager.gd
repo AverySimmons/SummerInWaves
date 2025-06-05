@@ -16,6 +16,8 @@ var released_disc: bool = false
 
 func _ready() -> void:
 	SignalBus.create_disc.connect(spawn_disc)
+	
+	
 
 #score calculation
 func round_score():
@@ -67,6 +69,8 @@ func _physics_process(delta: float) -> void:
 		if all_discs_stopped == true:
 			is_turn = not is_turn
 			released_disc = false 
-		
+	
+	if Input.is_action_just_pressed("Debug"):
+		SignalBus.switch_game.emit(true)
 	
 	
