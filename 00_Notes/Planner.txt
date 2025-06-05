@@ -1,0 +1,18 @@
+Planner
+
+Necessary classes:
+
+Avery:
+	Player script
+	
+Joey:
+	Disc class
+	
+Brian:
+	Game manager:
+		player turns
+		changing scene from overworld to combat world
+		score
+		settings, menu
+		pause
+	
