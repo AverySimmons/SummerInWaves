@@ -2,9 +2,15 @@ extends Node2D
 
 var game_manager_scene: PackedScene = preload("res://02_Source/00_TopManagers/Managers/game_manager.tscn")
 var settings_scene: PackedScene = preload("res://02_Source/00_TopManagers/SettingsMenu/settings.tscn")
+
+var dialogic_style = preload("res://03_DialogicStyles/dialogic_style.tres")
+
 #start with title screen as a child. when play button is pressed, emit a signal
 #scene manager will switch to game manager. it adds in game manager and deletes the title
 func _ready() -> void:
+	dialogic_style.prepare()
+	Dialogic.preload_timeline("res://03_DialogicStyles/test_timeline.dtl")
+	Dialogic.start("empty_timeline")
 	SignalBus.start_game.connect(start_game)
 	
 

@@ -27,6 +27,7 @@ directories/dch_directory={
 "test_character": "res://03_DialogicStyles/test_character.dch"
 }
 directories/dtl_directory={
+"empty_timeline": "res://03_DialogicStyles/empty_timeline.dtl",
 "test_timeline": "res://03_DialogicStyles/test_timeline.dtl"
 }
 glossary/default_case_sensitive=true

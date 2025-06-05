@@ -9,6 +9,11 @@ var combat_scene = preload("res://02_Source/02_Combat/CombatManager/combat_manag
 
 func _ready() -> void:
 	SignalBus.switch_game.connect(switch_scenes)
+	Dialogic.signal_event.connect(dialogic_signal)
+
+func dialogic_signal(arg):
+	if arg == 'switch to combat':
+		switch_scenes(false)
 
 func switch_scenes(win: bool) -> void:
 	if is_combat:

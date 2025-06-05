@@ -7,11 +7,13 @@ const MAX_SPEED = 300
 
 var talking = false
 
+func _ready() -> void:
+	Dialogic.timeline_ended.connect(finished_talking)
+
 func _physics_process(delta: float) -> void:
-	if talking:
-		return
-	
 	var input_dir = Input.get_vector("left", "right", "up", "down")
+	if talking:
+		input_dir = Vector2.ZERO
 	
 	var cur_acc = ACC 
 	if input_dir.dot(velocity) > 0:
@@ -30,4 +32,6 @@ func _physics_process(delta: float) -> void:
 		var npc: NPC = areas[0]
 		npc.talk()
 		talking = true
-		velocity = Vector2.ZERO
+
+func finished_talking():
+	talking = false
