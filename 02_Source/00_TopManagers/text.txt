@@ -1,0 +1,2 @@
+game manager that switches between combat and overworld scenes
+scene manager that switches menu/settings into the game manager
