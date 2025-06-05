@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/PlayerController/player_controller.gd" id="1_haeba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
-radius = 85.0
+radius = 315.0
 
 [node name="PlayerController" type="Node2D"]
 script = ExtResource("1_haeba")
@@ -12,3 +12,4 @@ script = ExtResource("1_haeba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_sdmsl")
+debug_color = Color(0.7, 0, 0, 0.419608)
