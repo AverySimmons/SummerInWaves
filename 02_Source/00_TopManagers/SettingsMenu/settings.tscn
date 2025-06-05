@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://b1r803xh8beb0"]
+[gd_scene load_steps=2 format=3 uid="uid://b1r803xh8beb0"]
+
+[ext_resource type="Texture2D" uid="uid://ddnppa4y3cd1" path="res://01_Assets/00_DevSprites/settingsmenu.png" id="1_be54s"]
 
 [node name="Settings" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_be54s")
