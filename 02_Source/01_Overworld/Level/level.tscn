@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://w7qmaxkspqgv" path="res://02_Source/01_Overworld/Player/player.tscn" id="1_727id"]
 [ext_resource type="Script" uid="uid://ceinc6bkfw8xy" path="res://02_Source/01_Overworld/Level/level.gd" id="1_mrg8d"]
 [ext_resource type="Texture2D" uid="uid://c3qrbaotjcgck" path="res://01_Assets/00_DevSprites/overworldbackground.png" id="3_jvo2h"]
-[ext_resource type="PackedScene" uid="uid://4s7rcod1o1yt" path="res://02_Source/01_Overworld/NPCs/cindy.tscn" id="4_01gd7"]
+[ext_resource type="PackedScene" uid="uid://4s7rcod1o1yt" path="res://02_Source/01_Overworld/NPCs/npc.tscn" id="4_01gd7"]
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -18,5 +18,6 @@ texture = ExtResource("3_jvo2h")
 [node name="Player" parent="." instance=ExtResource("1_727id")]
 position = Vector2(640, 360)
 
-[node name="Cindy" parent="." instance=ExtResource("4_01gd7")]
+[node name="Prin" parent="." instance=ExtResource("4_01gd7")]
 position = Vector2(130.58, 106.867)
+dialogic_scene = "prin_timeline"

@@ -35,13 +35,14 @@ directories/dtl_directory={
 "elm_timeline": "res://03_DialogicAssets/Timelines/elm_timeline.dtl",
 "empty_timeline": "res://03_DialogicAssets/Timelines/empty_timeline.dtl",
 "periwinkle_timeline": "res://03_DialogicAssets/Timelines/periwinkle_timeline.dtl",
-"prin_timeline": "res://03_DialogicAssets/Timelines/prin_timeline.dtl",
-"summer_timeline": "res://03_DialogicAssets/Timelines/summer_timeline.dtl"
+"prin_timeline": "res://03_DialogicAssets/Timelines/prin_timeline.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://03_DialogicAssets/Styles/primary_style.tres"]
 layout/default_style="res://03_DialogicAssets/Styles/primary_style.tres"
-variables={}
+variables={
+"prin_talked_to": false
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

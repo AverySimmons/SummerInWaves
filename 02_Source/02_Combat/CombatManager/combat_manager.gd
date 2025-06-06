@@ -71,5 +71,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Debug"):
 		SignalBus.switch_game.emit(true)
+	if Input.is_action_just_pressed("talk"):
+		SignalBus.dialogue_pause.emit()
 	
 	

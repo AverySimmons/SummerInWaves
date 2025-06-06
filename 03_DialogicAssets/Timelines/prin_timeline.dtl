@@ -1,0 +1,11 @@
+if {prin_talked_to} == false:
+	prin_character: Hi Summer....
+	summer_character: Why are you crying?
+	prin_character: I don't have any of my friends anymore...
+	prin_character: Is anyone even going to show up for my birthday?
+	summer_character: I'll be at your birthday!
+	prin_character: You don't get it.
+	set {prin_talked_to} = true
+	[signal arg="switch to combat"]
+else:
+	prin_character: Just leave me alone.
