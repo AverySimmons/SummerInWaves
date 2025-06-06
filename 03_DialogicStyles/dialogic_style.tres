@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=18 format=3 uid="uid://gxpjtbr1b8bt"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=18 format=3 uid="uid://d4b51ubfot0q"]
 
 [ext_resource type="Script" uid="uid://wv461g8bltjk" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_nk0i4"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_ilwbh"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="3_uab85"]
-[ext_resource type="PackedScene" uid="uid://bhvj8omlplvmg" path="res://03_DialogicStyles/TextboxWithPortrait/custom_textbox_with_portrait_.tscn" id="4_nk0i4"]
+[ext_resource type="PackedScene" uid="uid://by6waso0mjpjp" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/textbox_with_speaker_portrait.tscn" id="4_0ew1d"]
 [ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="5_1oe3o"]
 [ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="6_3w0ns"]
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="7_5u30i"]
@@ -26,10 +26,8 @@ overrides = {}
 
 [sub_resource type="Resource" id="Resource_edynj"]
 script = ExtResource("1_nk0i4")
-scene = ExtResource("4_nk0i4")
-overrides = {
-"box_modulate_global_color": "false"
-}
+scene = ExtResource("4_0ew1d")
+overrides = {}
 
 [sub_resource type="Resource" id="Resource_u15ux"]
 script = ExtResource("1_nk0i4")
@@ -67,4 +65,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_nk0i4")]([])
-metadata/_latest_layer = "12"
+metadata/_latest_layer = ""
