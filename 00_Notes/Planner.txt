@@ -16,3 +16,11 @@ Brian:
 		settings, menu
 		pause
 	
+June 6
+To do:
+	Dialogue for the core npcs. Dialogue trees. Dialogic can see the singleton values
+	Discuss Transitions (water comes up on the sand?)
+	In combat dialogue system (it pauses the game and comes up over the combat space)
+	Tutorial dialgue that Summer says
+	Want:
+		Character names as ??? before you learn their name

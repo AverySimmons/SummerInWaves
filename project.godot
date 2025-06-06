@@ -31,9 +31,9 @@ directories/dch_directory={
 "summer_character": "res://03_DialogicAssets/Characters/summer_character.dch"
 }
 directories/dtl_directory={
+"Timelines/empty_timeline": "res://03_DialogicAssets/Timelines/empty_timeline.dtl",
 "albert_timeline": "res://03_DialogicAssets/Timelines/albert_timeline.dtl",
 "elm_timeline": "res://03_DialogicAssets/Timelines/elm_timeline.dtl",
-"empty_timeline": "res://03_DialogicAssets/Timelines/empty_timeline.dtl",
 "periwinkle_timeline": "res://03_DialogicAssets/Timelines/periwinkle_timeline.dtl",
 "prin_timeline": "res://03_DialogicAssets/Timelines/prin_timeline.dtl"
 }
