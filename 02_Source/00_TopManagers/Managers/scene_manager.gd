@@ -12,7 +12,6 @@ func _ready() -> void:
 	Dialogic.preload_timeline("res://03_DialogicStyles/test_timeline.dtl")
 	Dialogic.start("empty_timeline")
 	SignalBus.start_game.connect(start_game)
-	
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):

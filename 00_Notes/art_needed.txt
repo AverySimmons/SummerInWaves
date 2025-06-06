@@ -1,0 +1,28 @@
+Need:
+Title screen
+Play button (with hover / pressed)
+
+Overworld background
+Player (up / down / right walking, up / down / right idle, portrait happy)
+Cindy (down idle, portrait sad / happy)
+Fred (down idle, portrait sad / happy)
+Nerd (down idle, portrait sad / happy)
+Prin (down idle, portrait sad / happy)
+
+Combat background
+Disc base
+3 character fears per character (Cindy, Fred, Nerd, Prin)
+Hand with flick frames
+3 special pieces each relating to Cindy, Fred, Nerd that will be their special attack
+
+Lots of little indicators needs more thought
+
+-------
+Want:
+More NPCs just to talk to (each needs down idle and maybe portrait)
+Different hands for different characters
+More fears for each character
+Cindy / Fred / Nerd animations for up / down / right walking, up / down / right idle
+More complex overworld / combat backgrounds
+More portraits for each character
+Diagonal animations for all mentioned characters (for example walking up and to the right)
