@@ -15,7 +15,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("click") and is_pulling:
 		is_pulling = false
-		flick_disc()
+		if get_global_mouse_position().distance_to(pull_pos) > 5:
+			flick_disc()
 
 func flick_disc() -> void:
 	var mouse_norm = get_global_mouse_position() - pull_pos
