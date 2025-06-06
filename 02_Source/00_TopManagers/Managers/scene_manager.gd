@@ -6,8 +6,8 @@ var settings_scene: PackedScene = preload("res://02_Source/00_TopManagers/Settin
 #start with title screen as a child. when play button is pressed, emit a signal
 #scene manager will switch to game manager. it adds in game manager and deletes the title
 func _ready() -> void:
-	load("res://03_DialogicStyles/dialogic_style.tres").prepare()
-	Dialogic.preload_timeline("res://03_DialogicStyles/test_timeline.dtl")
+	load("res://03_DialogicAssets/Styles/primary_style.tres").prepare()
+	Dialogic.preload_timeline("res://03_DialogicAssets/Timelines/empty_timeline.dtl")
 	SignalBus.start_game.connect(start_game)
 
 func _physics_process(delta: float) -> void:
