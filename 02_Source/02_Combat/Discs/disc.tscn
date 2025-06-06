@@ -22,5 +22,4 @@ offset_right = 60.0
 offset_bottom = 60.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_m1gb4")
