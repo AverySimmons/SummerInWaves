@@ -2,17 +2,17 @@ class_name Disc
 extends Area2D
 # Generic class for discs. Contains 
 
-const FRICTION_COEFFICIENT = 100
+const FRICTION_COEFFICIENT = 1000
 const ROTATIONAL_FRICTION = 1
 
 var is_enemy: bool
 var sprite
-var velocity: Vector2 = Vector2(400, 0)
+var velocity: Vector2 = Vector2(6000, 0)
 var friction: Vector2
 var collision_cooldown: float
 
 var mass: float = 1
-var radius: float = 30
+@onready var radius: float = $CollisionShape2D.shape.radius
 var center_of_mass: Vector2 = position
 @onready var inertia: float = 0.5 * mass * radius*radius
 var rotational_velocity: float
@@ -24,16 +24,21 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if collision_cooldown > 0:
 		collision_cooldown -= delta
+	
+	if timer >= 2:
+		print(position)
+		timer = 0
+	timer += delta
 	# Velocity
-	if velocity.length() > 800:
-		velocity = velocity.normalized() * 800
+	if velocity.length() > 8000:
+		velocity = velocity.normalized() * 8000
 	
 	position += velocity * delta
 	center_of_mass = position
-	rotation += rotational_velocity
+	rotation += rotational_velocity * delta
 	
 	if velocity.length() > 0.001:
-		friction = FRICTION_COEFFICIENT * velocity.normalized()
+		friction = abs(FRICTION_COEFFICIENT * velocity.normalized())
 	else:
 		friction = Vector2(0, 0)
 	
@@ -75,12 +80,13 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	print('Disc B Center of Mass', other_disc.center_of_mass)
 	print('Disc A Rotational Velocity', rotational_velocity)
 	print('Disc B Rotational Velocity', other_disc.rotational_velocity)
+	radius = $CollisionShape2D.shape.radius
 	var collision_point: Vector2 = find_collision_point(other_disc)
 	var vector_from_center_of_mass: Vector2 = collision_point - center_of_mass
 	var collision_normal: Vector2 = vector_from_center_of_mass.normalized()
 	var collision_tangent: Vector2 = Vector2(-collision_normal.y, collision_normal.x)
 	var lever_arm: Vector2 = collision_point - center_of_mass
-	var other_disc_lever_arm: Vector2 = other_disc.center_of_mass - other_disc.radius * collision_normal
+	var other_disc_lever_arm: Vector2 = collision_point - other_disc.center_of_mass
 	var impact_velocity: Vector2 = get_velocity_at_point_of_impact(lever_arm) - other_disc.get_velocity_at_point_of_impact(vector_from_center_of_mass)
 	var normal_speed: float = impact_velocity.x * collision_normal.x + impact_velocity.y * collision_normal.y
 	var tangent_speed: float = impact_velocity.x * collision_tangent.x + impact_velocity.y * collision_tangent.y
@@ -110,7 +116,7 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	print(position)
 	return
 
-#func fix_penetration()
+#func fix_penetration() #Todo
 	
 func apply_linear_impulse(normal_impulse: float, tangential_impulse: float, collision_normal: Vector2, collision_tangent: Vector2) -> void:
 	var change_in_linear_velocity: Vector2 = 1/mass * ((normal_impulse * collision_normal) + (tangential_impulse * collision_tangent))
@@ -141,7 +147,6 @@ func calculate_normal_impulse(normal_speed: float, other_disc: Disc) -> float:
 func find_collision_point(other_disc: Disc) -> Vector2:
 	print(position)
 	var direction = (other_disc.center_of_mass - center_of_mass).normalized()
-	print('direction: ', direction)
 	return center_of_mass + direction * radius
 
 func get_velocity_at_point_of_impact(vector_from_center_of_mass: Vector2) -> Vector2:
