@@ -11,11 +11,16 @@ func _ready() -> void:
 	load("res://03_DialogicAssets/Styles/primary_style.tres").prepare()
 	Dialogic.preload_timeline("res://03_DialogicAssets/Timelines/empty_timeline.dtl")
 	SignalBus.start_game.connect(start_game)
-
+	SignalBus.dialogue_pause.connect(dialogue_pause_switch)
+	Dialogic.timeline_ended.connect(dialogue_pause_switch)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		pause_game()
+	#debug testing for dialogue pause
+	if not currently_paused:
+		if Input.is_action_just_pressed("ui_text_newline"):
+			dialogue_pause_switch()
 
 func start_game() -> void:
 	var new_game_manager = game_manager_scene.instantiate()
@@ -25,7 +30,14 @@ func start_game() -> void:
 	$TitleScreen.queue_free()
 
 func dialogue_pause_switch() -> void:
-	in_dialogue_pause = not in_dialogue_pause
+	#This function should never get called while currently_paused from settings
+	#pauses the tree and switches in_dialogue_pause bool
+	if not in_dialogue_pause:
+		get_tree().paused = true
+		in_dialogue_pause = true
+	else: #if in dialogue pause already
+		get_tree().paused = false
+		in_dialogue_pause = false
 	
 func pause_game() -> void:
 	
