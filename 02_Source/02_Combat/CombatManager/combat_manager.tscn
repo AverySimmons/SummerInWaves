@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwkm6aj13xr52"]
+[gd_scene load_steps=7 format=3 uid="uid://cwkm6aj13xr52"]
 
 [ext_resource type="Script" uid="uid://hkyex4ym4kdr" path="res://02_Source/02_Combat/CombatManager/combat_manager.gd" id="1_tpnlr"]
 [ext_resource type="PackedScene" uid="uid://dlgr35ohlr67a" path="res://02_Source/02_Combat/PlayerController/player_controller.tscn" id="2_7631d"]
 [ext_resource type="Texture2D" uid="uid://cogwox70mvjfo" path="res://01_Assets/00_DevSprites/combatbackground.png" id="2_nb4pp"]
+[ext_resource type="PackedScene" uid="uid://22tytw4062gl" path="res://02_Source/02_Combat/Discs/disc.tscn" id="4_smkjc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7631d"]
 
@@ -21,12 +22,19 @@ position = Vector2(640, 360)
 
 [node name="Discs" type="Node2D" parent="."]
 
+[node name="Disc" parent="Discs" instance=ExtResource("4_smkjc")]
+position = Vector2(636, 254)
+
 [node name="Ring1" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring1"]
 shape = SubResource("CircleShape2D_7631d")
 
 [node name="Ring2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring2"]
 shape = SubResource("CircleShape2D_nb4pp")
