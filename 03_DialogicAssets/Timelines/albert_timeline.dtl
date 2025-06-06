@@ -1,0 +1,5 @@
+if GameData.kids_defeated == 1.0:
+	albert_character: lets fight
+	[signal arg="switch to combat"]
+else:
+	go fight your sister first

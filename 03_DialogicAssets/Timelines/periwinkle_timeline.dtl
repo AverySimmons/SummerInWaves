@@ -1,0 +1,5 @@
+if GameData.kids_defeated == 2.0:
+	periwinkle_character: I will fight you
+	[signal arg="switch to combat"]
+else:
+	periwinkle_character: go fight someone else first

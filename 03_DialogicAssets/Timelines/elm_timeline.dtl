@@ -1,0 +1,5 @@
+if GameData.kids_defeated == 3.0:
+	elm_character: lets fight
+	[signal arg="switch to combat"]
+else:
+	elm_character: go fight someone else first

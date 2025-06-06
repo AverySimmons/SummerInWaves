@@ -21,3 +21,24 @@ position = Vector2(640, 360)
 [node name="Prin" parent="." instance=ExtResource("4_01gd7")]
 position = Vector2(130.58, 106.867)
 dialogic_scene = "prin_timeline"
+
+[node name="Sprite2D" parent="Prin" index="1"]
+modulate = Color(0.855677, 0.590366, 0, 1)
+
+[node name="Albert" parent="." instance=ExtResource("4_01gd7")]
+position = Vector2(816, 107)
+dialogic_scene = "albert_timeline"
+
+[node name="Sprite2D" parent="Albert" index="1"]
+modulate = Color(0.4585, 1, 0.43, 1)
+
+[node name="Periwinkle" parent="." instance=ExtResource("4_01gd7")]
+position = Vector2(461, 83)
+dialogic_scene = "periwinkle_timeline"
+
+[node name="Sprite2D" parent="Periwinkle" index="1"]
+modulate = Color(0.659108, 0.51806, 1, 1)
+
+[editable path="Prin"]
+[editable path="Albert"]
+[editable path="Periwinkle"]

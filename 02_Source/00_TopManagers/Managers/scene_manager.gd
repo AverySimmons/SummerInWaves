@@ -12,7 +12,7 @@ func _ready() -> void:
 	Dialogic.preload_timeline("res://03_DialogicAssets/Timelines/empty_timeline.dtl")
 	SignalBus.start_game.connect(start_game)
 	SignalBus.dialogue_pause.connect(dialogue_pause_switch)
-	Dialogic.timeline_ended.connect(dialogue_pause_switch)
+	Dialogic.signal_event.connect(check_dialogue_pause_switch)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -28,6 +28,10 @@ func start_game() -> void:
 	add_child(new_game_manager)
 	
 	$TitleScreen.queue_free()
+
+func check_dialogue_pause_switch(arg: String) -> void:
+	if arg == "unpause combat":
+		dialogue_pause_switch()
 
 func dialogue_pause_switch() -> void:
 	#This function should never get called while currently_paused from settings

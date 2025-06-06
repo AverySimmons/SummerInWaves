@@ -18,6 +18,10 @@ func dialogic_signal(arg):
 func switch_scenes(win: bool) -> void:
 	if is_combat:
 		# maybe configure overworld before adding it back
+		
+		if win or GameData.kids_defeated == 0:
+			GameData.kids_defeated += 1
+		
 		call_deferred("add_child", overworld_level)
 		combat_level.call_deferred("queue_free")
 	
