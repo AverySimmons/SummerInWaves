@@ -4,8 +4,21 @@ if {prin_talked_to} == false:
 	prin_character: I don't have any of my friends anymore...
 	prin_character: Is anyone even going to show up for my birthday?
 	summer_character: I'll be at your birthday!
-	prin_character: You don't get it.
+	prin_character: You don't get it
 	set {prin_talked_to} = true
 	[signal arg="switch to combat"]
 else:
-	prin_character: Just leave me alone.
+	prin_character: Just leave me alone
+if GameData.kids_defeated == 4.0:
+	summer_character: Hey Prin I made some new friends
+	albert_character: I'm Al!
+	periwinkle_character: Hi... I'm Periwinkle
+	elm_character: Nice to meet you Prin, I'm Elm
+	prin_character: I wish I could make friends too
+	periwinkle_character: We can be your friends
+	prin_character: You don't understand, I failed my highschool entrance exam, now I can't enrol
+	elm_character: Hey sometimes I do bad in my classes, I got a B+ last week
+	prin_character: You guys don't get it
+	albert_character: Get what?
+	prin_character: ...
+	Little kids have it so easy, you don't get my problems...

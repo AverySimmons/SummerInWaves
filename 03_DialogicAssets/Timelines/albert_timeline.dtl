@@ -1,5 +1,11 @@
 if GameData.kids_defeated == 1.0:
-	albert_character: lets fight
+	albert_character: Take that! *kick* He shoots and he scores!! Woop woop
+	summer_character: Hey stop that! Why would you wreck his sand castle?
+	albert_character: Oh did you see that? I didn't do that
+	summer_character: You really shouldn't go around kicking other people's things, what's got you upset
+	albert_character: My soccer team lost yesterday, I hate losing!
+	summer_character: Hey winning isn't everything, it's all about having fun
+	albert_character: Just let me wallow in my defeat
 	[signal arg="switch to combat"]
 else:
-	go fight your sister first
+	summer_character: I should go check on my sister first
