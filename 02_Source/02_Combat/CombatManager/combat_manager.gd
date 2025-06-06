@@ -38,14 +38,13 @@ func round_score():
 			player_score += ring2_points
 			
 #spawning discs
-func spawn_disc(pos: Vector2, velocity: float, direction: Vector2, is_enemy: bool):
+func spawn_disc(pos: Vector2, velocity: Vector2, is_enemy: bool):
 	#create an instance of a disc scene. created outside of the scene tree
 	var new_disc: Disc = disc_scene.instantiate()
 	
 	#give the disc values
 	new_disc.position = pos
 	new_disc.velocity = velocity
-	new_disc.direction = direction
 	new_disc.is_enemy = is_enemy
 	
 	#add as a child to Discs

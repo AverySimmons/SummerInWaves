@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 
 func flick_disc() -> void:
 	var mouse_norm = get_global_mouse_position() - pull_pos
-	var disc_vel = 300 + mouse_norm.length() * 5
-	disc_vel = clamp(disc_vel, 300, 2000)
-	var disc_dir = mouse_norm.normalized() * -1
-	SignalBus.create_disc.emit(pull_pos, disc_vel, disc_dir, false)
+	var disc_speed = 300 + mouse_norm.length() * 5
+	disc_speed = clamp(disc_speed, 300, 2000)
+	var disc_vel = mouse_norm.normalized() * disc_speed * -1
+	SignalBus.create_disc.emit(pull_pos, disc_vel, false)
