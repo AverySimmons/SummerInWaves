@@ -14,6 +14,10 @@ win / lose conditions for real time and turn based
 put in art / sounds
 transition in / out combat and title screen (maybe a Jai task)
 shader animations for ally attacks
+<<<<<<< Updated upstream
+=======
+settings volume slider
+>>>>>>> Stashed changes
 finish dialogue
 
 
