@@ -18,10 +18,6 @@ shader animations for ally attacks
 <<<<<<< Updated upstream
 =======
 settings volume slider
->>>>>>> Stashed changes
-=======
-settings volume slider
->>>>>>> Stashed changes
 finish dialogue
 
 
