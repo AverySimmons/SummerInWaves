@@ -1,4 +1,4 @@
-extends "res://02_Source/02_Combat/Discs/disc.gd"
+extends Disc
 
 var despawn_timer: float = 1
 

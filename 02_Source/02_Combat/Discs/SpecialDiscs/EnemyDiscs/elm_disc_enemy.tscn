@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc46rth4brxn6"]
+
+[ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_1k566"]
+[ext_resource type="Script" uid="uid://lcgwvme0qxi" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.gd" id="2_lhswv"]
+
+[node name="Disc2" instance=ExtResource("1_1k566")]
+script = ExtResource("2_lhswv")
