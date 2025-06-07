@@ -8,9 +8,15 @@ var player_score: int = 0
 var opponent_score: int = 0
 var ring2_points: int = 1
 var ring1_points: int = 2
+
 var disc_scene: PackedScene = preload("res://02_Source/02_Combat/Discs/disc.tscn")
 var released_disc: bool = false
+
 var enemy_shoot_timer: float = 0
+var center = Vector2(640, 360)
+var rotation_angle: float = 0
+var enemy_rotation_increment: float = 1
+var default_rotation: float = 3
 
 #use area 2d circles to determine points. use a .velocity and .enemy
 #will use get_overlapping_areas function
@@ -18,6 +24,10 @@ var enemy_shoot_timer: float = 0
 func _ready() -> void:
 	SignalBus.create_disc.connect(spawn_disc)
 	
+	spawn_disc(Vector2(center) + Vector2(150, 0), Vector2(0, 0), 0, true, 0) #TEMP
+	spawn_disc(Vector2(center) + Vector2(-150, 0), Vector2(0, 0), 0, true, 0) #TEMP
+	spawn_disc(Vector2(center) + Vector2(0, 100), Vector2(0, 0), 0, true, 0) #TEMP
+	spawn_disc(Vector2(center) + Vector2(0, -100), Vector2(0, 0), 0, true, 0) #TEMP
 
 #score calculation
 func round_score():
@@ -38,7 +48,7 @@ func round_score():
 			player_score += ring2_points
 			
 #spawning discs
-func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, is_enemy: bool):
+func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, is_enemy: bool, spin: float):
 	#create an instance of a disc scene. created outside of the scene tree
 	var new_disc: Disc = disc_scene.instantiate()
 	
@@ -47,6 +57,7 @@ func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, is_enemy: bo
 	new_disc.velocity = velocity
 	new_disc.sprite_index = sprite_index
 	new_disc.is_enemy = is_enemy
+	new_disc.rotational_velocity = spin
 	
 	#add as a child to Discs
 	$Discs.add_child(new_disc)
@@ -78,15 +89,17 @@ func _physics_process(delta: float) -> void:
 		SignalBus.dialogue_pause.emit()
 		
 	#enemy spawning discs
-	#0, 0 in the top left
-	enemy_shoot_timer += delta
+	rotation_angle += enemy_rotation_increment * delta
 	
-	var enemy_shoot_pos = Vector2(100, 100)
-	var enemy_shoot_vel = enemy_shoot_pos.direction_to(Vector2(640, 360)) * 1100
+	#315 is the radius of the black inner circle
+	var enemy_shoot_pos = center + Vector2(350, 0).rotated(rotation_angle) #starting vector rotated
+	var enemy_shoot_vel = enemy_shoot_pos.direction_to(Vector2(640, 360)) * 900
 	if enemy_shoot_timer >= 1:
-		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, 0, true)
+		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, 0, true, default_rotation)
 		enemy_shoot_timer = 0
-		
 	
+	rotation_angle += 0.5
+	#timers
+	enemy_shoot_timer += delta
 	
 	
