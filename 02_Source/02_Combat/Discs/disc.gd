@@ -2,14 +2,14 @@ class_name Disc
 extends Area2D
 # Generic class for discs. Contains 
 
-const FRICTION_COEFFICIENT = 1000
-const ROTATIONAL_FRICTION = 1
+const FRICTION_COEFFICIENT = 400
+const ROTATIONAL_FRICTION = 1 # Todo: Make this relative to linear friction?
 
 var sprite_index = 0
 
 var is_enemy: bool
 var sprite
-var velocity: Vector2 = Vector2(6000, 0)
+var velocity: Vector2 = Vector2(0, 0)
 var friction: Vector2
 var collision_cooldown: float
 
@@ -32,8 +32,8 @@ func _physics_process(delta: float) -> void:
 		timer = 0
 	timer += delta
 	# Velocity
-	if velocity.length() > 8000:
-		velocity = velocity.normalized() * 8000
+	if velocity.length() > 800:
+		velocity = velocity.normalized() * 800
 	
 	position += velocity * delta
 	center_of_mass = position
@@ -66,6 +66,11 @@ func instigate_collision() -> void:
 		instigate_single_collision(other_disc)
 	else:
 		# Multiple collision
+		for other_disc in overlapping_discs:
+			if other_disc.get_instance_id() > get_instance_id():
+				return
+		for other_disc in overlapping_discs:
+			instigate_single_collision(other_disc)
 		pass
 	return
 

@@ -9,9 +9,9 @@ void fragment() {
 	vec2 uv = UV * 2. - 1.;
 	float circ_mask = length(uv) - 0.5;
 	circ_mask = 1. - step(0., circ_mask);
-	
+
 	float line_mask = step(mod(uv.x + 0.4 * uv.y, 0.2), 0.1);
-	
+
 	COLOR.rgb = vec3(.5, 0.3, 0.7) * line_mask + vec3(0.1, 0.03, 0.4);
 	COLOR.a = circ_mask;
 }
