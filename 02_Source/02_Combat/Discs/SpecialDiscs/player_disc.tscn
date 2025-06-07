@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://biutspcm5ebif"]
+
+[ext_resource type="Script" uid="uid://baucselh3lw6w" path="res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.gd" id="1_naojj"]
+
+[node name="PlayerDisc" type="Node2D"]
+script = ExtResource("1_naojj")
