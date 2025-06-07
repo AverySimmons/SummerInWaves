@@ -1,22 +1,84 @@
-[gd_scene load_steps=5 format=3 uid="uid://1bsnpqa6l6dy"]
+[gd_scene load_steps=8 format=3 uid="uid://1bsnpqa6l6dy"]
 
 [ext_resource type="PackedScene" uid="uid://w7qmaxkspqgv" path="res://02_Source/01_Overworld/Player/player.tscn" id="1_727id"]
 [ext_resource type="Script" uid="uid://ceinc6bkfw8xy" path="res://02_Source/01_Overworld/Level/level.gd" id="1_mrg8d"]
 [ext_resource type="Texture2D" uid="uid://c3qrbaotjcgck" path="res://01_Assets/00_DevSprites/overworldbackground.png" id="3_jvo2h"]
 [ext_resource type="PackedScene" uid="uid://4s7rcod1o1yt" path="res://02_Source/01_Overworld/NPCs/npc.tscn" id="4_01gd7"]
 
+[sub_resource type="Animation" id="Animation_01gd7"]
+resource_name = "enter_from_combat"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2),
+"transitions": PackedFloat32Array(1, 0.9, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.726406), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:talking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_j2uae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:talking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jli0g"]
+_data = {
+&"RESET": SubResource("Animation_j2uae"),
+&"enter_from_combat": SubResource("Animation_01gd7")
+}
+
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_mrg8d")
+
+[node name="Player" parent="." instance=ExtResource("1_727id")]
+position = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -100
 position = Vector2(640, 360)
 scale = Vector2(5, 5)
 texture = ExtResource("3_jvo2h")
-
-[node name="Player" parent="." instance=ExtResource("1_727id")]
-position = Vector2(640, 360)
 
 [node name="Prin" parent="." instance=ExtResource("4_01gd7")]
 position = Vector2(130.58, 106.867)
@@ -45,6 +107,18 @@ dialogic_scene = "periwinkle_timeline"
 
 [node name="Sprite2D" parent="Periwinkle" index="1"]
 modulate = Color(0.659108, 0.51806, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jli0g")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0)
 
 [editable path="Prin"]
 [editable path="Elm"]

@@ -5,7 +5,7 @@ const TURN_ACC = 5000
 const IDLE_DEACC = 4000
 const MAX_SPEED = 300
 
-var talking = false
+@export var talking = false
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(finished_talking)

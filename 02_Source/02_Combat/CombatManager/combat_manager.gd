@@ -9,6 +9,8 @@ var opponent_score: int = 0
 var ring2_points: int = 1
 var ring1_points: int = 2
 
+var combat_won = false
+
 var disc_scene: PackedScene = preload("res://02_Source/02_Combat/Discs/disc.tscn")
 var released_disc: bool = false
 
@@ -137,11 +139,11 @@ func _physics_process(delta: float) -> void:
 	
 	#checking for victory
 	if win_game_timer >= 0.1:
-		SignalBus.switch_game.emit(true)
+		combat_win_lose(true)
 		
 	#checking for loss
 	if lose_game_timer >= 0.5:
-		SignalBus.switch_game.emit(false)
+		combat_win_lose(false)
 	
 	#timers
 	enemy_shoot_timer += delta
@@ -162,5 +164,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		lose_game_timer = 0
 	
-	
-	
+
+func combat_win_lose(is_win):
+	combat_won = is_win
+	$AnimationPlayer.play("exit")
+
+func combat_exit():
+	SignalBus.switch_game.emit(combat_won)

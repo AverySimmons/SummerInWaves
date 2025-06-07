@@ -36,6 +36,7 @@ func switch_scenes(win: bool) -> void:
 		if win or GameData.kids_defeated == 0:
 			GameData.kids_defeated += 1
 		
+		overworld_level.enter_from_combat()
 		call_deferred("add_child", overworld_level)
 		combat_level.call_deferred("queue_free")
 	
