@@ -1,10 +1,91 @@
-[gd_scene load_steps=3 format=3 uid="uid://820qvhys32oa"]
+[gd_scene load_steps=9 format=3 uid="uid://820qvhys32oa"]
 
 [ext_resource type="Script" uid="uid://dcxuq81wlg456" path="res://02_Source/00_TopManagers/Managers/game_manager.gd" id="1_150wq"]
+[ext_resource type="Shader" uid="uid://chf5ir1c1cme0" path="res://02_Source/00_TopManagers/Managers/pokemon_transition.gdshader" id="2_3p7ol"]
 [ext_resource type="PackedScene" uid="uid://1bsnpqa6l6dy" path="res://02_Source/01_Overworld/Level/level.tscn" id="2_ekp6a"]
+[ext_resource type="Texture2D" uid="uid://cexs2co3ehiho" path="res://01_Assets/01_Sprites/character_sprites/prin_portrait_happy.png" id="3_mds2e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mds2e"]
+shader = ExtResource("2_3p7ol")
+shader_parameter/percent = 0.0
+
+[sub_resource type="Animation" id="Animation_ekp6a"]
+resource_name = "transition_to_combat"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Sprite2D:material:shader_parameter/percent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.7411, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3p7ol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Sprite2D:material:shader_parameter/percent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mds2e"]
+_data = {
+&"RESET": SubResource("Animation_3p7ol"),
+&"transition_to_combat": SubResource("Animation_ekp6a")
+}
 
 [node name="GameManager" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_150wq")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_mds2e")
+position = Vector2(640, 360)
+texture = ExtResource("3_mds2e")
+
 [node name="Level" parent="." instance=ExtResource("2_ekp6a")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mds2e")
+}

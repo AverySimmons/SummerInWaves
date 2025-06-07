@@ -41,6 +41,10 @@ func switch_scenes(win: bool) -> void:
 		combat_level.call_deferred("queue_free")
 	
 	else:
+		var img = get_viewport().get_texture().get_image()
+		var tex = ImageTexture.new().create_from_image(img)
+		$CanvasLayer/Sprite2D.texture = tex
+		$AnimationPlayer.play("transition_to_combat")
 		call_deferred("remove_child", overworld_level)
 		combat_level = combat_scene.instantiate()
 		add_child(combat_level)
