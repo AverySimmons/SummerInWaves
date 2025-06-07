@@ -5,3 +5,4 @@
 
 [node name="Disc2" instance=ExtResource("1_1k566")]
 script = ExtResource("2_lhswv")
+max_velocity = 800.0

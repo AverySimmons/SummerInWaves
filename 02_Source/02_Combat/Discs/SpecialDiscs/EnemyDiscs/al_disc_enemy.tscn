@@ -7,3 +7,4 @@
 script = ExtResource("2_uap4v")
 strength_of_charge = 18.0
 min_charge_speed = 500.0
+max_velocity = 800.0
