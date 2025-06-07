@@ -88,7 +88,7 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	print('Disc A Rotational Velocity', rotational_velocity)
 	print('Disc B Rotational Velocity', other_disc.rotational_velocity)
 	radius = $CollisionShape2D.shape.radius
-	
+	fix_penetration(other_disc)
 	var collision_point: Vector2 = find_collision_point(other_disc)
 	var vector_from_center_of_mass: Vector2 = collision_point - center_of_mass
 	var collision_normal: Vector2 = vector_from_center_of_mass.normalized()
@@ -133,7 +133,7 @@ func fix_penetration(other_disc: Disc) -> void:
 	
 	var normal: Vector2 = distance_between_centers.normalized()
 	position -= 0.5 * distance_penetrated * normal
-	other_disc.position -= 0.5 * distance_penetrated * normal
+	other_disc.position += 0.5 * distance_penetrated * normal
 	return
 
 func apply_linear_impulse(normal_impulse: float, tangential_impulse: float, collision_normal: Vector2, collision_tangent: Vector2) -> void:
