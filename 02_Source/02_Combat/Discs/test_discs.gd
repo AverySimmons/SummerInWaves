@@ -1,7 +1,6 @@
 extends Node2D
 
 var DiscScene = preload("res://02_Source/02_Combat/Discs/disc.tscn")
-@onready var cam = $Camera2D
 
 var Disc1: Disc = DiscScene.instantiate()
 var Disc2: Disc = DiscScene.instantiate()

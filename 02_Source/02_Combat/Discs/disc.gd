@@ -3,7 +3,7 @@ extends Area2D
 # Generic class for discs. Contains 
 
 const FRICTION_COEFFICIENT = 1000
-const ROTATIONAL_FRICTION = 1
+const ROTATIONAL_FRICTION = 1 # Todo: Make this relative to linear friction?
 
 var is_enemy: bool
 var sprite
