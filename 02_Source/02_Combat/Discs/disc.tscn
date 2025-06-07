@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://22tytw4062gl"]
+[gd_scene load_steps=5 format=3 uid="uid://22tytw4062gl"]
 
 [ext_resource type="Script" uid="uid://c7u7mfqn1xdlk" path="res://02_Source/02_Combat/Discs/disc.gd" id="1_m1gb4"]
 [ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="2_3y8sx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1gb4"]
 radius = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3y8sx"]
+radius = 7.28011
 
 [node name="Disc" type="Area2D"]
 collision_layer = 2
@@ -18,3 +21,12 @@ hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m1gb4")
+
+[node name="PlayspaceCheck" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayspaceCheck"]
+shape = SubResource("CircleShape2D_3y8sx")
+
+[connection signal="area_entered" from="PlayspaceCheck" to="." method="_on_playspace_check_area_entered"]
