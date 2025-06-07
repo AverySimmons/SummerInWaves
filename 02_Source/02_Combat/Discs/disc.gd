@@ -5,6 +5,8 @@ extends Area2D
 const FRICTION_COEFFICIENT = 1000
 const ROTATIONAL_FRICTION = 1 # Todo: Make this relative to linear friction?
 
+var sprite_index = 0
+
 var is_enemy: bool
 var sprite
 var velocity: Vector2 = Vector2(6000, 0)
@@ -19,7 +21,7 @@ var rotational_velocity: float
 var timer: float
 
 func _ready() -> void:
-	pass
+	$Sprite2D.frame = sprite_index
 
 func _physics_process(delta: float) -> void:
 	if collision_cooldown > 0:

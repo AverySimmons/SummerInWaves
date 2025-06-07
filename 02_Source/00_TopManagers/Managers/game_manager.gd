@@ -19,6 +19,20 @@ func switch_scenes(win: bool) -> void:
 	if is_combat:
 		# maybe configure overworld before adding it back
 		
+		Dialogic.VAR.set_variable("fight_won", win)
+		
+		match GameData.kids_defeated:
+			0:
+				Dialogic.start("post_prin_first")
+			1:
+				Dialogic.start("post_albert")
+			2:
+				Dialogic.start("post_periwinkle")
+			3:
+				Dialogic.start("post_elm")
+			4:
+				Dialogic.start("post_prin_last")
+		
 		if win or GameData.kids_defeated == 0:
 			GameData.kids_defeated += 1
 		
