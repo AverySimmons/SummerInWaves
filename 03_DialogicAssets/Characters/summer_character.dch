@@ -8,12 +8,22 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "",
+&"default_portrait": "Happy",
 &"description": "",
 &"display_name": "Summer",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"Happy": {
+"export_overrides": {
+"image": "\"res://01_Assets/01_Sprites/character_sprites/summer_portrait.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
 &"scale": 1.0
 }
