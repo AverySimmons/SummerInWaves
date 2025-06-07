@@ -13,10 +13,12 @@ var disc_scene: PackedScene = preload("res://02_Source/02_Combat/Discs/disc.tscn
 var released_disc: bool = false
 
 var enemy_shoot_timer: float = 0
+var enemy_shoot_rate: float = 1 #this is how many seconds between shots
 var center = Vector2(640, 360)
 var rotation_angle: float = 0
 var enemy_rotation_increment: float = 1
 var default_rotation: float = 3
+var win_game_timer: float = 0
 
 #use area 2d circles to determine points. use a .velocity and .enemy
 #will use get_overlapping_areas function
@@ -26,8 +28,8 @@ func _ready() -> void:
 	
 	spawn_disc(Vector2(center) + Vector2(150, 0), Vector2(0, 0), 0, true, 0) #TEMP
 	spawn_disc(Vector2(center) + Vector2(-150, 0), Vector2(0, 0), 0, true, 0) #TEMP
-	spawn_disc(Vector2(center) + Vector2(0, 100), Vector2(0, 0), 0, true, 0) #TEMP
-	spawn_disc(Vector2(center) + Vector2(0, -100), Vector2(0, 0), 0, true, 0) #TEMP
+	#spawn_disc(Vector2(center) + Vector2(0, 100), Vector2(0, 0), 0, true, 0) #TEMP
+	#spawn_disc(Vector2(center) + Vector2(0, -100), Vector2(0, 0), 0, true, 0) #TEMP
 
 #score calculation
 func round_score():
@@ -47,6 +49,23 @@ func round_score():
 		else:
 			player_score += ring2_points
 			
+func enemy_live_discs() -> Array[Disc]: 
+	var discs_list = $Ring2.get_overlapping_areas() #TEMP ring2
+	var new_discs_list: Array[Disc] = []
+	
+	for disc in discs_list:
+		if disc.is_enemy:
+			new_discs_list.append(disc)
+			
+	return new_discs_list
+	
+func no_enemy_discs() -> bool:
+	#return true if there are no enemy discs in the combat area
+	if not enemy_live_discs():
+		return true
+	else: 
+		return false
+
 #spawning discs
 func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, is_enemy: bool, spin: float):
 	#create an instance of a disc scene. created outside of the scene tree
@@ -93,13 +112,23 @@ func _physics_process(delta: float) -> void:
 	
 	#315 is the radius of the black inner circle
 	var enemy_shoot_pos = center + Vector2(350, 0).rotated(rotation_angle) #starting vector rotated
-	var enemy_shoot_vel = enemy_shoot_pos.direction_to(Vector2(640, 360)) * 900
-	if enemy_shoot_timer >= 1:
+	$EnemyShootPos.position = enemy_shoot_pos
+	print(rotation_angle)
+	var enemy_shoot_vel = enemy_shoot_pos.direction_to(center) * 900
+	if enemy_shoot_timer >= enemy_shoot_rate:
 		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, 0, true, default_rotation)
 		enemy_shoot_timer = 0
 	
-	rotation_angle += 0.5
+	#checking for victory
+	if win_game_timer >= 0.1:
+		SignalBus.switch_game.emit(true)
+	
 	#timers
 	enemy_shoot_timer += delta
+	
+	if no_enemy_discs():
+		win_game_timer += delta
+	else:
+		win_game_timer = 0
 	
 	

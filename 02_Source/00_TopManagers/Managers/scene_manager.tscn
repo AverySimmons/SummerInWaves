@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2b74evgx5hdt"]
+[gd_scene load_steps=3 format=3 uid="uid://b2b74evgx5hdt"]
 
 [ext_resource type="Script" uid="uid://2pk7osbygpv1" path="res://02_Source/00_TopManagers/Managers/scene_manager.gd" id="1_bi5nd"]
 [ext_resource type="PackedScene" uid="uid://hysp38t3sb1" path="res://02_Source/00_TopManagers/TitleScreen/title_screen.tscn" id="2_tn0lg"]
-[ext_resource type="Script" uid="uid://da77v8khyg6wl" path="res://02_Source/00_TopManagers/TitleScreen/title_screen.gd" id="3_uerde"]
 
 [node name="SceneManager" type="Node2D"]
 process_mode = 3
@@ -10,4 +9,3 @@ script = ExtResource("1_bi5nd")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_tn0lg")]
 process_mode = 1
-script = ExtResource("3_uerde")
