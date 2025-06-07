@@ -18,18 +18,8 @@ offset_left = 260.0
 offset_top = 330.0
 offset_right = 276.0
 offset_bottom = 661.0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 min_value = -25.0
 max_value = 25.0
-=======
-min_value = -15.0
-max_value = 15.0
->>>>>>> Stashed changes
-=======
-min_value = -15.0
-max_value = 15.0
->>>>>>> Stashed changes
 script = ExtResource("3_4v0vn")
 bus_name = "Master"
 
@@ -48,13 +38,7 @@ offset_left = 1016.0
 offset_top = 329.0
 offset_right = 1032.0
 offset_bottom = 660.0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 min_value = -1.0
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_4v0vn")
