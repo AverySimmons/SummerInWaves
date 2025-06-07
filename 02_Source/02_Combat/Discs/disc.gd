@@ -66,9 +66,9 @@ func instigate_collision() -> void:
 		instigate_single_collision(other_disc)
 	else:
 		# Multiple collision
-		for other_disc in overlapping_discs:
-			if other_disc.get_instance_id() > get_instance_id():
-				return
+		#for other_disc in overlapping_discs:
+			#if other_disc.get_instance_id() > get_instance_id():
+				#return
 		for other_disc in overlapping_discs:
 			instigate_single_collision(other_disc)
 		pass
@@ -88,6 +88,7 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	print('Disc A Rotational Velocity', rotational_velocity)
 	print('Disc B Rotational Velocity', other_disc.rotational_velocity)
 	radius = $CollisionShape2D.shape.radius
+	
 	var collision_point: Vector2 = find_collision_point(other_disc)
 	var vector_from_center_of_mass: Vector2 = collision_point - center_of_mass
 	var collision_normal: Vector2 = vector_from_center_of_mass.normalized()
@@ -123,8 +124,18 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	print(position)
 	return
 
-#func fix_penetration() #Todo
+func fix_penetration(other_disc: Disc) -> void:
+	var distance_between_centers: Vector2 = other_disc.center_of_mass - center_of_mass
+	var distance_penetrated: float = (radius+other_disc.radius) - distance_between_centers.length()
 	
+	if distance_penetrated <= 0:
+		return
+	
+	var normal: Vector2 = distance_between_centers.normalized()
+	position -= 0.5 * distance_penetrated * normal
+	other_disc.position -= 0.5 * distance_penetrated * normal
+	return
+
 func apply_linear_impulse(normal_impulse: float, tangential_impulse: float, collision_normal: Vector2, collision_tangent: Vector2) -> void:
 	var change_in_linear_velocity: Vector2 = 1/mass * ((normal_impulse * collision_normal) + (tangential_impulse * collision_tangent))
 	velocity += change_in_linear_velocity
