@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1r803xh8beb0"]
+[gd_scene load_steps=4 format=3 uid="uid://b1r803xh8beb0"]
 
 [ext_resource type="Script" uid="uid://dhbghc5bhceui" path="res://02_Source/00_TopManagers/SettingsMenu/settings.gd" id="1_be54s"]
 [ext_resource type="Texture2D" uid="uid://ddnppa4y3cd1" path="res://01_Assets/00_DevSprites/settingsmenu.png" id="2_i6nck"]
+[ext_resource type="Script" uid="uid://bdkm77xmu03ry" path="res://02_Source/00_TopManagers/SettingsMenu/volume_slider.gd" id="3_4v0vn"]
 
 [node name="Settings" type="CanvasLayer"]
 layer = 128
@@ -11,3 +12,38 @@ script = ExtResource("1_be54s")
 position = Vector2(640, 360)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_i6nck")
+
+[node name="MasterVolume" type="VSlider" parent="."]
+offset_left = 260.0
+offset_top = 330.0
+offset_right = 276.0
+offset_bottom = 661.0
+min_value = -25.0
+max_value = 25.0
+script = ExtResource("3_4v0vn")
+bus_name = "Master"
+
+[node name="MusicVolume" type="VSlider" parent="."]
+offset_left = 627.0
+offset_top = 325.0
+offset_right = 643.0
+offset_bottom = 656.0
+min_value = -15.0
+max_value = 15.0
+script = ExtResource("3_4v0vn")
+bus_name = "Music"
+
+[node name="SoundEffectsVolume" type="VSlider" parent="."]
+offset_left = 1016.0
+offset_top = 329.0
+offset_right = 1032.0
+offset_bottom = 660.0
+min_value = -1.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_4v0vn")
+bus_name = "Sound Effects"
+
+[connection signal="value_changed" from="MasterVolume" to="MasterVolume" method="_on_value_changed"]
+[connection signal="value_changed" from="MusicVolume" to="MusicVolume" method="_on_value_changed"]
+[connection signal="value_changed" from="SoundEffectsVolume" to="SoundEffectsVolume" method="_on_value_changed"]
