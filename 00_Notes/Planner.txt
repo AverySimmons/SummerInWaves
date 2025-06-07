@@ -16,6 +16,18 @@ transition in / out combat and title screen (maybe a Jai task)
 shader animations for ally attacks
 finish dialogue
 
+transition to combat
+wipe screen
+zoom in slightly
+enemy cursor appears
+enemy shoots a volley
+3, 2, 1, GO!
+
+transition out
+success / fail sound effect
+enemy cursor disapears
+zoom out slightly
+fade back
 
 
 
