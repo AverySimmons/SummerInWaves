@@ -28,12 +28,11 @@ func _physics_process(delta: float) -> void:
 		$Indicator.global_position = pull_pos - Vector2(0, 20).rotated(rot_ang)
 		$Indicator.rotation = rot_ang
 		var pull_dist = get_global_mouse_position().distance_to(pull_pos)
-		pull_dist = clamp(pull_dist, 40, 120)
-		$Indicator.size.x = pull_dist
-		$Indicator.material.set_shader_parameter("sizex", pull_dist)
+		$Indicator.size.x = clamp(pull_dist, 40, 120)
+		$Indicator.material.set_shader_parameter("sizex", min(pull_dist, 120))
 
 func flick_disc() -> void:
 	var mouse_norm = get_global_mouse_position() - pull_pos
 	var disc_speed = 500 + min(mouse_norm.length(), 120) * 15
 	var disc_vel = mouse_norm.normalized() * disc_speed * -1
-	SignalBus.create_disc.emit(pull_pos, disc_vel, false)
+	SignalBus.create_disc.emit(pull_pos, disc_vel, 4, false)

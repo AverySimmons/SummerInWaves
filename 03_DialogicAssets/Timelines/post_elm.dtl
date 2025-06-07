@@ -1,0 +1,4 @@
+if {fight_won} == true:
+	you won
+else:
+	I won

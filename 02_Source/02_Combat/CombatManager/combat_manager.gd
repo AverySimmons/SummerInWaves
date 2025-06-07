@@ -38,13 +38,14 @@ func round_score():
 			player_score += ring2_points
 			
 #spawning discs
-func spawn_disc(pos: Vector2, velocity: Vector2, is_enemy: bool):
+func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, is_enemy: bool):
 	#create an instance of a disc scene. created outside of the scene tree
 	var new_disc: Disc = disc_scene.instantiate()
 	
 	#give the disc values
 	new_disc.position = pos
 	new_disc.velocity = velocity
+	new_disc.sprite_index = sprite_index
 	new_disc.is_enemy = is_enemy
 	
 	#add as a child to Discs
@@ -83,7 +84,7 @@ func _physics_process(delta: float) -> void:
 	var enemy_shoot_pos = Vector2(100, 100)
 	var enemy_shoot_vel = enemy_shoot_pos.direction_to(Vector2(640, 360)) * 1100
 	if enemy_shoot_timer >= 1:
-		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, true)
+		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, 0, true)
 		enemy_shoot_timer = 0
 		
 	
