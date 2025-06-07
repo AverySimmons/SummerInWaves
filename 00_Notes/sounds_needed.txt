@@ -1,0 +1,27 @@
+Need:
+Title screen ambience
+Button hover
+Settings toggle
+Type sound effects for Summer / Albert / Periwinkle / Elm / Prin
+Walking sound
+Overworld music / ambience
+Battle music
+Start flick (look at stardew valley fishing charge up)
+Release flick
+Button collision
+Countdown tick
+Albert charge sound
+Elm gravity bomb sound
+Periwinkle taunt sound
+Button disolve sound
+Button fall off sound
+
+
+Want:
+Start sting
+Character specific start talking sound
+Character specific flick sound
+Start battle sting
+Win / lose sting
+Ending song
+Title screen song
