@@ -8,12 +8,31 @@
 "sound_moods": {},
 "style": ""
 },
-&"default_portrait": "",
+&"default_portrait": "Happy",
 &"description": "",
 &"display_name": "{periwinkle_name}",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
-&"portraits": {},
+&"portraits": {
+"Happy": {
+"export_overrides": {
+"image": "\"res://01_Assets/01_Sprites/character_sprites/periwinkle_portrait_happy.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Sad": {
+"export_overrides": {
+"image": "\"res://01_Assets/01_Sprites/character_sprites/periwinkle_portrait_sad.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
 &"scale": 1.0
 }

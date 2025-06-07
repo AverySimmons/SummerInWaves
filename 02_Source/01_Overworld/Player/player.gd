@@ -9,6 +9,7 @@ var talking = false
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(finished_talking)
+	Dialogic.timeline_started.connect(started_talking)
 
 func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "up", "down")
@@ -31,7 +32,9 @@ func _physics_process(delta: float) -> void:
 		
 		var npc: NPC = areas[0]
 		npc.talk()
-		talking = true
+
+func started_talking():
+	talking = true
 
 func finished_talking():
 	talking = false

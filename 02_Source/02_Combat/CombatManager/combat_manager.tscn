@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwkm6aj13xr52"]
+[gd_scene load_steps=13 format=3 uid="uid://cwkm6aj13xr52"]
 
 [ext_resource type="Script" uid="uid://hkyex4ym4kdr" path="res://02_Source/02_Combat/CombatManager/combat_manager.gd" id="1_tpnlr"]
 [ext_resource type="PackedScene" uid="uid://dlgr35ohlr67a" path="res://02_Source/02_Combat/PlayerController/player_controller.tscn" id="2_7631d"]
 [ext_resource type="Texture2D" uid="uid://cogwox70mvjfo" path="res://01_Assets/00_DevSprites/combatbackground.png" id="2_nb4pp"]
+[ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="4_smkjc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7631d"]
 
@@ -18,7 +19,7 @@ gradient = SubResource("Gradient_nb4pp")
 
 [sub_resource type="Animation" id="Animation_nb4pp"]
 resource_name = "entry"
-length = 2.0
+length = 4.5
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,6 +32,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.6, 1),
 "update": 0,
 "values": [Vector2(0.94, 0.94), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:pause")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyShootPos:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Countdown:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Countdown:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_smkjc"]
@@ -47,15 +96,69 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.94, 0.94)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:pause")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyShootPos:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Countdown:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Countdown:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4wrav"]
+resource_name = "exit"
+step = 0.1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4wrav"]
 _data = {
 &"RESET": SubResource("Animation_smkjc"),
-&"entry": SubResource("Animation_nb4pp")
+&"entry": SubResource("Animation_nb4pp"),
+&"exit": SubResource("Animation_4wrav")
 }
 
 [node name="CombatManager" type="Node2D"]
 script = ExtResource("1_tpnlr")
+pause = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -83,6 +186,7 @@ position = Vector2(646, 363)
 shape = SubResource("CircleShape2D_nb4pp")
 
 [node name="EnemyShootPos" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("GradientTexture2D_smkjc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -94,3 +198,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_4wrav")
 }
 autoplay = "entry"
+
+[node name="Countdown" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("4_smkjc")
+hframes = 5

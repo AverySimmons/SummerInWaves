@@ -1,6 +1,6 @@
 extends Node2D
 
-var is_turn: bool = true
+var is_turn: bool = false
 var is_pulling: bool = false
 var pull_pos: Vector2 = Vector2.ZERO
 
