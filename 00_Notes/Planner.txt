@@ -15,6 +15,10 @@ put in art / sounds
 transition in / out combat and title screen (maybe a Jai task)
 shader animations for ally attacks
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+settings volume slider
+>>>>>>> Stashed changes
 =======
 settings volume slider
 >>>>>>> Stashed changes
