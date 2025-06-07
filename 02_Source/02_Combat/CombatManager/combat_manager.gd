@@ -26,6 +26,14 @@ var lose_game_timer: float = 0
 #var enemy_disc_count = 0
 var loss_count = 10
 
+@onready var player_controller = $PlayerController
+
+@export var pause = false :
+	set(value):
+		if player_controller:
+			player_controller.is_turn = not value
+		pause = value
+
 #use area 2d circles to determine points. use a .velocity and .enemy
 #will use get_overlapping_areas function
 
@@ -112,7 +120,9 @@ func _physics_process(delta: float) -> void:
 		SignalBus.switch_game.emit(true)
 	if Input.is_action_just_pressed("talk"):
 		SignalBus.dialogue_pause.emit()
-		
+	
+	if pause: return
+	
 	#enemy spawning discs
 	rotation_angle += enemy_rotation_increment * delta
 	

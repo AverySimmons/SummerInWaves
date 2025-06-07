@@ -11,6 +11,7 @@ var is_enemy: bool
 @export var velocity: Vector2 = Vector2(0, 0)
 var friction: Vector2
 var collision_cooldown: float
+@export var max_velocity: float = 800
 
 @export var mass: float = 1
 @onready var radius: float = $CollisionShape2D.shape.radius
@@ -31,8 +32,8 @@ func _physics_process(delta: float) -> void:
 		#timer = 0
 	#timer += delta
 	# Velocity
-	if velocity.length() > 800:
-		velocity = velocity.normalized() * 800
+	if velocity.length() > max_velocity:
+		velocity = velocity.normalized() * max_velocity
 	
 	position += velocity * delta
 	center_of_mass = position
