@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://c8b3cuivq0nao"]
+[gd_scene load_steps=3 format=3 uid="uid://l0sga2a5nm76"]
 
-[node name="AllyDisc" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://22tytw4062gl" path="res://02_Source/02_Combat/Discs/disc.tscn" id="1_678oc"]
+[ext_resource type="Script" uid="uid://bfp2rvev0pkfl" path="res://02_Source/02_Combat/Discs/SpecialDiscs/ally_disc.gd" id="2_t4lre"]
+
+[node name="Disc" instance=ExtResource("1_678oc")]
+script = ExtResource("2_t4lre")
