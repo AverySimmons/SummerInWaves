@@ -17,6 +17,21 @@ colors = PackedColorArray(0, 0, 0, 1, 0.27451, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_smkjc"]
 gradient = SubResource("Gradient_nb4pp")
 
+[sub_resource type="Animation" id="Animation_smkjc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.94, 0.94)]
+}
+
 [sub_resource type="Animation" id="Animation_nb4pp"]
 resource_name = "entry"
 length = 4.5
