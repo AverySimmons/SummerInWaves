@@ -1,14 +1,14 @@
 if GameData.kids_defeated == 2.0:
-	periwinkle_character: What do you want?
+	set {periwinkle_name} = "Periwinkle"
+	periwinkle_character: You're the kid that ruined my sandcastle, what do you want?
 	albert_character: A pet seahorse!
 	summer_character: That's not what she meant, Al.
 	summer_character: Hi I'm Summer! What's your name? Why are you hanging alone?
-	set {periwinkle_name} = "Periwinkle"
-	periwinkle_character: Oh it's Periwinkle. I had an argument with Elm, I don't want to forgive him yet but I have no other friends.
+	periwinkle_character: I had an argument with Elm, I don't want to forgive him yet but I have no other friends.
 	periwinkle_character: Making friends is really hard.
 	summer_character: Oh there's not that much too it.
 	albert_character: We can teach you how to make friends.
-	periwinkle_character: You're just here to make fun of me.
+	periwinkle_character: You're just here to make fun of me, and I still haven't forgiven you for wrecking my sandcastle!
 	[signal arg="switch to combat"]
 else:
 	summer_character: She looks busy with her sandcastle, I'll have to come back later.

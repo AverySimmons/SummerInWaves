@@ -13,12 +13,18 @@ var disc_scene: PackedScene = preload("res://02_Source/02_Combat/Discs/disc.tscn
 var released_disc: bool = false
 
 var enemy_shoot_timer: float = 0
-var enemy_shoot_rate: float = 1 #this is how many seconds between shots
+var enemy_shoot_rate: float = 2 #this is how many seconds between shots. Smaller = faster
+var enemy_shoot_speed_mod: float = 600 #bigger is faster
 var center = Vector2(640, 360)
+
 var rotation_angle: float = 0
 var enemy_rotation_increment: float = 1
 var default_rotation: float = 3
 var win_game_timer: float = 0
+var lose_game_timer: float = 0
+
+#var enemy_disc_count = 0
+var loss_count = 10
 
 #use area 2d circles to determine points. use a .velocity and .enemy
 #will use get_overlapping_areas function
@@ -114,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	var enemy_shoot_pos = center + Vector2(350, 0).rotated(rotation_angle) #starting vector rotated
 	$EnemyShootPos.position = enemy_shoot_pos
 	print(rotation_angle)
-	var enemy_shoot_vel = enemy_shoot_pos.direction_to(center) * 900
+	var enemy_shoot_vel = enemy_shoot_pos.direction_to(center) * enemy_shoot_speed_mod
 	if enemy_shoot_timer >= enemy_shoot_rate:
 		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, 0, true, default_rotation)
 		enemy_shoot_timer = 0
@@ -122,6 +128,10 @@ func _physics_process(delta: float) -> void:
 	#checking for victory
 	if win_game_timer >= 0.1:
 		SignalBus.switch_game.emit(true)
+		
+	#checking for loss
+	if lose_game_timer >= 0.5:
+		SignalBus.switch_game.emit(false)
 	
 	#timers
 	enemy_shoot_timer += delta
@@ -130,5 +140,17 @@ func _physics_process(delta: float) -> void:
 		win_game_timer += delta
 	else:
 		win_game_timer = 0
+	
+	#loss timer increment
+	var enemy_disc_count = 0
+	var enemy_disc_list = enemy_live_discs()
+	for disc in enemy_disc_list:
+		enemy_disc_count += 1
+		
+	if enemy_disc_count >= loss_count:
+		lose_game_timer += delta
+	else:
+		lose_game_timer = 0
+	
 	
 	

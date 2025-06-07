@@ -3,21 +3,20 @@ extends Area2D
 # Generic class for discs. Contains 
 
 const FRICTION_COEFFICIENT = 400
-const ROTATIONAL_FRICTION = 1 # Todo: Make this relative to linear friction?
+const ROTATIONAL_FRICTION = 6
 
 var sprite_index = 0
 
 var is_enemy: bool
-var sprite
-var velocity: Vector2 = Vector2(0, 0)
+@export var velocity: Vector2 = Vector2(0, 0)
 var friction: Vector2
 var collision_cooldown: float
 
-var mass: float = 1
+@export var mass: float = 1
 @onready var radius: float = $CollisionShape2D.shape.radius
 var center_of_mass: Vector2 = position
 @onready var inertia: float = 0.5 * mass * radius*radius
-var rotational_velocity: float
+@export var rotational_velocity: float
 var timer: float
 
 func _ready() -> void:
@@ -27,10 +26,10 @@ func _physics_process(delta: float) -> void:
 	if collision_cooldown > 0:
 		collision_cooldown -= delta
 	
-	if timer >= 2:
-		print(position)
-		timer = 0
-	timer += delta
+	#if timer >= 2:
+		#print(position)
+		#timer = 0
+	#timer += delta
 	# Velocity
 	if velocity.length() > 800:
 		velocity = velocity.normalized() * 800
@@ -43,9 +42,9 @@ func _physics_process(delta: float) -> void:
 		friction = abs(FRICTION_COEFFICIENT * velocity.normalized())
 	else:
 		friction = Vector2(0, 0)
-	
 	velocity.x = move_toward(velocity.x, 0, friction.x*delta)
 	velocity.y = move_toward(velocity.y, 0, friction.y*delta)
+	
 	rotational_velocity = move_toward(rotational_velocity, 0, ROTATIONAL_FRICTION*delta)
 	
 	# Momentum
@@ -75,18 +74,18 @@ func instigate_collision() -> void:
 	return
 
 func instigate_single_collision(other_disc: Disc) -> void:
-	print('Disc A Position:', global_position)
-	print('Disc B Position:', other_disc.global_position)
-	print('Disc A Velocity:', velocity)
-	print('Disc B Velocity:', other_disc.velocity)
-	print('Disc A Radius:', radius)
-	print('Disc B Radius:', other_disc.radius)
-	print('Disc A Mass:', mass)
-	print('Disc B Mass:', other_disc.mass)
-	print('Disc A Center of Mass', center_of_mass)
-	print('Disc B Center of Mass', other_disc.center_of_mass)
-	print('Disc A Rotational Velocity', rotational_velocity)
-	print('Disc B Rotational Velocity', other_disc.rotational_velocity)
+	#print('Disc A Position:', global_position)
+	#print('Disc B Position:', other_disc.global_position)
+	#print('Disc A Velocity:', velocity)
+	#print('Disc B Velocity:', other_disc.velocity)
+	#print('Disc A Radius:', radius)
+	#print('Disc B Radius:', other_disc.radius)
+	#print('Disc A Mass:', mass)
+	#print('Disc B Mass:', other_disc.mass)
+	#print('Disc A Center of Mass', center_of_mass)
+	#print('Disc B Center of Mass', other_disc.center_of_mass)
+	#print('Disc A Rotational Velocity', rotational_velocity)
+	#print('Disc B Rotational Velocity', other_disc.rotational_velocity)
 	radius = $CollisionShape2D.shape.radius
 	fix_penetration(other_disc)
 	var collision_point: Vector2 = find_collision_point(other_disc)
@@ -100,27 +99,27 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	var tangent_speed: float = impact_velocity.x * collision_tangent.x + impact_velocity.y * collision_tangent.y
 	var normal_impulse: float = calculate_normal_impulse(normal_speed, other_disc)
 	var tangential_impulse: float = calculate_tangential_impulse(tangent_speed, other_disc, lever_arm, other_disc_lever_arm, collision_tangent, normal_impulse)
-	print('Collision Point: ', collision_point)
-	print('Vector from Center of Mass: ', vector_from_center_of_mass)
-	print('Collision Normal: ', collision_normal)
-	print('Collision Tangent: ', collision_tangent)
-	print('Lever Arm: ', lever_arm)
-	print('Other Disc Lever Arm: ', other_disc_lever_arm)
-	print('Impact Velocity: ', impact_velocity)
-	print('Normal Speed: ', normal_speed)
-	print('Tangent Speed: ', tangent_speed)
-	print('Normal Impulse: ', normal_impulse)
-	print('Tangential Impulse: ', tangential_impulse)
+	#print('Collision Point: ', collision_point)
+	#print('Vector from Center of Mass: ', vector_from_center_of_mass)
+	#print('Collision Normal: ', collision_normal)
+	#print('Collision Tangent: ', collision_tangent)
+	#print('Lever Arm: ', lever_arm)
+	#print('Other Disc Lever Arm: ', other_disc_lever_arm)
+	#print('Impact Velocity: ', impact_velocity)
+	#print('Normal Speed: ', normal_speed)
+	#print('Tangent Speed: ', tangent_speed)
+	#print('Normal Impulse: ', normal_impulse)
+	#print('Tangential Impulse: ', tangential_impulse)
 	
 	apply_linear_impulse(normal_impulse, tangential_impulse, collision_normal, collision_tangent)
 	other_disc.apply_linear_impulse(-normal_impulse, -tangential_impulse, collision_normal, collision_tangent)
 	
 	apply_rotational_impulse(lever_arm, normal_impulse, tangential_impulse, collision_normal, collision_tangent)
 	other_disc.apply_rotational_impulse(other_disc_lever_arm, normal_impulse, tangential_impulse, collision_normal, collision_tangent)
-	print("Final Velocity A:", velocity)
-	print("Final Velocity B:", other_disc.velocity)
-	print("Rotational velocity A:", rotational_velocity)
-	print("Rotational velocity B:", other_disc.rotational_velocity)
+	#print("Final Velocity A:", velocity)
+	#print("Final Velocity B:", other_disc.velocity)
+	#print("Rotational velocity A:", rotational_velocity)
+	#print("Rotational velocity B:", other_disc.rotational_velocity)
 	print(position)
 	return
 

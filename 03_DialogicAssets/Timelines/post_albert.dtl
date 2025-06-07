@@ -1,4 +1,9 @@
 if {fight_won} == true:
-	you won
+	albert_character: You beat me, but you're right losing isn't that bad.
+	summer_character: Now you get it! What's your name?
+	set {albert_name} = "Albert"
+	albert_character: It's Albert, but you can just call me Al. 
+	albert_character: I'm feeling kinda bad for wrecking Periwinkle's sandcastle now, could we go talk to her?
+	summer_character: Sure let's go!
 else:
-	I won
+	albert_character: I won

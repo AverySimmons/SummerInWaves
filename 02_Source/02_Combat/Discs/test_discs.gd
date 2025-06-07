@@ -10,9 +10,10 @@ func _ready() -> void:
 	Disc1.position.y += 200
 	Disc1.rotational_velocity = 0
 	Disc1.velocity = Vector2(0, 0)
-	Disc2.velocity = Vector2(-400, 0)
+	Disc2.velocity = Vector2(-900, 0)
 	Disc2.position.x += 800
 	Disc2.position.y += 220
+	Disc1.mass = 10
 	add_child(Disc1)
 	add_child(Disc2)
 	pass

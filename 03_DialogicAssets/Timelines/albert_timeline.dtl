@@ -3,7 +3,6 @@ if GameData.kids_defeated == 1.0:
 	summer_character: Hey stop that! Why are you wrecking this sand castle?
 	albert_character: You don't get to tell me what to do.
 	summer_character: You really shouldn't go around kicking other people's things...
-	set {albert_name} = "Albert"
 	albert_character: My soccer team lost yesterday, I hate losing!
 	summer_character: Hey winning isn't everything, it's all about having fun.
 	albert_character: UGH, get out of my way!!
