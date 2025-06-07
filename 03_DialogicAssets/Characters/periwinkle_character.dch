@@ -10,7 +10,7 @@
 },
 &"default_portrait": "",
 &"description": "",
-&"display_name": "Periwinkle",
+&"display_name": "{periwinkle_name}",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),

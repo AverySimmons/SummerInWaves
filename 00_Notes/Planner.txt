@@ -1,5 +1,28 @@
 Planner
 
+
+disc max speed
+discs disapearing
+special ally discs
+special enemy discs
+finish dialogue
+enemy AI with tweakable spawn speed / spawn types
+Prin special case of toggling into fast mode halfway through the fight
+Prin first fight tutorial
+put in art / sounds
+character ??? effect
+transition in / out combat and title screen (maybe a Jai task)
+win / lose conditions for real time and turn based
+shader animations for ally attacks
+settings volume slider
+
+
+
+
+
+
+
+
 Necessary classes:
 
 Avery:

@@ -1,13 +1,14 @@
 if GameData.kids_defeated == 3.0:
 	elm_character: Seven times seven is fourty-nine... seven times eight, seven times eight...
 	summer_character: Oh you're saying some complicated stuff, what's up?
-	elm_character: Don't interrupt me! I have a math test tomorrow and I need to ace this one
+	elm_character: Don't interrupt me! I have a math test tomorrow and I need to ace this one.
+	set {elm_name} = "Elm"
 	summer_character: Hey calm down, what good is there any worrying about it on the beach?
-	elm_character: You don't understand! I'm like a tiny boat barely kept afloat in an ocean of trigonometry
-	elm_character: Last week I got a B+ and I can't let that happen again
+	elm_character: You don't understand! I'm like a tiny boat barely kept afloat in an ocean of trigonometry.
+	elm_character: Last week I got a B+ and I can't let that happen again.
 	summer_character: You should take it easy, you're not doing the test right now so why let it scare you?
-	elm_character: Seven times eight... Seven times eight is fifty-four... seven times nine... I'm doing high-level math don't distract me
+	elm_character: Seven times eight... Seven times eight is fifty-four... seven times nine... I'm doing high-level math don't distract me.
 	[signal arg="switch to combat"]
 else:
-	elm_character: On top of everything else, Periwinkle won't talk to me anymore
-	summer_character: I should go talk to Periwinkle first
+	elm_character: On top of everything else, Periwinkle won't talk to me anymore.
+	summer_character: I should go talk to whoever Periwinkle is first I guess.

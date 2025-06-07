@@ -46,7 +46,11 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://03_DialogicAssets/Styles/primary_style.tres"]
 layout/default_style="res://03_DialogicAssets/Styles/primary_style.tres"
 variables={
+"albert_name": "???",
+"elm_name": "???",
 "fight_won": false,
+"periwinkle_name": "???",
+"prin_name": "???",
 "prin_talked_to": false
 }
 extensions_folder="res://addons/dialogic_additions"
