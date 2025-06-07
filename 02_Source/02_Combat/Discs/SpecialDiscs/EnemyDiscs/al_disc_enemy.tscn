@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://j3o0ynj8y6dd"]
+
+[ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_wn0b8"]
+[ext_resource type="Script" uid="uid://c3dbd41jccrsh" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/al_disc_enemy.gd" id="2_uap4v"]
+
+[node name="Disc2" instance=ExtResource("1_wn0b8")]
+script = ExtResource("2_uap4v")
+strength_of_charge = 18.0
+min_charge_speed = 500.0
+max_velocity = 800.0

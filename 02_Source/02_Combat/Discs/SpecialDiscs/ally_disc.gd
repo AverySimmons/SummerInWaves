@@ -1,5 +1,5 @@
 class_name AllyDisc
-extends "res://02_Source/02_Combat/Discs/disc.gd"
+extends Disc
 
 var despawn_timer: float = 1
 var is_in_ring: bool = false	
@@ -11,7 +11,8 @@ func _physics_process(delta: float) -> void:
 
 func despawn_check(delta: float) -> void:
 	# If not moving, count down the despawn timer
-	if !$PlayspaceCheck.has_overlapping_areas() && !super.is_moving():
+	is_in_ring = $PlayspaceCheck.has_overlapping_areas()
+	if !is_in_ring && !super.is_moving():
 		despawn_timer -= delta
 		# Can maybe have a cool dissolve thing
 	else:
