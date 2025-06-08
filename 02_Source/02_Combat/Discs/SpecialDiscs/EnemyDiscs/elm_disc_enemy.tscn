@@ -1,8 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://w02gd2qykv6o"]
+[gd_scene load_steps=7 format=3 uid="uid://w02gd2qykv6o"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_1k566"]
 [ext_resource type="Script" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.gd" id="2_lhswv"]
+[ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_dbduf"]
 [ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="3_lhswv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3igc1"]
+resource_local_to_scene = true
+shader = ExtResource("3_dbduf")
+shader_parameter/strength = 1.0
+shader_parameter/direction = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lhswv"]
 radius = 110.0
@@ -12,6 +19,7 @@ script = ExtResource("2_lhswv")
 max_velocity = 800.0
 
 [node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_3igc1")
 position = Vector2(-1, 4)
 scale = Vector2(1, 1)
 texture = ExtResource("3_lhswv")

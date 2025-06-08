@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	var vel_dir = velocity.rotated(-rotation + PI / 2)
 	if vel_dir == Vector2.ZERO: vel_dir = Vector2.RIGHT
 	$Sprite2D.material.set_shader_parameter("direction", vel_dir)
-	var vel_str = 1 + clamp(velocity.length() / (2000 / 0.3), 0, 0.3)
+	var vel_str = 1 + clamp(velocity.length() / (4000 / 0.3), 0, 0.3)
 	$Sprite2D.material.set_shader_parameter("strength", vel_str)
 	
 	if collision_cooldown > 0:

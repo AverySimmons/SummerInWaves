@@ -21,9 +21,9 @@ func _ready() -> void:
 	add_child(Disc1)
 	add_child(Disc2)
 	
-	#Disc4.position.x += 750
-	#Disc4.position.y += 200
-	#add_child(Disc4)
+	Disc4.position.x += 750
+	Disc4.position.y += 200
+	add_child(Disc4)
 	# Al Test
 	Disc3.position.x
 	Disc3.position.y
