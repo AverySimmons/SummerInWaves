@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgcyr1gc1a8l3"
+path="res://.godot/imported/Summer Overworld Draft.wav-6ebd561ed3a42bff3e032d13aa26afb3.sample"
+
+[deps]
+
+source_file="res://01_Assets/02_Audio/Music/Summer Overworld Draft.wav"
+dest_files=["res://.godot/imported/Summer Overworld Draft.wav-6ebd561ed3a42bff3e032d13aa26afb3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
