@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://w7qmaxkspqgv" path="res://02_Source/01_Overworld/Player/player.tscn" id="1_727id"]
 [ext_resource type="Script" uid="uid://ceinc6bkfw8xy" path="res://02_Source/01_Overworld/Level/level.gd" id="1_mrg8d"]
-[ext_resource type="Texture2D" uid="uid://dj1aig0e7onnr" path="res://01_Assets/01_Sprites/backgrounds/overworld_background_empty.png" id="3_01gd7"]
+[ext_resource type="Texture2D" uid="uid://b7as8ljnnfnhi" path="res://01_Assets/01_Sprites/backgrounds/overworld_background_empty.png" id="3_01gd7"]
 [ext_resource type="PackedScene" uid="uid://4s7rcod1o1yt" path="res://02_Source/01_Overworld/NPCs/npc.tscn" id="4_01gd7"]
 
 [sub_resource type="Animation" id="Animation_j2uae"]

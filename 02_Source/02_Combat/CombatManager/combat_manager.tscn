@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hkyex4ym4kdr" path="res://02_Source/02_Combat/CombatManager/combat_manager.gd" id="1_tpnlr"]
 [ext_resource type="PackedScene" uid="uid://dlgr35ohlr67a" path="res://02_Source/02_Combat/PlayerController/player_controller.tscn" id="2_7631d"]
-[ext_resource type="Texture2D" uid="uid://dikdcrep05q2v" path="res://01_Assets/01_Sprites/backgrounds/combat_background.png" id="2_smkjc"]
+[ext_resource type="Texture2D" uid="uid://dyqh03babg71o" path="res://01_Assets/01_Sprites/backgrounds/combat_background.png" id="2_smkjc"]
 [ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="5_4wrav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7631d"]

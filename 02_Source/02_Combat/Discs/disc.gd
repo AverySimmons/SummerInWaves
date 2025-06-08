@@ -25,7 +25,7 @@ func _ready() -> void:
 	#$Sprite2D.frame = sprite_index
 
 func _physics_process(delta: float) -> void:
-	var vel_dir = velocity.rotated(rotation)
+	var vel_dir = velocity.rotated(-rotation + PI / 2)
 	if vel_dir == Vector2.ZERO: vel_dir = Vector2.RIGHT
 	$Sprite2D.material.set_shader_parameter("direction", vel_dir)
 	var vel_str = 1 + clamp(velocity.length() / (2000 / 0.3), 0, 0.3)
