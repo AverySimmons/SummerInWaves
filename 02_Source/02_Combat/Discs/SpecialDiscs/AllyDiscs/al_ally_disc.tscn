@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://u48dwr2jv2dw"]
+[gd_scene load_steps=5 format=3 uid="uid://u48dwr2jv2dw"]
 
 [ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_c4l2g"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_b7tvo"]
+[ext_resource type="Script" uid="uid://bb8q2hrc08mvo" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.gd" id="2_h4vmu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h4vmu"]
 resource_local_to_scene = true
@@ -10,6 +11,8 @@ shader_parameter/strength = 1.0
 shader_parameter/direction = Vector2(1, 1)
 
 [node name="AllyDisc" instance=ExtResource("1_c4l2g")]
+script = ExtResource("2_h4vmu")
+max_velocity = 800.0
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_h4vmu")

@@ -5,8 +5,8 @@ const AL_SPECIAL_MOVE_TIMER_LOWER = 4
 const AL_SPECIAL_MOVE_TIMER_UPPER = 7
 
 # Strength of Al's charge. 1 means velocity would be exactly the length from the special disc to the center.
-@export var strength_of_charge: float = 1.8
-@export var min_charge_speed: float = 500
+@export var strength_of_charge: float = 2.4
+@export var min_charge_speed: float = 700
 var charge_direction_random_x_subtractimator: float = 100
 var charge_direction_random_y_subtractimator: float = charge_direction_random_x_subtractimator*(9/16)
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4h03grv3sige"]
+[gd_scene load_steps=7 format=3 uid="uid://d4h03grv3sige"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_purrb"]
 [ext_resource type="Script" uid="uid://humqapvq5060" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.gd" id="2_l71io"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_pg358"]
 [ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="2_qjwfl"]
+[ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_xrxsk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pg358"]
 resource_local_to_scene = true
@@ -24,3 +25,5 @@ hframes = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 0)
+
+[node name="ShakeComponent" parent="." index="3" instance=ExtResource("5_xrxsk")]

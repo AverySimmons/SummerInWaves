@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://h2w0plo4tjye"]
+[gd_scene load_steps=2 format=3 uid="uid://dmjdg7fewfw45"]
 
-[ext_resource type="Script" uid="uid://dbm6un35dyqe2" path="res://04_Components/01_DiscComponents/special_ability_component.gd" id="1_bycoi"]
+[sub_resource type="GDScript" id="GDScript_lid5y"]
+script/source = "extends Node2D
+
+func use_special_ability() -> void:
+	# Placeholder
+	return
+"
 
 [node name="SpecialAbilityComponent" type="Node2D"]
-script = ExtResource("1_bycoi")
+script = SubResource("GDScript_lid5y")
