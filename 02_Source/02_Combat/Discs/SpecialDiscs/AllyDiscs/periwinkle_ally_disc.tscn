@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl3om4mmn747q"]
+[gd_scene load_steps=6 format=3 uid="uid://bl3om4mmn747q"]
 
 [ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_ytlm1"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_2160p"]
 [ext_resource type="Script" uid="uid://dhm11kcs33r5p" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.gd" id="2_ben0x"]
+[ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_ben0x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ben0x"]
 resource_local_to_scene = true
@@ -12,7 +13,8 @@ shader_parameter/direction = Vector2(1, 1)
 
 [node name="AllyDisc" instance=ExtResource("1_ytlm1")]
 script = ExtResource("2_ben0x")
-despawn_timer_time = 1
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_ben0x")
+
+[node name="ShakeComponent" parent="." index="3" instance=ExtResource("4_ben0x")]
