@@ -5,6 +5,8 @@ var settings_scene: PackedScene = preload("res://02_Source/00_TopManagers/Settin
 var in_dialogue_pause: bool = false
 var currently_paused: bool = false
 
+var combat_music_playing = false
+
 #start with title screen as a child. when play button is pressed, emit a signal
 #scene manager will switch to game manager. it adds in game manager and deletes the title
 func _ready() -> void:
@@ -13,6 +15,12 @@ func _ready() -> void:
 	SignalBus.start_game.connect(start_game)
 	SignalBus.dialogue_pause.connect(dialogue_pause_switch)
 	Dialogic.signal_event.connect(check_dialogue_pause_switch)
+	SignalBus.switch_game.connect(switch_game_state)
+	Dialogic.signal_event.connect(dialogic_signal)
+
+func dialogic_signal(arg):
+	if arg == 'switch to combat':
+		switch_game_state(false)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -28,6 +36,8 @@ func start_game() -> void:
 	add_child(new_game_manager)
 	
 	$TitleScreen.queue_free()
+	
+	$MusicPlayer.play("start_overworld")
 
 func check_dialogue_pause_switch(arg: String) -> void:
 	if arg == "unpause combat":
@@ -42,7 +52,15 @@ func dialogue_pause_switch() -> void:
 	else: #if in dialogue pause already
 		get_tree().paused = false
 		in_dialogue_pause = false
+
+func switch_game_state(win):
+	if combat_music_playing:
+		$MusicPlayer.play("overworld_music")
+	else:
+		$MusicPlayer.play("combat_music")
 	
+	combat_music_playing = not combat_music_playing
+
 func pause_game() -> void:
 	
 	#logic when in dialogue pause
