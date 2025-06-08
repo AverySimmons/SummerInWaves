@@ -33,6 +33,9 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func gravity_ability(delta: float) -> void:
+	# Gravity wave visuals maybe
+	#
+	#
 	var discs_in_gravity = $GravityRing.get_overlapping_areas()
 	for disc in discs_in_gravity:
 		var direction_from_other_disc: Vector2 = (position - disc.position).normalized()

@@ -28,6 +28,9 @@ func _physics_process(delta: float) -> void:
 
 
 func charge_to_center_ability() -> void:
+	# Charge visuals maybe?
+	#
+	#
 	var near_center: Vector2 = Vector2(randf_range(CENTER_OF_RING.x-charge_direction_random_x_subtractimator,
 										CENTER_OF_RING.x+charge_direction_random_x_subtractimator),
 										randf_range(CENTER_OF_RING.y-charge_direction_random_y_subtractimator,

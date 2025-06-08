@@ -48,13 +48,16 @@ func _physics_process(delta: float) -> void:
 
 
 func charge_to_target() -> void:
+	# Visuals maybe? For the charge
+	#
+	#
 	var direction_to_target: Vector2 = (target.position - position).normalized()
 	velocity = direction_to_target * strength_of_charge
 	return
 
 func find_target() -> EnemyDisc:
 	var enemy_discs: Array[Disc] = GameData.combat_manager.enemy_live_discs()
-	# Exception catching
+	# Exception handling
 	if (enemy_discs.size() == 0):
 		return null
 	

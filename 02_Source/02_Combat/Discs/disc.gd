@@ -68,6 +68,10 @@ func instigate_collision() -> void:
 	if overlapping_discs.size() == 1:
 		# Single collision
 		var other_disc: Disc = overlapping_discs[0]
+		
+		if other_disc is not Disc:
+			return
+		
 		if get_instance_id() > other_disc.get_instance_id():
 			return
 		instigate_single_collision(other_disc)

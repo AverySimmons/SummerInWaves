@@ -34,5 +34,7 @@ func gravity_bomb() -> void:
 
 func explode() -> void:
 	# Maybe a cool effect here? Idk
+	#
+	#
 	queue_free()
 	return

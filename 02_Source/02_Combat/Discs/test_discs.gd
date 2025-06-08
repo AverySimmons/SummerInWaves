@@ -6,6 +6,7 @@ var ElmDiscScene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDi
 var PeriDiscScene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.tscn")
 var ElmAllyDiscScene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/elm_ally_disc.tscn")
 var AlAllyDiscScene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.tscn")
+var PeriAllyDiscScene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.tscn")
 
 var Disc1: Disc = DiscScene.instantiate()
 var Disc2: Disc = DiscScene.instantiate()
@@ -14,6 +15,7 @@ var Disc4: EnemyDisc = ElmDiscScene.instantiate()
 var Disc5: EnemyDisc = PeriDiscScene.instantiate()
 #var Disc6: AllyDisc = AlAllyDiscScene.instantiate()
 var Disc7: AllyDisc = ElmAllyDiscScene.instantiate()
+var Disc8: AllyDisc = PeriAllyDiscScene.instantiate()
 
 var timer: float = 7
 
@@ -49,6 +51,10 @@ func _ready() -> void:
 	#Disc6.position.x += 100
 	#Disc6.position.y += 600
 	#add_child(Disc6)
+	
+	Disc8.position.x += 550
+	Disc8.position.y += 210
+	add_child(Disc8)
 	pass
 
 func _physics_process(delta: float) -> void:

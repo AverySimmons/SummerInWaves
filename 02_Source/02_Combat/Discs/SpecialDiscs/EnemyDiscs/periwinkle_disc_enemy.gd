@@ -16,10 +16,15 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	if wall_timer > 0:
+		velocity = Vector2(0, 0)
 	super._physics_process(delta)
 	
 	special_move_timer -= delta
 	if special_move_timer <= 0:
+		# Visuals begin?
+		#
+		#
 		mass = mass * mass_increase
 		
 		stored_velocity = velocity
@@ -36,6 +41,9 @@ func _physics_process(delta: float) -> void:
 	
 	# After ability done
 	if wall_timer_was_positive && wall_timer <= 0:
+		# Visuals end?
+		#
+		#
 		mass = normal_mass
 		velocity = stored_velocity
 		
