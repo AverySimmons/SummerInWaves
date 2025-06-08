@@ -1,10 +1,13 @@
 class_name EnemyDisc
 extends Disc
 
-var despawn_timer: float = 1
+var despawn_timer_time: float = 1
+var despawn_timer: float
 var special_move_timer: float = 7
 
 func _ready() -> void:
+	super._ready()
+	despawn_timer = despawn_timer_time
 	is_enemy = true
 	pass
 
@@ -21,7 +24,7 @@ func despawn_check(delta: float) -> void:
 		# Can maybe have a cool dissolve thing
 	else:
 		# Else, reset it
-		despawn_timer = 1
+		despawn_timer = despawn_timer_time
 		return
 	
 	if despawn_timer <= 0:

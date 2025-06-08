@@ -1,10 +1,12 @@
 class_name AllyDisc
 extends Disc
 
-var despawn_timer: float = 1
+@export var despawn_timer_time = 1
+var despawn_timer: float
 
 func _ready() -> void:
 	super._ready()
+	despawn_timer = despawn_timer_time
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -20,7 +22,7 @@ func despawn_check(delta: float) -> void:
 		# Can maybe have a cool dissolve thing
 	else:
 		# Else, reset it
-		despawn_timer = 1
+		despawn_timer = despawn_timer_time
 		return
 	
 	if despawn_timer <= 0:

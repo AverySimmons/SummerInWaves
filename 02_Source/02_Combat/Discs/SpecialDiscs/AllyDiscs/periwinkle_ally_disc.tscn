@@ -12,7 +12,7 @@ shader_parameter/direction = Vector2(1, 1)
 
 [node name="AllyDisc" instance=ExtResource("1_ytlm1")]
 script = ExtResource("2_ben0x")
-max_velocity = 800.0
+despawn_timer_time = 1
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_ben0x")

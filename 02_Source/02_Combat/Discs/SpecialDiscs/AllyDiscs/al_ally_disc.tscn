@@ -12,6 +12,7 @@ shader_parameter/direction = Vector2(1, 1)
 
 [node name="AllyDisc" instance=ExtResource("1_c4l2g")]
 script = ExtResource("2_h4vmu")
+despawn_timer_time = 1
 max_velocity = 800.0
 
 [node name="Sprite2D" parent="." index="0"]
