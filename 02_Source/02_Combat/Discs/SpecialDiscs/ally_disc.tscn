@@ -9,7 +9,7 @@ shader = ExtResource("2_t4lre")
 shader_parameter/strength = 1.0
 shader_parameter/direction = Vector2(1, 1)
 
-[node name="Disc" instance=ExtResource("1_678oc")]
+[node name="AllyDisc" instance=ExtResource("1_678oc")]
 script = null
 
 [node name="Sprite2D" parent="." index="0"]

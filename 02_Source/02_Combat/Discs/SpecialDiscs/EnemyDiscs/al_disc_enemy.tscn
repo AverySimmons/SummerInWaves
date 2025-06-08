@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c3dbd41jccrsh" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/al_disc_enemy.gd" id="2_uap4v"]
 [ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="3_03gh7"]
 
-[node name="Disc" instance=ExtResource("1_wn0b8")]
+[node name="AlDisc" instance=ExtResource("1_wn0b8")]
 script = ExtResource("2_uap4v")
 strength_of_charge = 1.8
 min_charge_speed = 500.0

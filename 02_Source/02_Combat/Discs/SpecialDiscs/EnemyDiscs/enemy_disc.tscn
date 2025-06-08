@@ -10,7 +10,7 @@ shader = ExtResource("3_fe2e2")
 shader_parameter/strength = 1.0
 shader_parameter/direction = Vector2(1, 1)
 
-[node name="Disc" instance=ExtResource("1_jird0")]
+[node name="EnemyDisc" instance=ExtResource("1_jird0")]
 script = ExtResource("2_fe2e2")
 
 [node name="Sprite2D" parent="." index="0"]
