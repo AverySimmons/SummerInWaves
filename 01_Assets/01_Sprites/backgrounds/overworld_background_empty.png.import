@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://hrqnsgo1trl4"
+=======
+uid="uid://dj1aig0e7onnr"
+>>>>>>> Stashed changes
 path="res://.godot/imported/overworld_background_empty.png-912ab722786b06272a719830fab2d29b.ctex"
 metadata={
 "vram_texture": false
