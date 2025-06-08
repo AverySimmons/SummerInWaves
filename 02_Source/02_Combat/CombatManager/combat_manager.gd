@@ -204,6 +204,11 @@ func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, type: Packed
 	
 	return new_disc
 
+func _process(delta: float) -> void:
+	var t = create_tween()
+	t.tween_property($HealthBar, "material:shader_parameter/fill_percent", \
+		1 - len(enemy_live_discs()) / 10.0, 0.2)
+
 #every frame
 func _physics_process(delta: float) -> void:
 	

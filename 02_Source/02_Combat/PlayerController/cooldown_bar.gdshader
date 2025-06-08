@@ -2,6 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D noise;
 uniform float fill_percent = 0.;
+uniform vec3 color : source_color = vec3(1);
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -59,7 +60,7 @@ void fragment() {
 	
 	COLOR.a = final_mask;
 	COLOR.rgb = vec3(0.7, 0.6, 0.) * bar_outline_mask;
-	COLOR.rgb += vec3(0.4, 0.9, 1.) * bar_fill_mask;
+	COLOR.rgb += color * bar_fill_mask;
 }
 
 //void light() {

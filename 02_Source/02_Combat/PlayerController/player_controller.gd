@@ -4,7 +4,7 @@ var is_turn: bool = false
 var is_pulling: bool = false
 var pull_pos: Vector2 = Vector2.ZERO
 
-var cooldown_timer = 0
+var cooldown_timer = 2
 var cooldown_window = 1
 
 var player_disc_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.tscn")
@@ -13,7 +13,7 @@ func _ready() -> void:
 	$Indicator.visible = false
 
 func _process(delta: float) -> void:
-	$CooldownBar.material.set_shader_parameter("fill_percent", cooldown_timer / cooldown_window / 1.1)
+	$CooldownBar.material.set_shader_parameter("fill_percent", cooldown_timer / cooldown_window / 1.05)
 
 func _physics_process(delta: float) -> void:
 	if not is_turn: return

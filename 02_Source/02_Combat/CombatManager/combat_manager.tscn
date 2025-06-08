@@ -1,9 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwkm6aj13xr52"]
+[gd_scene load_steps=17 format=3 uid="uid://cwkm6aj13xr52"]
 
 [ext_resource type="Script" uid="uid://hkyex4ym4kdr" path="res://02_Source/02_Combat/CombatManager/combat_manager.gd" id="1_tpnlr"]
 [ext_resource type="PackedScene" uid="uid://dlgr35ohlr67a" path="res://02_Source/02_Combat/PlayerController/player_controller.tscn" id="2_7631d"]
 [ext_resource type="Texture2D" uid="uid://c0nq6dc4vkrc2" path="res://01_Assets/01_Sprites/backgrounds/combat_background_new.png" id="2_smkjc"]
 [ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="5_4wrav"]
+[ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="5_q0m3e"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_avjet"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pi3ok"]
+seamless = true
+noise = SubResource("FastNoiseLite_avjet")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujrxw"]
+shader = ExtResource("5_q0m3e")
+shader_parameter/noise = SubResource("NoiseTexture2D_pi3ok")
+shader_parameter/fill_percent = 0.5
+shader_parameter/color = Color(0.4, 0.901961, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7631d"]
 
@@ -238,6 +251,15 @@ pause = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("2_smkjc")
+
+[node name="HealthBar" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ujrxw")
+offset_left = 905.0
+offset_top = 233.0
+offset_right = 1443.46
+offset_bottom = 463.769
+scale = Vector2(-1, -1)
+color = Color(0.97, 0.79346, 0.1552, 1)
 
 [node name="PlayerController" parent="." instance=ExtResource("2_7631d")]
 position = Vector2(645, 364)
