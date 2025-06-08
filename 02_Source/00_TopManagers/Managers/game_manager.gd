@@ -44,6 +44,8 @@ func switch_scenes(win: bool) -> void:
 		var img = get_viewport().get_texture().get_image()
 		var tex = ImageTexture.new().create_from_image(img)
 		$CanvasLayer/Sprite2D.texture = tex
+		$CanvasLayer/Sprite2D.scale = Vector2(1280, 720) / 0.94 / Vector2(DisplayServer.window_get_size())
+		print(Vector2(1280, 720) / Vector2(DisplayServer.window_get_size()) )
 		$AnimationPlayer.play("transition_to_combat")
 		call_deferred("remove_child", overworld_level)
 		combat_level = combat_scene.instantiate()

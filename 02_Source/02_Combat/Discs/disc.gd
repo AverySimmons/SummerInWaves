@@ -2,7 +2,7 @@ class_name Disc
 extends Area2D
 # Generic class for discs. Contains 
 
-const FRICTION_COEFFICIENT = 400
+const FRICTION_COEFFICIENT = 800
 const ROTATIONAL_FRICTION = 6
 
 var sprite_index = 0
@@ -13,7 +13,7 @@ var friction: Vector2
 var collision_cooldown: float
 @export var max_velocity: float = 800
 
-@export var mass: float = 1
+@export var mass: float = 4
 @onready var radius: float = $CollisionShape2D.shape.radius
 var center_of_mass: Vector2 = position
 @onready var inertia: float = 0.5 * mass * radius*radius
@@ -21,9 +21,16 @@ var center_of_mass: Vector2 = position
 var timer: float
 
 func _ready() -> void:
-	$Sprite2D.frame = sprite_index
+	pass
+	#$Sprite2D.frame = sprite_index
 
 func _physics_process(delta: float) -> void:
+	var vel_dir = velocity.rotated(rotation)
+	if vel_dir == Vector2.ZERO: vel_dir = Vector2.RIGHT
+	$Sprite2D.material.set_shader_parameter("direction", vel_dir)
+	var vel_str = 1 + clamp(velocity.length() / (2000 / 0.3), 0, 0.3)
+	$Sprite2D.material.set_shader_parameter("strength", vel_str)
+	
 	if collision_cooldown > 0:
 		collision_cooldown -= delta
 	

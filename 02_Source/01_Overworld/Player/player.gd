@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-const ACC = 2000
-const TURN_ACC = 5000
-const IDLE_DEACC = 4000
-const MAX_SPEED = 300
+const ACC = 4000
+const TURN_ACC = 8000
+const IDLE_DEACC = 6000
+const MAX_SPEED = 175
 
 @export var talking = false
+
+var facing_dir = ""
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(finished_talking)
@@ -13,6 +15,27 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("left", "right", "up", "down")
+	
+	if input_dir != Vector2.ZERO or facing_dir:
+		if input_dir == Vector2.ZERO:
+			$AnimationPlayer.play(facing_dir + "_idle")
+			facing_dir = ""
+		else:
+			var input_ang = input_dir.angle()
+			var new_facing_dir = facing_dir
+			if input_ang < PI / 4 - 0.01 and input_ang > -PI / 4 + 0.01:
+				new_facing_dir = "right"
+			elif input_ang < 3 * PI / 4 + 0.01 and input_ang > PI / 4 - 0.01:
+				new_facing_dir = "down"
+			elif input_ang < -PI / 4 + 0.01 and input_ang > -3 * PI / 4 - 0.01:
+				new_facing_dir = "up"
+			else:
+				new_facing_dir = "left"
+			
+			if new_facing_dir != facing_dir:
+				$AnimationPlayer.play(new_facing_dir + "_walk")
+				facing_dir = new_facing_dir
+	
 	if talking:
 		input_dir = Vector2.ZERO
 	

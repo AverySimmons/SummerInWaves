@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="2_tankh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
-radius = 315.0
+radius = 320.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sdusc"]
 shader = ExtResource("2_tankh")

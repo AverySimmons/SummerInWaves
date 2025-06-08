@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://22tytw4062gl"]
+[gd_scene load_steps=7 format=3 uid="uid://22tytw4062gl"]
 
 [ext_resource type="Script" uid="uid://c7u7mfqn1xdlk" path="res://02_Source/02_Combat/Discs/disc.gd" id="1_m1gb4"]
-[ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="2_3y8sx"]
+[ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_3y8sx"]
+[ext_resource type="Texture2D" uid="uid://byc6b3rwgwv2d" path="res://01_Assets/01_Sprites/button_sprites/periwinkle's_main_button.png" id="3_w8sr8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcnh1"]
+resource_local_to_scene = true
+shader = ExtResource("2_3y8sx")
+shader_parameter/strength = 1.0
+shader_parameter/direction = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1gb4"]
-radius = 54.0
+radius = 37.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3y8sx"]
 radius = 7.28011
@@ -16,11 +23,13 @@ script = ExtResource("1_m1gb4")
 max_velocity = 2000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 4)
-texture = ExtResource("2_3y8sx")
-hframes = 5
+material = SubResource("ShaderMaterial_qcnh1")
+position = Vector2(-5.96046e-08, 4)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_w8sr8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_m1gb4")
 
 [node name="PlayspaceCheck" type="Area2D" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://w7qmaxkspqgv" path="res://02_Source/01_Overworld/Player/player.tscn" id="1_727id"]
 [ext_resource type="Script" uid="uid://ceinc6bkfw8xy" path="res://02_Source/01_Overworld/Level/level.gd" id="1_mrg8d"]
-[ext_resource type="Texture2D" uid="uid://c3qrbaotjcgck" path="res://01_Assets/00_DevSprites/overworldbackground.png" id="3_jvo2h"]
+[ext_resource type="Texture2D" uid="uid://dj1aig0e7onnr" path="res://01_Assets/01_Sprites/backgrounds/overworld_background_empty.png" id="3_01gd7"]
 [ext_resource type="PackedScene" uid="uid://4s7rcod1o1yt" path="res://02_Source/01_Overworld/NPCs/npc.tscn" id="4_01gd7"]
 
 [sub_resource type="Animation" id="Animation_j2uae"]
@@ -100,9 +100,8 @@ position = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -100
-position = Vector2(640, 360)
-scale = Vector2(5, 5)
-texture = ExtResource("3_jvo2h")
+position = Vector2(1280, 360)
+texture = ExtResource("3_01gd7")
 
 [node name="Prin" parent="." instance=ExtResource("4_01gd7")]
 position = Vector2(130.58, 106.867)
