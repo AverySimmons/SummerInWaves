@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	#despawn_check(delta)
+	despawn_check(delta)
 	pass
 
 func despawn_check(delta: float) -> void:
