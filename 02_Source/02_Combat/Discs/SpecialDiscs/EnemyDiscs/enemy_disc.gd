@@ -5,6 +5,10 @@ var despawn_timer: float = 1
 var is_in_ring: bool = false
 var special_move_timer: float = 7
 
+func _ready() -> void:
+	is_enemy = true
+	pass
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	despawn_check(delta)

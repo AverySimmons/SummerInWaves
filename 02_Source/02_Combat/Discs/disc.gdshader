@@ -15,9 +15,9 @@ void fragment() {
 	vec2 perp_vect = vec2(-dir.y, dir.x);
 	vec2 uv_in_perp = dot(perp_vect, uv) * perp_vect;
 	vec2 final_uv = uv_in_dir * strength + uv_in_perp / strength;
-	
+
 	final_uv = final_uv / 2. + 0.5;
-	
+
 	COLOR.rgba = texture(TEXTURE, final_uv);
 }
 
