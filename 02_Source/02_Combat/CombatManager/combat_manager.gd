@@ -53,6 +53,7 @@ var loss_count = 10
 #will use get_overlapping_areas function
 
 func _ready() -> void:
+	GameData.combat_manager = self
 	SignalBus.create_disc.connect(spawn_disc)
 	fight_num = GameData.kids_defeated
 	

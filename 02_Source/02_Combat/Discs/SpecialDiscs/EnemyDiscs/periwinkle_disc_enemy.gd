@@ -4,7 +4,6 @@ const PERI_SPECIAL_MOVE_TIMER_LOWER = 4
 const PERI_SPECIAL_MOVE_TIMER_UPPER = 7
 const WALL_TIME = 3
 
-# Controls acceleration of pull. 1.0 would mean all sucked in discs receive idk yet tbh
 var mass_increase: float = 10000
 var wall_timer: float = 0
 var normal_mass: float
