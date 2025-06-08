@@ -3,6 +3,7 @@ extends Disc
 
 @export var despawn_timer_time = 1
 var despawn_timer: float
+var special_move_timer: float
 
 func _ready() -> void:
 	super._ready()

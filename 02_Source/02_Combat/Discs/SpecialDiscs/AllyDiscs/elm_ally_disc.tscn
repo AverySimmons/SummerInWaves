@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1mmqs6xos320"]
+[gd_scene load_steps=7 format=3 uid="uid://b1mmqs6xos320"]
 
 [ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_npmn5"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_bdwpu"]
 [ext_resource type="Script" uid="uid://vvsrvvobnt5m" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/elm_ally_disc.gd" id="2_li34u"]
+[ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_li34u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_li34u"]
 resource_local_to_scene = true
@@ -15,12 +16,17 @@ radius = 150.0
 
 [node name="AllyDisc" instance=ExtResource("1_npmn5")]
 script = ExtResource("2_li34u")
-despawn_timer_time = 1
+min_gravity_bomb_strength = 500.0
+gravity_bomb_strength = 1.6
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_li34u")
 
 [node name="GravityBomb" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityBomb" index="0"]
 shape = SubResource("CircleShape2D_bdwpu")
+
+[node name="ShakeComponent" parent="." index="4" instance=ExtResource("4_li34u")]
