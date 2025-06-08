@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlgr35ohlr67a"]
+[gd_scene load_steps=9 format=3 uid="uid://dlgr35ohlr67a"]
 
 [ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/PlayerController/player_controller.gd" id="1_haeba"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="2_tankh"]
+[ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="3_sdusc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
 radius = 320.0
@@ -9,6 +10,17 @@ radius = 320.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sdusc"]
 shader = ExtResource("2_tankh")
 shader_parameter/sizex = 120.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sdusc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pi3ok"]
+seamless = true
+noise = SubResource("FastNoiseLite_sdusc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pi3ok"]
+shader = ExtResource("3_sdusc")
+shader_parameter/noise = SubResource("NoiseTexture2D_pi3ok")
+shader_parameter/fill_percent = 0.5
 
 [node name="PlayerController" type="Node2D"]
 script = ExtResource("1_haeba")
@@ -18,6 +30,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_sdmsl")
 debug_color = Color(0.7, 0, 0, 0.419608)
 
@@ -26,3 +39,11 @@ material = SubResource("ShaderMaterial_sdusc")
 offset_right = 120.0
 offset_bottom = 40.0
 color = Color(0.882826, 0, 0.419258, 1)
+
+[node name="CooldownBar" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pi3ok")
+offset_left = -275.231
+offset_top = 123.0
+offset_right = 263.231
+offset_bottom = 353.769
+color = Color(0.97, 0.79346, 0.1552, 1)

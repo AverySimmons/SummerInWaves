@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hkyex4ym4kdr" path="res://02_Source/02_Combat/CombatManager/combat_manager.gd" id="1_tpnlr"]
 [ext_resource type="PackedScene" uid="uid://dlgr35ohlr67a" path="res://02_Source/02_Combat/PlayerController/player_controller.tscn" id="2_7631d"]
-[ext_resource type="Texture2D" uid="uid://dyqh03babg71o" path="res://01_Assets/01_Sprites/backgrounds/combat_background.png" id="2_smkjc"]
+[ext_resource type="Texture2D" uid="uid://c0nq6dc4vkrc2" path="res://01_Assets/01_Sprites/backgrounds/combat_background_new.png" id="2_smkjc"]
 [ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="5_4wrav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7631d"]
@@ -249,6 +249,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring1"]
+visible = false
 shape = SubResource("CircleShape2D_7631d")
 
 [node name="Ring2" type="Area2D" parent="."]
@@ -256,6 +257,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring2"]
+visible = false
 position = Vector2(646, 363)
 shape = SubResource("CircleShape2D_nb4pp")
 
@@ -287,3 +289,4 @@ offset_top = -32.0
 offset_right = 1330.0
 offset_bottom = 774.0
 color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
