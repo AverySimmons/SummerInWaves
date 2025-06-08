@@ -5,6 +5,7 @@ var settings_scene: PackedScene = preload("res://02_Source/00_TopManagers/Settin
 var in_dialogue_pause: bool = false
 var currently_paused: bool = false
 
+var game_started = false
 var combat_music_playing = false
 
 #start with title screen as a child. when play button is pressed, emit a signal
@@ -12,11 +13,16 @@ var combat_music_playing = false
 func _ready() -> void:
 	load("res://03_DialogicAssets/Styles/primary_style.tres").prepare()
 	Dialogic.preload_timeline("res://03_DialogicAssets/Timelines/empty_timeline.dtl")
-	SignalBus.start_game.connect(start_game)
+	SignalBus.start_game.connect(play_start_game_anim)
 	SignalBus.dialogue_pause.connect(dialogue_pause_switch)
 	Dialogic.signal_event.connect(check_dialogue_pause_switch)
 	SignalBus.switch_game.connect(switch_game_state)
 	Dialogic.signal_event.connect(dialogic_signal)
+
+func play_start_game_anim():
+	if not game_started:
+		$AnimationPlayer.play("start_game")
+		game_started = true
 
 func dialogic_signal(arg):
 	if arg == 'switch to combat':

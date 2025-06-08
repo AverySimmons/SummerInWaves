@@ -12,6 +12,9 @@ var original_mass: float
 var strength_of_charge: int = 1300
 var target: EnemyDisc
 
+var is_charging: bool = false
+var charge_dir: Vector2
+
 func _ready() -> void:
 	super._ready()
 	# Prepare mass
@@ -25,6 +28,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
+	
+	if is_charging:
+		if $PlayspaceCheck.has_overlapping_areas():
+			velocity = charge_dir * strength_of_charge
+		return
 	
 	# If target despawned, find a new target
 	if (target == null):
@@ -51,8 +59,9 @@ func charge_to_target() -> void:
 	# Visuals maybe? For the charge
 	#
 	#
-	var direction_to_target: Vector2 = (target.position - position).normalized()
-	velocity = direction_to_target * strength_of_charge
+	charge_dir = (target.position - position).normalized()
+	is_charging = true
+	
 	return
 
 func find_target() -> EnemyDisc:
@@ -61,7 +70,7 @@ func find_target() -> EnemyDisc:
 	if (enemy_discs.size() == 0):
 		return null
 	
-	var target_index: int = randi_range(0, enemy_discs.size())
+	var target_index: int = randi_range(0, enemy_discs.size()-1)
 	var target_disc = enemy_discs[target_index]
 	# Visual stuff? Marking the target_disc?
 	#

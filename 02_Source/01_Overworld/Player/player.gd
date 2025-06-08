@@ -9,12 +9,13 @@ const MAX_SPEED = 175
 
 var facing_dir = ""
 
-func _ready() -> void:
-	Dialogic.timeline_ended.connect(finished_talking)
-	Dialogic.timeline_started.connect(started_talking)
-
 func _physics_process(delta: float) -> void:
+	
+	
 	var input_dir = Input.get_vector("left", "right", "up", "down")
+	
+	if Dialogic.current_timeline:
+		input_dir = Vector2.ZERO
 	
 	if input_dir != Vector2.ZERO or facing_dir:
 		if input_dir == Vector2.ZERO:
@@ -36,8 +37,6 @@ func _physics_process(delta: float) -> void:
 				$AnimationPlayer.play(new_facing_dir + "_walk")
 				facing_dir = new_facing_dir
 	
-	if talking:
-		input_dir = Vector2.ZERO
 	
 	var cur_acc = ACC 
 	if input_dir.dot(velocity) > 0:
@@ -55,9 +54,3 @@ func _physics_process(delta: float) -> void:
 		
 		var npc: NPC = areas[0]
 		npc.talk()
-
-func started_talking():
-	talking = true
-
-func finished_talking():
-	talking = false

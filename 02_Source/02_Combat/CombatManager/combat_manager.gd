@@ -20,13 +20,24 @@ var enemy_al_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/Enemy
 var enemy_peri_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.tscn")
 var enemy_elm_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.tscn")
 
-var ally_al_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.tscn")
-var ally_peri_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.tscn")
-var ally_elm_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/elm_ally_disc.tscn")
 
-var al_disc: AllyDisc
-var peri_disc: AllyDisc
-var elm_disc: AllyDisc
+var ally_scenes = [
+	preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.tscn"),
+	preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.tscn"),
+	preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/elm_ally_disc.tscn")
+]
+
+var ally_discs = [
+	null,
+	null,
+	null
+]
+
+var ally_timers = [
+	5,
+	9,
+	12
+]
 
 var released_disc: bool = false
 
@@ -213,6 +224,7 @@ func _physics_process(delta: float) -> void:
 	if pause: return
 	
 	enemy_action(delta)
+	ally_action(delta)
 	
 	#checking for victory
 	if win_game_timer >= 0.1:
@@ -244,6 +256,19 @@ func _physics_process(delta: float) -> void:
 
 func enemy_disc_destroyed():
 	enemy_shoot_timer -= enemy_flinch
+
+func ally_action(delta):
+	for i in range(ally_special_discs):
+		if ally_discs[i]: continue
+		
+		if ally_timers[i] <= 0:
+			ally_timers[i] = randf_range(5, 10)
+			var spawn_pos = center + Vector2(400, 0).rotated(randf_range(0, TAU))
+			var vel = spawn_pos.direction_to(center) * 700
+			ally_discs[i] = spawn_disc(spawn_pos, vel, -1, ally_scenes[i], TAU, 4)
+		
+		else:
+			ally_timers[i] -= delta
 
 func enemy_action(delta):
 	if enemy_move_timer <= 0:
