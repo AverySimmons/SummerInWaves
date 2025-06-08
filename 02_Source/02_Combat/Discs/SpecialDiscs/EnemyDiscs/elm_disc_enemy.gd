@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 	special_move_timer -= delta
 	if special_move_timer <= 0:
+		mass = mass * mass_increase
 		gravitation_timer = GRAVITATION_TIME
 		special_move_timer = randf_range(ELM_SPECIAL_MOVE_TIMER_LOWER, ELM_SPECIAL_MOVE_TIMER_UPPER)
 	
@@ -32,7 +33,6 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func gravity_ability(delta: float) -> void:
-	mass = mass * mass_increase
 	var discs_in_gravity = $GravityRing.get_overlapping_areas()
 	for disc in discs_in_gravity:
 		var direction_from_other_disc: Vector2 = (position - disc.position).normalized()

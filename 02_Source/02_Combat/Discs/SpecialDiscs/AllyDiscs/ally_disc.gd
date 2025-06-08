@@ -3,6 +3,10 @@ extends Disc
 
 var despawn_timer: float = 1
 
+func _ready() -> void:
+	super._ready()
+	pass
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	despawn_check(delta)
@@ -10,7 +14,7 @@ func _physics_process(delta: float) -> void:
 
 func despawn_check(delta: float) -> void:
 	# If not moving, count down the despawn timer
-	var is_in_ring = $PlayspaceCheck.has_overlapping_areas()
+	var is_in_ring: bool = $PlayspaceCheck.has_overlapping_areas()
 	if !is_in_ring && !super.is_moving():
 		despawn_timer -= delta
 		# Can maybe have a cool dissolve thing
