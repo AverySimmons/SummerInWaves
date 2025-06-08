@@ -16,6 +16,18 @@ var combat_won = false
 var player_disc_scene: PackedScene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.tscn")
 var enemy_disc_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn")
 
+var enemy_al_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/al_disc_enemy.tscn")
+var enemy_peri_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.tscn")
+var enemy_elm_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.tscn")
+
+var ally_al_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.tscn")
+var ally_peri_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.tscn")
+var ally_elm_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/elm_ally_disc.tscn")
+
+var al_disc: AllyDisc
+var peri_disc: AllyDisc
+var elm_disc: AllyDisc
+
 var released_disc: bool = false
 
 var enemy_shoot_timer: float = 0
@@ -35,6 +47,10 @@ var enemy_shoot_speed_mod: float = 600 #bigger is faster
 var enemy_starting_discs = 0
 var enemy_rot_acc = 0
 var enemy_move_dir = 0
+var enemy_special_discs = []
+var ally_special_discs = 0
+var enemy_special_disc_chance = 0
+
 
 var prin_phase2 = false
 
@@ -65,6 +81,8 @@ func _ready() -> void:
 			enemy_shoot_speed_mod = 0
 			enemy_starting_discs = 8
 			enemy_rot_acc = 0
+			enemy_special_discs = 0
+			enemy_special_disc_chance = 0
 		1:
 			enemy_flinch = 0.5
 			enemy_max_rot_vel = PI / 2
@@ -72,6 +90,9 @@ func _ready() -> void:
 			enemy_shoot_speed_mod = 600
 			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel
+			enemy_special_discs = [enemy_al_scene]
+			ally_special_discs = 0
+			enemy_special_disc_chance = 0.3
 		2:
 			enemy_flinch = 0.35
 			enemy_max_rot_vel = PI / 2
@@ -79,6 +100,9 @@ func _ready() -> void:
 			enemy_shoot_speed_mod = 700
 			enemy_starting_discs = 3
 			enemy_rot_acc = enemy_max_rot_vel
+			enemy_special_discs = [enemy_peri_scene]
+			ally_special_discs = 1
+			enemy_special_disc_chance = 0.3
 		3:
 			enemy_flinch = 0.2
 			enemy_max_rot_vel = 1.5 * PI / 2
@@ -86,6 +110,9 @@ func _ready() -> void:
 			enemy_shoot_speed_mod = 800
 			enemy_starting_discs = 3
 			enemy_rot_acc = enemy_max_rot_vel
+			enemy_special_discs = [enemy_elm_scene]
+			ally_special_discs = 2
+			enemy_special_disc_chance = 0.3
 		4:
 			enemy_flinch = 0.1
 			enemy_max_rot_vel = 1.5 * PI / 2
@@ -93,6 +120,9 @@ func _ready() -> void:
 			enemy_shoot_speed_mod = 800
 			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel
+			enemy_special_discs = [enemy_al_scene, enemy_peri_scene, enemy_elm_scene]
+			ally_special_discs = 2
+			enemy_special_disc_chance = 0.5
 	
 	await get_tree().create_timer(0.5).timeout
 	spawn_starting_discs()
@@ -103,7 +133,7 @@ func spawn_starting_discs():
 		angle += TAU / enemy_starting_discs
 		var dir_vect = Vector2.from_angle(angle)
 		var new_disc: EnemyDisc = spawn_disc(center + dir_vect * 2000, \
-			Vector2.ZERO, 0, true, 30, 3)
+			Vector2.ZERO, 0, enemy_disc_scene, 30, 3)
 		new_disc.despawn_timer += 1.75
 		var new_tween = create_tween().set_ease(Tween.EASE_IN)
 		new_tween.tween_property(new_disc, "position", center + dir_vect * 160, 1.75)
@@ -144,20 +174,15 @@ func no_enemy_discs() -> bool:
 		return false
 
 #spawning discs
-func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, is_enemy: bool, \
+func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, type: PackedScene, \
 	spin: float, mass: float) -> Disc:
 	#create an instance of a disc scene. created outside of the scene tree
-	var new_disc: Disc 
-	if not is_enemy:
-		new_disc = player_disc_scene.instantiate()
-	else:
-		new_disc = enemy_disc_scene.instantiate()
+	var new_disc: Disc = type.instantiate()
 	
 	#give the disc values
 	new_disc.position = pos
 	new_disc.velocity = velocity
 	new_disc.sprite_index = sprite_index
-	new_disc.is_enemy = is_enemy
 	new_disc.rotational_velocity = spin
 	new_disc.mass = mass
 	
@@ -237,9 +262,19 @@ func enemy_action(delta):
 	var rand_rot = randf_range(-0.2, 0.2)
 	var enemy_shoot_vel = enemy_shoot_pos.direction_to(center).rotated(rand_rot)
 	enemy_shoot_vel *=  enemy_shoot_speed_mod
+	
+	var is_special = randf_range(0, 1) < enemy_special_disc_chance
+	
+	var disc_type
+	if not is_special:
+		disc_type = enemy_disc_scene
+	else:
+		disc_type = enemy_special_discs.pick_random()
+	
 	if enemy_shoot_timer >= enemy_shoot_rate:
-		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, 0, true, default_rotation, 3)
+		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, -1, disc_type, default_rotation, 3)
 		enemy_shoot_timer = 0
+
 
 func combat_win_lose(is_win):
 	if prin_phase2 and is_win: return

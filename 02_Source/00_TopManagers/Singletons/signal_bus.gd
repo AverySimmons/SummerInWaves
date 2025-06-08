@@ -1,6 +1,6 @@
 extends Node
 
-signal create_disc(pos, vel, sprite_index, is_enemy, rot, mass)
+signal create_disc(pos, vel, sprite_index, type, rot, mass)
 
 signal switch_game(win: bool)
 

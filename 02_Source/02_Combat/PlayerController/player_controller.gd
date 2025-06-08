@@ -7,6 +7,8 @@ var pull_pos: Vector2 = Vector2.ZERO
 var cooldown_timer = 0
 var cooldown_window = 1
 
+var player_disc_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.tscn")
+
 func _ready() -> void:
 	$Indicator.visible = false
 
@@ -43,5 +45,5 @@ func flick_disc() -> void:
 	var mouse_norm = get_global_mouse_position() - pull_pos
 	var disc_speed = 500 + min(mouse_norm.length(), 120) * 15
 	var disc_vel = mouse_norm.normalized() * disc_speed * -1
-	SignalBus.create_disc.emit(pull_pos, disc_vel, 4, false, TAU, 1)
+	SignalBus.create_disc.emit(pull_pos, disc_vel, 4, player_disc_scene, TAU, 1)
 	cooldown_timer = 0
