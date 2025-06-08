@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/PlayerController/player_controller.gd" id="1_haeba"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="2_tankh"]
-[ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="3_sdusc"]
+[ext_resource type="Shader" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="3_sdusc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
 radius = 320.0

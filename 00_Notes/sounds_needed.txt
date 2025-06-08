@@ -1,14 +1,16 @@
 Need:
-Title screen ambience
-Button hover
-Settings toggle
+Title screen ambience - Done
+Button hover - Done
+Settings toggle - Done
 Type sound effects for Summer / Albert / Periwinkle / Elm / Prin
 Walking sound
-Overworld music / ambience
+Overworld music / ambience - Done
 Battle music
 Start flick (look at stardew valley fishing charge up)
 Release flick
-Button collision
+Flick on cooldown (meep merp) 
+Cooldown ready indicator
+Button collision - Done
 Countdown tick
 Albert charge sound
 Elm gravity bomb sound
