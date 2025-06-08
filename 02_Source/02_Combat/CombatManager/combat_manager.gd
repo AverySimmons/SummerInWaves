@@ -13,7 +13,9 @@ var fight_num = 0
 
 var combat_won = false
 
-var disc_scene: PackedScene = preload("res://02_Source/02_Combat/Discs/disc.tscn")
+var player_disc_scene: PackedScene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.tscn")
+var enemy_disc_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn")
+
 var released_disc: bool = false
 
 var enemy_shoot_timer: float = 0
@@ -33,6 +35,8 @@ var enemy_shoot_speed_mod: float = 600 #bigger is faster
 var enemy_starting_discs = 0
 var enemy_rot_acc = 0
 var enemy_move_dir = 0
+
+var prin_phase2 = false
 
 #var enemy_disc_count = 0
 var loss_count = 10
@@ -97,8 +101,9 @@ func spawn_starting_discs():
 	for i in enemy_starting_discs:
 		angle += TAU / enemy_starting_discs
 		var dir_vect = Vector2.from_angle(angle)
-		var new_disc = spawn_disc(center + dir_vect * 2000, \
+		var new_disc: EnemyDisc = spawn_disc(center + dir_vect * 2000, \
 			Vector2.ZERO, 0, true, 30, 3)
+		new_disc.despawn_timer += 1.75
 		var new_tween = create_tween().set_ease(Tween.EASE_IN)
 		new_tween.tween_property(new_disc, "position", center + dir_vect * 160, 1.75)
 
@@ -109,13 +114,13 @@ func round_score():
 	var discs_list_r2 = $Ring2.get_overlapping_areas()
 	#ring 2 discs, outer ring
 	for disc in discs_list_r2: 
-		if disc.is_enemy:
+		if disc is EnemyDisc:
 			opponent_score += ring2_points
 		else:
 			player_score += ring2_points
 	#ring 1 discs, inner ring
 	for disc in discs_list_r1:
-		if disc.is_enemy:
+		if disc is EnemyDisc:
 			opponent_score += ring1_points
 		else:
 			player_score += ring2_points
@@ -125,7 +130,7 @@ func enemy_live_discs() -> Array[Disc]:
 	var new_discs_list: Array[Disc] = []
 	
 	for disc in discs_list:
-		if disc.is_enemy:
+		if disc is EnemyDisc:
 			new_discs_list.append(disc)
 			
 	return new_discs_list
@@ -141,7 +146,11 @@ func no_enemy_discs() -> bool:
 func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, is_enemy: bool, \
 	spin: float, mass: float) -> Disc:
 	#create an instance of a disc scene. created outside of the scene tree
-	var new_disc: Disc = disc_scene.instantiate()
+	var new_disc: Disc 
+	if not is_enemy:
+		new_disc = player_disc_scene.instantiate()
+	else:
+		new_disc = enemy_disc_scene.instantiate()
 	
 	#give the disc values
 	new_disc.position = pos
@@ -201,7 +210,7 @@ func _physics_process(delta: float) -> void:
 	var enemy_disc_list = enemy_live_discs()
 	for disc in enemy_disc_list:
 		enemy_disc_count += 1
-		
+	
 	if enemy_disc_count >= loss_count:
 		lose_game_timer += delta
 	else:
@@ -232,7 +241,10 @@ func enemy_action(delta):
 		enemy_shoot_timer = 0
 
 func combat_win_lose(is_win):
-	if fight_num == 0 and is_win:
+	if prin_phase2 and is_win: return
+	if fight_num == 0 and is_win and not prin_phase2:
+		prin_phase2 = true
+		await get_tree().create_timer(1).timeout
 		enemy_flinch = 0.1
 		enemy_max_rot_vel = 1.5 * PI / 2
 		enemy_shoot_rate = 0.75

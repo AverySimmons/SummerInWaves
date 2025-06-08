@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://h38q1fgc5jgy"]
+[gd_scene load_steps=6 format=3 uid="uid://h38q1fgc5jgy"]
 
 [ext_resource type="Script" uid="uid://baucselh3lw6w" path="res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.gd" id="1_naojj"]
 [ext_resource type="PackedScene" uid="uid://22tytw4062gl" path="res://02_Source/02_Combat/Discs/disc.tscn" id="1_v6phn"]
+[ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_7qvrt"]
+[ext_resource type="Texture2D" uid="uid://bqlesmndf068d" path="res://01_Assets/01_Sprites/button_sprites/summer's_main_button.png" id="4_8hc63"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7qvrt"]
+resource_local_to_scene = true
+shader = ExtResource("3_7qvrt")
+shader_parameter/strength = 1.0
+shader_parameter/direction = Vector2(1, 1)
 
 [node name="PlayerDisc" instance=ExtResource("1_v6phn")]
 script = ExtResource("1_naojj")
+
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_7qvrt")
+texture = ExtResource("4_8hc63")
