@@ -54,7 +54,7 @@ variables={
 "prin_talked_to": false
 }
 extensions_folder="res://addons/dialogic_additions"
-text/letter_speed=0.02
+text/letter_speed=0.04
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.01
 text/advance_delay=0.05

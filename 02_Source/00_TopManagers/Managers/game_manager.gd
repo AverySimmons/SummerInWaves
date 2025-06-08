@@ -50,5 +50,6 @@ func switch_scenes(win: bool) -> void:
 		call_deferred("remove_child", overworld_level)
 		combat_level = combat_scene.instantiate()
 		add_child(combat_level)
+		
 	
 	is_combat = not is_combat
