@@ -9,12 +9,6 @@
 shader = ExtResource("2_3p7ol")
 shader_parameter/percent = 0.0
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cmk8b"]
 shader = ExtResource("2_mds2e")
 shader_parameter/power = 1.0
@@ -60,7 +54,6 @@ tracks/2/keys = {
 "values": [1.0, 0.5, 2.0, 0.5, 2.0, 0.5, 2.0, 0.5, 2.0, 1.0]
 }
 
->>>>>>> Stashed changes
 [sub_resource type="Animation" id="Animation_3p7ol"]
 length = 0.001
 tracks/0/type = "value"
@@ -87,16 +80,11 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cmk8b"]
 shader = ExtResource("2_mds2e")
 shader_parameter/power = 1.0
->>>>>>> Stashed changes
-=======
-=======
->>>>>>> Stashed changes
+
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -109,10 +97,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [1.0]
 }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 [sub_resource type="Animation" id="Animation_ekp6a"]
 resource_name = "transition_to_combat"
@@ -155,8 +139,6 @@ tracks/2/keys = {
 "values": [1.0, 0.5, 2.0, 0.5, 2.0, 0.5, 2.0, 0.5, 2.0, 1.0]
 }
 
-<<<<<<< Updated upstream
-=======
 [sub_resource type="Animation" id="Animation_3p7ol"]
 length = 0.001
 tracks/0/type = "value"
@@ -196,7 +178,6 @@ tracks/2/keys = {
 "values": [1.0]
 }
 
->>>>>>> Stashed changes
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mds2e"]
 _data = {
 &"RESET": SubResource("Animation_3p7ol"),
