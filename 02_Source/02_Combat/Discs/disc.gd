@@ -208,7 +208,7 @@ func get_velocity_at_point_of_impact(vector_from_center_of_mass: Vector2) -> Vec
 	return velocity + rotational_velocity_at_point
 
 func is_moving() -> bool:
-	return velocity.x != 0 || velocity.y != 0
+	return velocity.length() > 5
 
 
 func _on_playspace_check_area_entered(area: Area2D) -> void:

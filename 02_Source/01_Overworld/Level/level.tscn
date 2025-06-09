@@ -12,6 +12,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jli0g"]
 size = Vector2(211, 211)
 
+[sub_resource type="Animation" id="Animation_mf0rx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_jmbpx"]
 resource_name = "idle"
 length = 3.0
@@ -30,7 +45,19 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_mf0rx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsnhg"]
+_data = {
+&"RESET": SubResource("Animation_mf0rx"),
+&"idle": SubResource("Animation_jmbpx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdqyf"]
+size = Vector2(135, 130)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ralse"]
+radius = 75.0067
+
+[sub_resource type="Animation" id="Animation_fsdup"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -44,18 +71,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsnhg"]
-_data = {
-&"RESET": SubResource("Animation_mf0rx"),
-&"idle": SubResource("Animation_jmbpx")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdqyf"]
-size = Vector2(135, 130)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ralse"]
-radius = 75.0067
 
 [sub_resource type="Animation" id="Animation_vafma"]
 resource_name = "idle"
@@ -75,21 +90,6 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_fsdup"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgmmt"]
 _data = {
 &"RESET": SubResource("Animation_fsdup"),
@@ -103,6 +103,21 @@ height = 108.894
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_84ggg"]
 radius = 57.0
 height = 196.0
+
+[sub_resource type="Animation" id="Animation_kfsai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_t3gy8"]
 resource_name = "default"
@@ -122,7 +137,17 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_kfsai"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3570"]
+_data = {
+&"RESET": SubResource("Animation_kfsai"),
+&"default": SubResource("Animation_t3gy8")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr3bj"]
+radius = 28.0
+height = 108.0
+
+[sub_resource type="Animation" id="Animation_3ram8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -136,16 +161,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3570"]
-_data = {
-&"RESET": SubResource("Animation_kfsai"),
-&"default": SubResource("Animation_t3gy8")
-}
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr3bj"]
-radius = 28.0
-height = 108.0
 
 [sub_resource type="Animation" id="Animation_l74xi"]
 resource_name = "default"
@@ -162,21 +177,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_3ram8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4y47"]
@@ -288,7 +288,7 @@ position = Vector2(1280, 360)
 texture = ExtResource("3_01gd7")
 
 [node name="Prin" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(130.58, 106.867)
+position = Vector2(476, 457)
 dialogic_scene = "prin_timeline"
 
 [node name="CollisionShape2D" parent="Prin" index="0"]
@@ -310,7 +310,7 @@ position = Vector2(4.92, -24.867)
 shape = SubResource("RectangleShape2D_fdqyf")
 
 [node name="Elm" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(175, 363)
+position = Vector2(1820, 140)
 dialogic_scene = "elm_timeline"
 
 [node name="CollisionShape2D" parent="Elm" index="0"]
@@ -333,7 +333,7 @@ rotation = 0.785398
 shape = SubResource("CapsuleShape2D_mcfrq")
 
 [node name="Albert" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(816, 107)
+position = Vector2(1222, 300)
 dialogic_scene = "albert_timeline"
 
 [node name="CollisionShape2D" parent="Albert" index="0"]
@@ -358,7 +358,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nr3bj")
 
 [node name="Periwinkle" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(461, 83)
+position = Vector2(1447, 396)
 dialogic_scene = "periwinkle_timeline"
 
 [node name="CollisionShape2D" parent="Periwinkle" index="0"]

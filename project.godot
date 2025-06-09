@@ -40,7 +40,9 @@ directories/dtl_directory={
 "post_periwinkle": "res://03_DialogicAssets/Timelines/post_periwinkle.dtl",
 "post_prin_first": "res://03_DialogicAssets/Timelines/post_prin_first.dtl",
 "post_prin_last": "res://03_DialogicAssets/Timelines/post_prin_last.dtl",
-"prin_timeline": "res://03_DialogicAssets/Timelines/prin_timeline.dtl"
+"prin_timeline": "res://03_DialogicAssets/Timelines/prin_timeline.dtl",
+"prin_tutorial": "res://03_DialogicAssets/Timelines/prin_tutorial.dtl",
+"summer_tutorial": "res://03_DialogicAssets/Timelines/summer_tutorial.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://03_DialogicAssets/Styles/primary_style.tres"]
@@ -57,7 +59,7 @@ extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.04
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.01
-text/advance_delay=0.05
+text/advance_delay=0.1
 text/autoadvance_per_character_delay=0.1
 text/autoadvance_ignored_characters_enabled=true
 audio/max_channels=4.0

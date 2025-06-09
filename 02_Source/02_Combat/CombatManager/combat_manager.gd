@@ -35,9 +35,9 @@ var ally_discs = [
 ]
 
 var ally_timers = [
-	5,
-	9,
-	12
+	3,
+	4.5,
+	6
 ]
 
 var ally_next_angles = [
@@ -253,6 +253,11 @@ func _process(delta: float) -> void:
 	t.tween_property($HealthBar, "material:shader_parameter/fill_percent", \
 		1 - len(enemy_live_discs()) / 10.0, 0.4)
 
+func start_combat():
+	if fight_num == 0:
+		Dialogic.start("summer_tutorial").process_mode = Node.PROCESS_MODE_ALWAYS
+		SignalBus.dialogue_pause.emit()
+
 #every frame
 func _physics_process(delta: float) -> void:
 	
@@ -314,7 +319,7 @@ func ally_action(delta):
 		if ally_discs[i]: continue
 		
 		if ally_timers[i] <= 0:
-			ally_timers[i] = randf_range(5, 7)
+			ally_timers[i] = randf_range(5, 8)
 			var spawn_pos = center + Vector2(400, 0).rotated(ally_next_angles[i])
 			ally_next_angles[i] = randf_range(0, TAU)
 			var vel = spawn_pos.direction_to(center) * 700
@@ -375,6 +380,7 @@ func combat_win_lose(is_win):
 	if fight_num == 0 and is_win and not prin_phase2:
 		prin_phase2 = true
 		await get_tree().create_timer(1).timeout
+		Dialogic.start("prin_tutorial")
 		enemy_flinch = 0.1
 		enemy_max_rot_vel = 1.5 * PI / 2
 		enemy_shoot_rate = 0.75
@@ -386,6 +392,10 @@ func combat_win_lose(is_win):
 	if is_win:
 		for d in enemy_live_discs():
 			d.remove_disc()
+	else:
+		for d in enemy_live_discs():
+			d.velocity = Vector2.ZERO
+			d.removing = true
 	$AnimationPlayer.play("exit")
 
 func combat_exit():

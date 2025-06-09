@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("talk"):
+	if Input.is_action_just_pressed("talk") and not Dialogic.current_timeline:
 		var areas = $InteractBox.get_overlapping_areas()
 		if not areas: return
 		

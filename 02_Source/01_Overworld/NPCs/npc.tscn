@@ -20,7 +20,7 @@ shape = SubResource("CircleShape2D_oul6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -21)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.6, 0.6)
 texture = SubResource("CompressedTexture2D_6whqu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

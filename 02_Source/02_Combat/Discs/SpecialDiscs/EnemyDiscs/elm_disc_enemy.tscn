@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://w02gd2qykv6o"]
+[gd_scene load_steps=9 format=3 uid="uid://w02gd2qykv6o"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_1k566"]
 [ext_resource type="Script" uid="uid://lcgwvme0qxi" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.gd" id="2_lhswv"]
@@ -12,6 +12,9 @@ shader = ExtResource("3_dbduf")
 shader_parameter/strength = 1.0
 shader_parameter/direction = Vector2(1, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3igc1"]
+radius = 54.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lhswv"]
 radius = 110.0
 
@@ -21,10 +24,12 @@ max_velocity = 800.0
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_3igc1")
+scale = Vector2(1, 1)
 texture = ExtResource("4_3igc1")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_3igc1")
 
 [node name="GravityRing" type="Area2D" parent="." index="3"]
 collision_layer = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://j3o0ynj8y6dd"]
+[gd_scene load_steps=8 format=3 uid="uid://j3o0ynj8y6dd"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_wn0b8"]
 [ext_resource type="Script" uid="uid://c3dbd41jccrsh" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/al_disc_enemy.gd" id="2_uap4v"]
@@ -11,6 +11,9 @@ resource_local_to_scene = true
 shader = ExtResource("3_o2lp2")
 shader_parameter/strength = 1.0
 shader_parameter/direction = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ru6er"]
+radius = 54.0
 
 [node name="AlDisc" instance=ExtResource("1_wn0b8")]
 script = ExtResource("2_uap4v")
@@ -26,5 +29,6 @@ texture = ExtResource("4_ru6er")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_ru6er")
 
 [node name="ShakeComponent" parent="." index="3" instance=ExtResource("5_ru6er")]

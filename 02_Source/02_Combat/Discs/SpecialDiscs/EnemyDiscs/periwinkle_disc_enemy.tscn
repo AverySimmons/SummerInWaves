@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4h03grv3sige"]
+[gd_scene load_steps=8 format=3 uid="uid://d4h03grv3sige"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_purrb"]
 [ext_resource type="Script" uid="uid://humqapvq5060" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.gd" id="2_l71io"]
@@ -12,6 +12,9 @@ shader = ExtResource("2_pg358")
 shader_parameter/strength = 1.0
 shader_parameter/direction = Vector2(1, 1)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrxsk"]
+radius = 54.0
+
 [node name="PeriwinkleDisc" instance=ExtResource("1_purrb")]
 script = ExtResource("2_l71io")
 max_velocity = 800.0
@@ -24,5 +27,6 @@ texture = ExtResource("4_xrxsk")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_xrxsk")
 
 [node name="ShakeComponent" parent="." index="3" instance=ExtResource("5_xrxsk")]
