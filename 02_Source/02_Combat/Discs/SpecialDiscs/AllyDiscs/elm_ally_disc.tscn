@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b1mmqs6xos320"]
 
-[ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/ally_disc.tscn" id="1_npmn5"]
+[ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_npmn5"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_bdwpu"]
 [ext_resource type="Script" uid="uid://vvsrvvobnt5m" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/elm_ally_disc.gd" id="2_li34u"]
 [ext_resource type="Texture2D" uid="uid://b5w2avywrwjf3" path="res://01_Assets/01_Sprites/button_sprites/elm_ally_gravity_bomb_spritesheet.png" id="3_f5d8s"]
@@ -106,12 +106,10 @@ radius = 54.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_bdwpu"]
 radius = 150.0
 
-[node name="AllyDisc" instance=ExtResource("1_npmn5")]
+[node name="AllyDisc2" instance=ExtResource("1_npmn5")]
 script = ExtResource("2_li34u")
 min_gravity_bomb_strength = 500.0
 gravity_bomb_strength = 1.6
-despawn_timer_time = 1
-max_velocity = 800.0
 
 [node name="Implosion" type="Sprite2D" parent="." index="0"]
 visible = false

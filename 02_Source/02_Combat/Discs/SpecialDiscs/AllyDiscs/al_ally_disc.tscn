@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://u48dwr2jv2dw"]
 
-[ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/ally_disc.tscn" id="1_c4l2g"]
+[ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_c4l2g"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_b7tvo"]
 [ext_resource type="Script" uid="uid://bb8q2hrc08mvo" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.gd" id="2_h4vmu"]
 [ext_resource type="Texture2D" uid="uid://bt3ol8s354ega" path="res://01_Assets/01_Sprites/button_sprites/al's_main_button.png" id="4_24f1p"]
@@ -28,10 +28,8 @@ gradient = SubResource("Gradient_4mbmo")
 width = 32
 height = 32
 
-[node name="AllyDisc" instance=ExtResource("1_c4l2g")]
+[node name="AllyDisc2" instance=ExtResource("1_c4l2g")]
 script = ExtResource("2_h4vmu")
-despawn_timer_time = 1
-max_velocity = 800.0
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_h4vmu")
