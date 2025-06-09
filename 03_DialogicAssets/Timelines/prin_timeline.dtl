@@ -9,21 +9,21 @@ if {prin_talked_to} == false:
 	set {prin_talked_to} = true
 	[signal arg="switch to combat"]
 else:
-	prin_character: Just leave me alone.
+	prin_character (Sad): Just leave me alone.
 if GameData.kids_defeated == 4.0:
 	if {last_fight_lost} == 4.0:
 		prin_character (Sad): I miss having friends...
 	else:
-		summer_character: Prin! I made some new friends-
+		summer_character: Prin! I made some new friends,
 		albert_character: I'm Al!
-		periwinkle_character: Hi... I'm Periwinkle.
-		elm_character: Nice to meet you Prin, I'm Elm.
+		periwinkle_character: Hi... I'm Periwinkle
+		elm_character: Nice to meet you Prin, I'm Elm
 		prin_character: I wish my friends were here too...
 		periwinkle_character: We can be your friends!
-		prin_character: You don't understand, I failed my highschool entrance exam, and now I'm so far away from home.
-		elm_character: Hey sometimes I do bad in my classes, I got a B+ last week.
-		prin_character: You guys don't get it.
+		prin_character (Sad): You don't understand, I failed my highschool entrance exam, and now I'm so far away from home.
+		elm_character: Hey sometimes I do bad in my classes, I got a B+ last week
+		prin_character (Sad): You guys don't get it.
 		albert_character: Get what?
-		prin_character: ...
-		prin_character: Little kids have it so easy, you wouldn't understand my problems...
+		prin_character (Sad): ...
+		prin_character (Sad): Little kids have it so easy, you wouldn't understand my problems...
 	[signal arg="switch to combat"]
