@@ -13,7 +13,7 @@
 "pitch_variance": 0.0,
 "skip_characters": 2.0,
 "sound_path": "res://01_Assets/02_Audio/SoundEffects/CharacterVoice/Haa2.wav",
-"volume_base": 4.0,
+"volume_base": 10.0,
 "volume_variance": 0.0
 }
 },

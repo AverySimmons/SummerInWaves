@@ -13,7 +13,7 @@
 "pitch_variance": 0.0,
 "skip_characters": 1.0,
 "sound_path": "res://01_Assets/02_Audio/SoundEffects/DiscCollision1.wav",
-"volume_base": -1.6,
+"volume_base": 1.0,
 "volume_variance": 0.0
 }
 },

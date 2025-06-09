@@ -22,7 +22,6 @@ Sound:
 		
 	Combat
 		Disc smack (joey task)
-		// Flick charge (starwdew valley fishing) 2B
 		// Flick release (Wait on joey)
 		// Enemey/Ally flick release (pitch shifted / joey wait)
 		
