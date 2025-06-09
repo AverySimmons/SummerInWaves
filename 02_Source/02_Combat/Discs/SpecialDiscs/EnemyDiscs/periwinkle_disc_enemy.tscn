@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_pg358"]
 [ext_resource type="Texture2D" uid="uid://322xjha7yrio" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_enemy_frozen.png" id="3_aipdl"]
 [ext_resource type="Texture2D" uid="uid://c50etoon2bvdq" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_evil_button.png" id="4_xrxsk"]
-[ext_resource type="PackedScene" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_xrxsk"]
+[ext_resource type="PackedScene" uid="uid://cx7ft31yqwsip" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_xrxsk"]
 [ext_resource type="AudioStream" uid="uid://84hirx1j0xsv" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/FreezeEffect.wav" id="7_ktwbl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pg358"]

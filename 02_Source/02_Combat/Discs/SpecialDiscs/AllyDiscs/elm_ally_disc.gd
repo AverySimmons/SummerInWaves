@@ -1,7 +1,7 @@
 extends AllyDisc
 
-const ELM_SPECIAL_MOVE_TIMER_LOWER = 6
-const ELM_SPECIAL_MOVE_TIMER_UPPER = 8
+const ELM_SPECIAL_MOVE_TIMER_LOWER = 10
+const ELM_SPECIAL_MOVE_TIMER_UPPER = 12
 
 @export var min_gravity_bomb_strength: float = 500
 # Strength of gravity bomb. 1.0 means it'll add the exact distance from self (of node) to Elm to its velocity
