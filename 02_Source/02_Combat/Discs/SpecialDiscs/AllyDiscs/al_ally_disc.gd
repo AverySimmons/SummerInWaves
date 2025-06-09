@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
-	var endpoint = charge_dir 
+	var endpoint = global_position + charge_dir 
 	if not is_charging:
 		if target: endpoint = target.global_position
 		else: endpoint = Vector2(640, 360)

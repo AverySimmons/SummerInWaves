@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://j3o0ynj8y6dd"]
+[gd_scene load_steps=10 format=3 uid="uid://j3o0ynj8y6dd"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_wn0b8"]
 [ext_resource type="Script" uid="uid://c3dbd41jccrsh" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/al_disc_enemy.gd" id="2_uap4v"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_o2lp2"]
 [ext_resource type="Texture2D" uid="uid://bakmq27o3as0b" path="res://01_Assets/01_Sprites/button_sprites/al_evil_button.png" id="4_ru6er"]
 [ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_ru6er"]
+[ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="6_vnyu1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ru6er"]
 resource_local_to_scene = true
@@ -14,6 +15,10 @@ shader_parameter/direction = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ru6er"]
 radius = 54.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb2s4"]
+shader = ExtResource("6_vnyu1")
+shader_parameter/sizex = 120.0
 
 [node name="AlDisc" instance=ExtResource("1_wn0b8")]
 script = ExtResource("2_uap4v")
@@ -32,3 +37,13 @@ position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_ru6er")
 
 [node name="ShakeComponent" parent="." index="3" instance=ExtResource("5_ru6er")]
+
+[node name="IndicatorTrans" type="Node2D" parent="." index="5"]
+
+[node name="Indicator" type="ColorRect" parent="IndicatorTrans" index="0"]
+z_index = -1
+material = SubResource("ShaderMaterial_eb2s4")
+offset_top = -30.0
+offset_right = 120.0
+offset_bottom = 30.0
+color = Color(1, 0.221789, 0.513195, 0.529412)

@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		
 		$Hand.let_go()
 		if cur_t: cur_t.kill()
-		var cur_t = create_tween()
+		cur_t = create_tween()
 		cur_t.tween_property($Hand, "modulate", Color(1,1,1,0), 0.5)
 	
 	if is_pulling:
