@@ -5,7 +5,7 @@ const ELM_SPECIAL_MOVE_TIMER_UPPER = 8
 
 @export var min_gravity_bomb_strength: float = 500
 # Strength of gravity bomb. 1.0 means it'll add the exact distance from self (of node) to Elm to its velocity
-@export var gravity_bomb_strength: float = 1.6
+@export var gravity_bomb_strength: float = 7.5
 
 func _ready() -> void:
 	super._ready()

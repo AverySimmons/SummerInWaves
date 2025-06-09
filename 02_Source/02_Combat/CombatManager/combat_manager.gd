@@ -166,7 +166,7 @@ func _ready() -> void:
 		4:
 			enemy_flinch = 0.4
 			enemy_max_rot_vel = 1.5 * PI / 2
-			enemy_shoot_rate = 4
+			enemy_shoot_rate = 1.1
 			enemy_shoot_speed_mod = 800
 			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel
