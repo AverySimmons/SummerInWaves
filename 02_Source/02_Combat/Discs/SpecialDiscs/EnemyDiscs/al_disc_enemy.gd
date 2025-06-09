@@ -50,8 +50,9 @@ func get_new_point():
 
 func charge_to_center_ability() -> void:
 	# Charge visuals maybe?
-	#
-	#
+	#sound
+	$AlEnemyCharge.play()
+	
 	velocity = charge_speed * charge_dir
 	await get_tree().create_timer(1.5).timeout
 	get_new_point()

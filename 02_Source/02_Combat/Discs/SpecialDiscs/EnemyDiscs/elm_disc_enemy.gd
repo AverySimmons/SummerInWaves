@@ -25,6 +25,8 @@ func _physics_process(delta: float) -> void:
 		gravitation_timer = GRAVITATION_TIME
 		special_move_timer = randf_range(ELM_SPECIAL_MOVE_TIMER_LOWER, ELM_SPECIAL_MOVE_TIMER_UPPER)
 		$GravityPull/AnimationPlayer.play("gravity_pull")
+		#sound
+		$ElmGravPull.play()
 	
 	if gravitation_timer >= 0:
 		gravity_ability(delta)
@@ -32,6 +34,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		mass = normal_mass
 		$GravityPull/AnimationPlayer.play("RESET")
+		#sound
+		$ElmGravPull.stop()
 	pass
 
 func gravity_ability(delta: float) -> void:

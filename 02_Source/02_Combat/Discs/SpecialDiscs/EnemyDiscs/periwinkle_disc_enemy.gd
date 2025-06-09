@@ -25,6 +25,9 @@ func _physics_process(delta: float) -> void:
 		$Freeze.visible = true
 		mass = mass * mass_increase
 		
+		#sound
+		$PeriFreeze.play()
+		
 		stored_velocity = velocity
 		velocity = Vector2(0, 0)
 		
