@@ -1,7 +1,7 @@
 extends AllyDisc
 
-const PERI_SPECIAL_MOVE_TIMER_LOWER = 6
-const PERI_SPECIAL_MOVE_TIMER_UPPER = 8
+const PERI_SPECIAL_MOVE_TIMER_LOWER = 10
+const PERI_SPECIAL_MOVE_TIMER_UPPER = 12
 
 @export var fixed_bomb_strength: float = 600
 @export var bomb_strength: float = 1.6

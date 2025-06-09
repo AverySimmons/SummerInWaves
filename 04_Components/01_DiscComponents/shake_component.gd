@@ -5,7 +5,7 @@ extends Node2D
 var actual_shake_intensity
 
 var target_node = null
-@export var shaking_time: float = 2.0
+@export var shaking_time: float = 3.5
 
 func _ready():
 	target_node = get_parent()

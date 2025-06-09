@@ -1,7 +1,7 @@
 extends AllyDisc
 
-const AL_SPECIAL_MOVE_TIMER_LOWER = 6
-const AL_SPECIAL_MOVE_TIMER_UPPER = 8
+const AL_SPECIAL_MOVE_TIMER_LOWER = 10
+const AL_SPECIAL_MOVE_TIMER_UPPER = 12
 const ABILITY_MASS_INCREASE_TIME = 3
 
 var ability_mass_increase: int = 10000

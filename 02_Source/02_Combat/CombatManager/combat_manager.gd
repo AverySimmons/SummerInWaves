@@ -35,9 +35,9 @@ var ally_discs = [
 ]
 
 var ally_timers = [
-	3,
-	4.5,
-	6
+	16,
+	10,
+	4
 ]
 
 var ally_next_angles = [
@@ -166,7 +166,7 @@ func _ready() -> void:
 		4:
 			enemy_flinch = 0.4
 			enemy_max_rot_vel = 1.5 * PI / 2
-			enemy_shoot_rate = 1.1
+			enemy_shoot_rate = 2.5
 			enemy_shoot_speed_mod = 800
 			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel
@@ -294,6 +294,8 @@ func start_combat():
 
 #every frame
 func _physics_process(delta: float) -> void:
+	
+	enemy_shoot_rate += delta / 120
 	
 	var enemy_shoot_pos = center + Vector2(350, 0).rotated(rotation_angle) #starting vector rotated
 	$EnemyShootPos.position = enemy_shoot_pos

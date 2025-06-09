@@ -5,7 +5,7 @@ var is_pulling: bool = false
 var pull_pos: Vector2 = Vector2.ZERO
 
 var cooldown_timer = 2
-var cooldown_window = 1
+var cooldown_window = 0.8
 var cd_sound_played = true
 
 var player_disc_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.tscn")
@@ -76,6 +76,6 @@ func flick_disc() -> void:
 	var mouse_norm = get_global_mouse_position() - pull_pos
 	var disc_speed = 500 + min(mouse_norm.length(), 200) * 9
 	var disc_vel = mouse_norm.normalized() * disc_speed * -1
-	SignalBus.create_disc.emit(pull_pos, disc_vel, -1, player_disc_scene, TAU, 1)
+	SignalBus.create_disc.emit(pull_pos, disc_vel, -1, player_disc_scene, TAU, 0.85)
 	cd_sound_played = false
 	cooldown_timer = 0
