@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bl3om4mmn747q"]
 
-[ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_ytlm1"]
+[ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/ally_disc.tscn" id="1_ytlm1"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_2160p"]
 [ext_resource type="Script" uid="uid://dhm11kcs33r5p" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.gd" id="2_ben0x"]
 [ext_resource type="PackedScene" uid="uid://cx7ft31yqwsip" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_ben0x"]
@@ -109,6 +109,8 @@ _data = {
 script = ExtResource("2_ben0x")
 fixed_bomb_strength = 600.0
 bomb_strength = 1.6
+despawn_timer_time = 1
+max_velocity = 800.0
 
 [node name="Sprite2D" parent="." index="0"]
 z_index = -1

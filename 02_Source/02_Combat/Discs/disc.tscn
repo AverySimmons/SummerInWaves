@@ -60,6 +60,7 @@ attenuation = 0.1
 
 [node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_nph5x")
+volume_db = 13.867
 attenuation = 0.1
 
 [connection signal="area_entered" from="PlayspaceCheck" to="." method="_on_playspace_check_area_entered"]
