@@ -122,7 +122,8 @@ func _ready() -> void:
 			enemy_shoot_speed_mod = 0
 			enemy_starting_discs = 8
 			enemy_rot_acc = 0
-			enemy_special_discs = 0
+			enemy_special_discs = [enemy_elm_scene]
+			enemy_normal_count = 1000
 			enemy_normal_num = 1000
 			enemy_sprite_index = 3
 			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))

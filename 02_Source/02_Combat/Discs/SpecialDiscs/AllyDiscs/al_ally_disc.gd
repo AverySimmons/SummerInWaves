@@ -29,6 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if target:
 		$Target.global_position = target.global_position
+		$Target.global_rotation = 0
 		$Target.visible = true
 	else:
 		$Target.visible = false

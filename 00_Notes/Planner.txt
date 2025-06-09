@@ -5,7 +5,6 @@ Font
 Textbox style
 NPCs delete themselves
 Disc hit sound
-Elm pieces not spawning
 Beach NPC dialogue
 Upload itch io
 Ending

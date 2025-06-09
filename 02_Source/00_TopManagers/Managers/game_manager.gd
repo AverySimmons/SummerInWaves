@@ -19,6 +19,10 @@ func switch_scenes(win: bool) -> void:
 	if is_combat:
 		# maybe configure overworld before adding it back
 		
+		overworld_level.enter_from_combat()
+		call_deferred("add_child", overworld_level)
+		combat_level.call_deferred("queue_free")
+		
 		Dialogic.VAR.set_variable("fight_won", win)
 		
 		match GameData.kids_defeated:
@@ -33,12 +37,28 @@ func switch_scenes(win: bool) -> void:
 			4:
 				Dialogic.start("post_prin_last")
 		
+		await Dialogic.timeline_ended
+		
+		if win:
+			match GameData.kids_defeated:
+				1:
+					overworld_level.get_node("Albert/StaticBody2D").queue_free()
+					overworld_level.get_node("Albert").monitorable = false
+					var t = create_tween()
+					t.tween_property(overworld_level.get_node("Albert"), "modulate", Color(1,1,1,0), 1)
+				2:
+					overworld_level.get_node("Periwinkle/StaticBody2D").queue_free()
+					overworld_level.get_node("Periwinkle").monitorable = false
+					var t = create_tween()
+					t.tween_property(overworld_level.get_node("Periwinkle"), "modulate", Color(1,1,1,0), 1)
+				3:
+					overworld_level.get_node("Elm/StaticBody2D").queue_free()
+					overworld_level.get_node("Elm").monitorable = false
+					var t = create_tween()
+					t.tween_property(overworld_level.get_node("Elm"), "modulate", Color(1,1,1,0), 1)
+		
 		if win or GameData.kids_defeated == 0:
 			GameData.kids_defeated += 1
-		
-		overworld_level.enter_from_combat()
-		call_deferred("add_child", overworld_level)
-		combat_level.call_deferred("queue_free")
 	
 	else:
 		var img = get_viewport().get_texture().get_image()
