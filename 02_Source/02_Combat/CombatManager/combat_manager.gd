@@ -129,11 +129,11 @@ func _ready() -> void:
 			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))
 		1:
 			enemy_flinch = 1
-			enemy_max_rot_vel = PI / 2
+			enemy_max_rot_vel = PI / 6
 			enemy_shoot_rate = 3
 			enemy_shoot_speed_mod = 600
 			enemy_starting_discs = 4
-			enemy_rot_acc = enemy_max_rot_vel
+			enemy_rot_acc = enemy_max_rot_vel / 2
 			enemy_special_discs = [enemy_al_scene]
 			ally_special_discs = 0
 			enemy_normal_num = 3
@@ -141,11 +141,11 @@ func _ready() -> void:
 			$HealthBar.material.set_shader_parameter("color", Color("fa5eff"))
 		2:
 			enemy_flinch = 0.8
-			enemy_max_rot_vel = PI / 2
+			enemy_max_rot_vel = PI / 5
 			enemy_shoot_rate = 2
 			enemy_shoot_speed_mod = 700
 			enemy_starting_discs = 4
-			enemy_rot_acc = enemy_max_rot_vel
+			enemy_rot_acc = enemy_max_rot_vel / 2
 			enemy_special_discs = [enemy_peri_scene]
 			ally_special_discs = 1
 			enemy_normal_num = 3
@@ -153,11 +153,11 @@ func _ready() -> void:
 			$HealthBar.material.set_shader_parameter("color", Color("a95eff"))
 		3:
 			enemy_flinch = 0.6
-			enemy_max_rot_vel = 1.5 * PI / 2
+			enemy_max_rot_vel = PI / 4
 			enemy_shoot_rate = 1.5
 			enemy_shoot_speed_mod = 800
 			enemy_starting_discs = 4
-			enemy_rot_acc = enemy_max_rot_vel
+			enemy_rot_acc = enemy_max_rot_vel / 2
 			enemy_special_discs = [enemy_elm_scene]
 			ally_special_discs = 2
 			enemy_normal_num = 3
@@ -165,11 +165,11 @@ func _ready() -> void:
 			$HealthBar.material.set_shader_parameter("color", Color("66e600"))
 		4:
 			enemy_flinch = 0.4
-			enemy_max_rot_vel = 1.5 * PI / 2
+			enemy_max_rot_vel = PI / 3
 			enemy_shoot_rate = 1.25
 			enemy_shoot_speed_mod = 800
 			enemy_starting_discs = 5
-			enemy_rot_acc = enemy_max_rot_vel
+			enemy_rot_acc = enemy_max_rot_vel / 2
 			enemy_special_discs = [enemy_al_scene, enemy_peri_scene, enemy_elm_scene]
 			ally_special_discs = 3
 			enemy_normal_num = 3
