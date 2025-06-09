@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://hysp38t3sb1"]
 
 [ext_resource type="Script" uid="uid://da77v8khyg6wl" path="res://02_Source/00_TopManagers/TitleScreen/title_screen.gd" id="1_7i3xl"]
-[ext_resource type="Texture2D" uid="uid://dawvne6krahip" path="res://01_Assets/01_Sprites/backgrounds/title_screen_empty.png" id="2_yxp4w"]
-[ext_resource type="Texture2D" uid="uid://bg51brc04ctrc" path="res://01_Assets/01_Sprites/backgrounds/summer_start_button_small_1.png" id="3_yxp4w"]
-[ext_resource type="Texture2D" uid="uid://ccdsqu1ac7owm" path="res://01_Assets/01_Sprites/backgrounds/summer_start_button_small_2.png" id="4_b6685"]
-[ext_resource type="AudioStream" uid="uid://2np6k3vkg5mi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="5_b6685"]
+[ext_resource type="Texture2D" uid="uid://dwpwk7w8nsj1i" path="res://01_Assets/01_Sprites/backgrounds/title_screen_empty.png" id="2_yxp4w"]
+[ext_resource type="Texture2D" uid="uid://b8bwpb5uq62gc" path="res://01_Assets/01_Sprites/backgrounds/summer_start_button_small_1.png" id="3_yxp4w"]
+[ext_resource type="Texture2D" uid="uid://db5baeqxn1d0m" path="res://01_Assets/01_Sprites/backgrounds/summer_start_button_small_2.png" id="4_b6685"]
+[ext_resource type="AudioStream" uid="uid://ctaarlqem1cdi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="5_b6685"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_7i3xl")

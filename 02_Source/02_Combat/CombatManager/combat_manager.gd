@@ -82,6 +82,7 @@ var ally_special_discs = 0
 var enemy_special_disc_chance = 0
 var enemy_sprite_index = 0
 
+var flinch_timer = 0
 
 var prin_phase2 = false
 
@@ -102,6 +103,7 @@ var loss_count = 10
 func _ready() -> void:
 	GameData.combat_manager = self
 	SignalBus.create_disc.connect(spawn_disc)
+	SignalBus.disc_removed.connect(disc_removed)
 	fight_num = GameData.kids_defeated
 	
 	for i in 3:
@@ -170,7 +172,14 @@ func _ready() -> void:
 	choose_next_disc()
 	
 	await get_tree().create_timer(0.5).timeout
+	
 	spawn_starting_discs()
+	
+	await get_tree().create_timer(3).timeout
+	
+	if fight_num != 0:
+		var t = create_tween()
+		t.tween_property($EnemyShootPos, "modulate", Color(1,1,1,1), 0.5)
 
 func spawn_starting_discs():
 	var angle = PI / 2
@@ -200,6 +209,10 @@ func round_score():
 			opponent_score += ring1_points
 		else:
 			player_score += ring2_points
+
+func disc_removed(is_enemy):
+	if is_enemy:
+		enemy_disc_destroyed()
 
 func choose_next_disc():
 	about_to_shoot_special = randf_range(0, 1) < enemy_special_disc_chance
@@ -256,6 +269,11 @@ func _process(delta: float) -> void:
 func start_combat():
 	if fight_num == 0:
 		Dialogic.start("summer_tutorial").process_mode = Node.PROCESS_MODE_ALWAYS
+		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		SignalBus.dialogue_pause.emit()
+	if fight_num == 2:
+		Dialogic.start("albert_tutorial").process_mode = Node.PROCESS_MODE_ALWAYS
+		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		SignalBus.dialogue_pause.emit()
 
 #every frame
@@ -280,7 +298,9 @@ func _physics_process(delta: float) -> void:
 	
 	if pause: return
 	
-	enemy_action(delta)
+	if flinch_timer == 0:
+		$EnemyShootPos.modulate = Color(1,1,1,1)
+		enemy_action(delta)
 	ally_action(delta)
 	
 	#checking for victory
@@ -294,6 +314,8 @@ func _physics_process(delta: float) -> void:
 	#timers
 	enemy_shoot_timer += delta
 	enemy_move_timer -= delta
+	flinch_timer -= delta
+	flinch_timer = max(0, flinch_timer)
 	
 	if no_enemy_discs():
 		win_game_timer += delta
@@ -312,7 +334,9 @@ func _physics_process(delta: float) -> void:
 		lose_game_timer = 0
 
 func enemy_disc_destroyed():
-	enemy_shoot_timer -= enemy_flinch
+	if fight_num == 0: return
+	flinch_timer += enemy_flinch
+	$EnemyShootPos.modulate = Color(0.7,0.7,0.7,0.7)
 
 func ally_action(delta):
 	for i in range(ally_special_discs):
@@ -380,7 +404,13 @@ func combat_win_lose(is_win):
 	if fight_num == 0 and is_win and not prin_phase2:
 		prin_phase2 = true
 		await get_tree().create_timer(1).timeout
-		Dialogic.start("prin_tutorial")
+		var t = create_tween()
+		t.tween_property($EnemyShootPos, "modulate", Color(1,1,1,1), 0.5)
+		await t.finished
+		await get_tree().create_timer(1).timeout
+		Dialogic.start("prin_tutorial").process_mode = Node.PROCESS_MODE_ALWAYS
+		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+		SignalBus.dialogue_pause.emit()
 		enemy_flinch = 0.1
 		enemy_max_rot_vel = 1.5 * PI / 2
 		enemy_shoot_rate = 0.75

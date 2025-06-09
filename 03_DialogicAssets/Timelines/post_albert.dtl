@@ -7,4 +7,5 @@ if {fight_won} == true:
 	summer_character: Sure let's go!
 else:
 	albert_character (Happy): You're not very good at this are you, almost makes me feel bad for you.
-	albert_character (Happy): Now scram. 
+	albert_character (Happy): Now scram.
+	set {last_fight_lost} = 1.0

@@ -32,6 +32,7 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "albert_timeline": "res://03_DialogicAssets/Timelines/albert_timeline.dtl",
+"albert_tutorial": "res://03_DialogicAssets/Timelines/albert_tutorial.dtl",
 "elm_timeline": "res://03_DialogicAssets/Timelines/elm_timeline.dtl",
 "empty_timeline": "res://03_DialogicAssets/Timelines/empty_timeline.dtl",
 "periwinkle_timeline": "res://03_DialogicAssets/Timelines/periwinkle_timeline.dtl",
@@ -51,6 +52,7 @@ variables={
 "albert_name": "???",
 "elm_name": "???",
 "fight_won": false,
+"last_fight_lost": -1,
 "periwinkle_name": "???",
 "prin_name": "???",
 "prin_talked_to": false

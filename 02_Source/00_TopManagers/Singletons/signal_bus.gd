@@ -7,3 +7,5 @@ signal switch_game(win: bool)
 signal start_game()
 
 signal dialogue_pause()
+
+signal disc_removed(was_enemy)

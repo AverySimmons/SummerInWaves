@@ -5,10 +5,17 @@ extends Node2D
 var sprite_index = 0 :
 	set(val):
 		$Sprite2D.texture = sprites[val]
-		if val == 1 or val == 2:
-			$Sprite2D.position = Vector2(43, 114)
-		else:
-			$Sprite2D.position = Vector2(-57, 105)
+		match val:
+			0:
+				$Sprite2D.position = Vector2(-57, 105)
+			1:
+				$Sprite2D.position = Vector2(43, 114)
+			2:
+				$Sprite2D.position = Vector2(43, 114)
+			3:
+				$Sprite2D.position = Vector2(-57, 105)
+			4:
+				$Sprite2D.position = Vector2(-57, 99)
 		
 		sprite_index = val
 

@@ -1,16 +1,17 @@
 if {fight_won} == true:
-	prin_character (Sad): Oh what am I doing... I can't go back in time and change the results. 
+	prin_character (Sad): Oh what am I doing... I can't go back in time and change the results.
 	periwinkle_character: It's okay to feel lonely! When my parents aren't home I go to Elm's house, being without your friends is the worst.
 	elm_character: And failing an exam isn't the end of the world! Theres so many more out there and so much fun stuff to do!
 	albert_character: Don't be so hard on yourself! You tried your best and thats all that matters!
-	summer_character: See Prin? You're not alone! 
+	summer_character: See Prin? You're not alone!
 	prin_character: Thanks for cheering me up everyone, you're all right. I shouldn't be wasting my summer thinking about the things I should have done. I should be enjoying my summer!
-	summer_character: I know! We should stay for the fireworks show tonight it'll be awesome! 
+	summer_character: I know! We should stay for the fireworks show tonight it'll be awesome!
 	albert_character: Fireworks? I'm in!
 	periwinkle_character: That sounds pretty!
 	elm_character: Did you guys know that fireworks work using chemical reactions!
 	prin_character: I'll be there!
 else:
 	prin_character (Sad): Why didn't I try harder, I could have studied to much more. Then I wouldn't have had to come here and leave everything behind.
-	summer_character: But I would have missed you Prin... 
-	prin_character (Sad): I know Summer, I know. 
+	summer_character: But I would have missed you Prin...
+	prin_character (Sad): I know Summer, I know.
+	set {last_fight_lost} = 4.0

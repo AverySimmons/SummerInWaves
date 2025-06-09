@@ -10,3 +10,4 @@ if {fight_won} == true:
 else:
 	periwinkle_character (Sad): If this is your way of making new friends, you should go back to kindergarten.
 	periwinkle_character (Sad): Don't talk to me anymore.
+	set {last_fight_lost} = 2.0

@@ -80,6 +80,7 @@ func remove_disc():
 	monitorable = false
 	monitoring = false
 	removing = true
+	SignalBus.disc_removed.emit(self is EnemyDisc)
 	var t = create_tween()
 	t.tween_property($Sprite2D, "scale", $Sprite2D.scale * 1.3, 0.075)
 	t.tween_property($Sprite2D, "scale", Vector2.ZERO, 0.2)
@@ -155,7 +156,7 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	#print("Final Velocity B:", other_disc.velocity)
 	#print("Rotational velocity A:", rotational_velocity)
 	#print("Rotational velocity B:", other_disc.rotational_velocity)
-	print(position)
+	# print(position)
 	return
 
 func fix_penetration(other_disc: Disc) -> void:
@@ -197,12 +198,12 @@ func calculate_normal_impulse(normal_speed: float, other_disc: Disc) -> float:
 	return -(effective_mass * 2 * normal_speed)
 	
 func find_collision_point(other_disc: Disc) -> Vector2:
-	print(position)
+	# print(position)
 	var direction = (other_disc.center_of_mass - center_of_mass).normalized()
 	return center_of_mass + direction * radius
 
 func get_velocity_at_point_of_impact(vector_from_center_of_mass: Vector2) -> Vector2:
-	print(position)
+	# print(position)
 	var tangent_dir = Vector2(-vector_from_center_of_mass.y, vector_from_center_of_mass.x).normalized()
 	var rotational_velocity_at_point = tangent_dir * rotational_velocity * vector_from_center_of_mass.length()
 	return velocity + rotational_velocity_at_point
