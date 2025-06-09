@@ -53,7 +53,7 @@ debug_color = Color(0.7, 0, 0, 0.419608)
 material = SubResource("ShaderMaterial_sdusc")
 offset_right = 120.0
 offset_bottom = 40.0
-color = Color(1, 0.9, 0, 0.878431)
+color = Color(1, 0.7, 0, 0.909804)
 
 [node name="CooldownBar" type="ColorRect" parent="."]
 z_index = -1
