@@ -3,8 +3,8 @@ Title screen ambience - Done
 Button hover - Done
 Settings toggle - Done
 Type sound effects for Summer / Albert / Periwinkle / Elm / Prin
-Walking sound
-Overworld music / ambience - Done
+Walking sound - Done
+Overworld music / ambience - Implemented
 Battle music
 Start flick (look at stardew valley fishing charge up)
 Release flick
