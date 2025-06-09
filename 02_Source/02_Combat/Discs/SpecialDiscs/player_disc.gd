@@ -1,6 +1,6 @@
 extends Disc
 
-var despawn_timer_time: float = 1
+var despawn_timer_time: float = 0.
 var despawn_timer: float
 
 func _ready() -> void:
@@ -26,5 +26,5 @@ func despawn_check(delta: float) -> void:
 		return
 	
 	if despawn_timer <= 0:
-		queue_free()
+		remove_disc()
 	return

@@ -5,7 +5,9 @@ extends Area2D
 const FRICTION_COEFFICIENT = 800
 const ROTATIONAL_FRICTION = 6
 
+var removing = false
 var sprite_index = 0
+var has_entered_ring = false
 
 var is_enemy: bool
 @export var velocity: Vector2 = Vector2(0, 0)
@@ -55,6 +57,8 @@ func _physics_process(delta: float) -> void:
 	
 	rotational_velocity = move_toward(rotational_velocity, 0, ROTATIONAL_FRICTION*delta)
 	
+	if removing: return
+	
 	# Momentum
 	if collision_cooldown <= 0 && has_overlapping_areas():
 		instigate_collision()
@@ -62,6 +66,17 @@ func _physics_process(delta: float) -> void:
 		return
 	pass
 
+
+func remove_disc():
+	if removing: return
+	monitorable = false
+	monitoring = false
+	removing = true
+	var t = create_tween()
+	t.tween_property($Sprite2D, "scale", $Sprite2D.scale * 1.3, 0.075)
+	t.tween_property($Sprite2D, "scale", Vector2.ZERO, 0.2)
+	await t.finished
+	queue_free()
 
 func instigate_collision() -> void:
 	var overlapping_discs = get_overlapping_areas()
@@ -186,3 +201,7 @@ func get_velocity_at_point_of_impact(vector_from_center_of_mass: Vector2) -> Vec
 
 func is_moving() -> bool:
 	return velocity.x != 0 || velocity.y != 0
+
+
+func _on_playspace_check_area_entered(area: Area2D) -> void:
+	has_entered_ring = true
