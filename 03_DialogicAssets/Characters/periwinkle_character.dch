@@ -12,7 +12,7 @@
 "pitch_base": 0.9,
 "pitch_variance": 0.1,
 "skip_characters": 2.0,
-"sound_path": "res://01_Assets/02_Audio/SoundEffects/Fshh1.wav",
+"sound_path": "res://01_Assets/02_Audio/SoundEffects/CharacterVoice/Fshh1.wav",
 "volume_base": -1.3,
 "volume_variance": 0.1
 }
