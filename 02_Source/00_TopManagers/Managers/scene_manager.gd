@@ -34,6 +34,7 @@ func finish_game():
 func swap_to_end():
 	game.queue_free()
 	end = end_screen.instantiate()
+	add_child(end)
 
 func quit_game():
 	get_tree().quit()
