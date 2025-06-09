@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_1k566"]
 [ext_resource type="Script" uid="uid://lcgwvme0qxi" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.gd" id="2_lhswv"]
-[ext_resource type="Texture2D" uid="uid://ckvwm3s4ltn3s" path="res://01_Assets/01_Sprites/button_sprites/elm_enemy_gravity_pull_spritesheet.png" id="3_0tv5r"]
+[ext_resource type="Texture2D" uid="uid://blg7josekuavj" path="res://01_Assets/01_Sprites/button_sprites/elm_enemy_gravity_pull_spritesheet.png" id="3_0tv5r"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_dbduf"]
-[ext_resource type="Texture2D" uid="uid://dbdfhye0k2jnh" path="res://01_Assets/01_Sprites/button_sprites/elm_evil_button.png" id="4_3igc1"]
+[ext_resource type="Texture2D" uid="uid://by808rbthim0a" path="res://01_Assets/01_Sprites/button_sprites/elm_evil_button.png" id="4_3igc1"]
 [ext_resource type="PackedScene" uid="uid://cx7ft31yqwsip" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_3igc1"]
-[ext_resource type="AudioStream" uid="uid://dc37iy1rn6un" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/ElmGravityPulling.wav" id="7_kgky2"]
+[ext_resource type="AudioStream" uid="uid://bjnkqe5wmy68g" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/ElmGravityPulling.wav" id="7_kgky2"]
 
 [sub_resource type="Animation" id="Animation_s8yk2"]
 length = 0.001

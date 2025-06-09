@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://cyj6g5jcm8ind" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
-bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -38,7 +37,6 @@ mouse_filter = 2
 
 [node name="Panel" type="PanelContainer" parent="Anchor"]
 unique_name_in_owner = true
-self_modulate = Color(0.533333, 0.376471, 0.176471, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

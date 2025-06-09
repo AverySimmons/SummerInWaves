@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bt3ol8s354ega" path="res://01_Assets/01_Sprites/button_sprites/al's_main_button.png" id="4_24f1p"]
 [ext_resource type="PackedScene" uid="uid://cx7ft31yqwsip" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_h4vmu"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="6_4mbmo"]
-[ext_resource type="AudioStream" uid="uid://d3incety6ja02" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/AlGrunt.wav" id="7_kcwm7"]
-[ext_resource type="Texture2D" uid="uid://3ipjs1t4bipf" path="res://01_Assets/01_Sprites/button_sprites/albert_crosshair.png" id="7_ldxki"]
+[ext_resource type="AudioStream" uid="uid://bh7gloid4bm7i" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/AlGrunt.wav" id="7_kcwm7"]
+[ext_resource type="Texture2D" uid="uid://bwug0rkkaw8r7" path="res://01_Assets/01_Sprites/button_sprites/albert_crosshair.png" id="7_ldxki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h4vmu"]
 resource_local_to_scene = true
@@ -21,6 +21,21 @@ radius = 54.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kcwm7"]
 shader = ExtResource("6_4mbmo")
 shader_parameter/sizex = 120.0
+
+[sub_resource type="Animation" id="Animation_b8nf0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
 
 [sub_resource type="Animation" id="Animation_3uoph"]
 resource_name = "default"
@@ -36,21 +51,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2.14355, 1),
 "update": 0,
 "values": [Vector2(1.2, 1.2), Vector2(0.8, 0.8)]
-}
-
-[sub_resource type="Animation" id="Animation_b8nf0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.2, 1.2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdad3"]

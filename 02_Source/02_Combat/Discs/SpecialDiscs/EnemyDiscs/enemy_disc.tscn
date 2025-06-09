@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d663dc5r8v4g"]
+[gd_scene load_steps=6 format=3 uid="uid://d663dc5r8v4g"]
 
 [ext_resource type="PackedScene" uid="uid://22tytw4062gl" path="res://02_Source/02_Combat/Discs/disc.tscn" id="1_jird0"]
 [ext_resource type="Script" uid="uid://fet6bp7fkba8" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.gd" id="2_fe2e2"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_fe2e2"]
+[ext_resource type="Texture2D" uid="uid://clwxpebuqcgs2" path="res://01_Assets/01_Sprites/button_sprites/enemy_button_outline.png" id="4_dq85p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe2e2"]
 resource_local_to_scene = true
@@ -15,3 +16,6 @@ script = ExtResource("2_fe2e2")
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_fe2e2")
+
+[node name="RedCircle" type="Sprite2D" parent="." index="4"]
+texture = ExtResource("4_dq85p")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://22tytw4062gl"]
+[gd_scene load_steps=12 format=3 uid="uid://22tytw4062gl"]
 
 [ext_resource type="Script" uid="uid://c7u7mfqn1xdlk" path="res://02_Source/02_Combat/Discs/disc.gd" id="1_m1gb4"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_3y8sx"]
 [ext_resource type="Texture2D" uid="uid://byc6b3rwgwv2d" path="res://01_Assets/01_Sprites/button_sprites/periwinkle's_main_button.png" id="3_w8sr8"]
-[ext_resource type="AudioStream" uid="uid://c8smxx2bo3qna" path="res://01_Assets/02_Audio/SoundEffects/DiscPoofs.mp3" id="4_qcnh1"]
+[ext_resource type="AudioStream" uid="uid://onl3rtwdnht1" path="res://01_Assets/02_Audio/SoundEffects/DiscPoofs.mp3" id="4_qcnh1"]
+[ext_resource type="AudioStream" uid="uid://cy4adp0ffntuh" path="res://01_Assets/02_Audio/SoundEffects/DiscCollision1.wav" id="5_j5kd6"]
+[ext_resource type="AudioStream" uid="uid://lka0lfyy2qki" path="res://01_Assets/02_Audio/SoundEffects/DiscCollision2.wav" id="6_20h02"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qcnh1"]
 resource_local_to_scene = true
@@ -21,6 +23,12 @@ radius = 7.28011
 random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("4_qcnh1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nph5x"]
+random_pitch = 1.1
+streams_count = 2
+stream_0/stream = ExtResource("5_j5kd6")
+stream_1/stream = ExtResource("6_20h02")
 
 [node name="Disc" type="Area2D"]
 collision_layer = 2
@@ -48,6 +56,11 @@ shape = SubResource("CircleShape2D_3y8sx")
 [node name="DiscPoof" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_nf5n8")
 pitch_scale = 0.77
+attenuation = 0.1
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_nph5x")
+volume_db = 13.867
 attenuation = 0.1
 
 [connection signal="area_entered" from="PlayspaceCheck" to="." method="_on_playspace_check_area_entered"]
