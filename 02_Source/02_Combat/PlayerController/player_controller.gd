@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if is_pulling:
 		#sound
 		$FlickChargeUp.play()
-		$FlickChargeUp.pitch_scale = clamp((pull_pos.distance_to(get_global_mouse_position()) / 300), 0, 0.5)
+		$FlickChargeUp.pitch_scale = clamp((pull_pos.distance_to(get_global_mouse_position()) / 200), 0., 1.) * 0.9 + 0.1
 		#$FlickChargeUp.pitch_scale = (pull_pos.distance_to(get_global_mouse_position()) / 20)
 		
 		var rot_ang = get_global_mouse_position().direction_to(pull_pos).angle()
@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 		$Indicator.rotation = rot_ang
 		var pull_dist = get_global_mouse_position().distance_to(pull_pos)
 		$Indicator.size.x = clamp(pull_dist, 40, 120)
-		$Indicator.material.set_shader_parameter("sizex", min(pull_dist, 120))
+		$Indicator.material.set_shader_parameter("sizex", min(pull_dist, 200))
 	#sound
 	if cooldown_timer > cooldown_window and not cd_sound_played:
 		$CooldownReady.play()
@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 
 func flick_disc() -> void:
 	var mouse_norm = get_global_mouse_position() - pull_pos
-	var disc_speed = 500 + min(mouse_norm.length(), 120) * 15
+	var disc_speed = 500 + min(mouse_norm.length(), 200) * 9
 	var disc_vel = mouse_norm.normalized() * disc_speed * -1
 	SignalBus.create_disc.emit(pull_pos, disc_vel, -1, player_disc_scene, TAU, 1)
 	cd_sound_played = false

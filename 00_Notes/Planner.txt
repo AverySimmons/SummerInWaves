@@ -22,7 +22,7 @@ Implementation:
 	// Fix starting hand rotation - 6A
 	// 3 2 1 GO!
 	Fix pokemon transition
-	Settings
+	// Settings
 
 Sound:
 	Overworld:
