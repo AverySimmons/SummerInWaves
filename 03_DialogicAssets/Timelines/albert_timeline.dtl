@@ -1,7 +1,7 @@
 if GameData.kids_defeated == 1.0:
-	albert_character (Sad): Take that! And that!!
+	albert_character (Happy): Take that! And that!!
 	summer_character: Hey stop that! Why are you wrecking this sand castle?
-	albert_character (Sad): You don't get to tell me what to do.
+	albert_character (Happy): You don't get to tell me what to do.
 	summer_character: You really shouldn't go around kicking other people's things...
 	albert_character (Sad): My soccer team lost yesterday, I hate losing!
 	summer_character: Hey winning isn't everything, it's all about having fun.

@@ -1,15 +1,20 @@
 if GameData.kids_defeated == 3.0:
 	set {elm_name} = "Elm"
-	elm_character: Seven times seven is fourty-nine... seven times eight, seven times eight...
+	elm_character (Happy): Seven times seven is fourty-nine... seven times eight, seven times eight...
 	summer_character: Oh you're saying some complicated stuff, what's up?
-	elm_character: Don't interrupt me! I have a math test tomorrow and I need to ace this one.
-	summer_character: Hey calm down, what good is there any worrying about it on the beach? What's your name?
-	elm_character: My name's Elm.
-	elm_character: You don't understand! I'm like a tiny boat barely kept afloat in an ocean of math.
-	elm_character: Last week I got a B+ and I can't let that happen again.
+	elm_character (Sad): Don't interrupt me! I have a math test tomorrow and I need to ace this one.
+	summer_character: Hey calm down, what good is there worrying about it on the beach? What's your name?
+	elm_character (Happy): My name's Elm.
+	elm_character (Sad): You don't understand! I'm like a tiny boat barely kept afloat in an ocean of math.
+	elm_character (Sad): Last week I got a B+ and I can't let that happen again.
 	summer_character: You should take it easy, you're not doing the test right now so why let it scare you?
-	elm_character: Seven times eight... Seven times eight is fifty-four... seven times nine... I'm doing high-level math don't distract me.
+	periwinkle_character (Happy): Don't worry about the test Elm, you'll do fine! You're smartest person I know.
+	elm_character (Happy): Periwinkle? Why are you hanging out with these jellyfish-brains ! They don't understand marine biology like we do.
+	albert_character (Happy): That's not true! I like seahorses, they're cool as h-e-double hockey sticks.
+	summer_character: And I love penguins, especially rockhopper penguins! I dig their eyebrows!
+	periwinkle_character (Sad): Don't be so stubborn Elm! I hate it when you act so high and mighty! 
+	elm_character (Happy): Seven times eight... Seven times eight is fifty-four... seven times nine... I'm doing high-level math don't distract me.
 	[signal arg="switch to combat"]
 else:
-	elm_character: On top of everything else, Periwinkle won't talk to me anymore.
+	elm_character (Sad): On top of everything else, Periwinkle won't talk to me anymore.
 	summer_character: I should go talk to whoever Periwinkle is first I guess.

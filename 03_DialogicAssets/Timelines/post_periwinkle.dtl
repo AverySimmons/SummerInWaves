@@ -1,11 +1,12 @@
 if {fight_won} == true:
 	summer_character: We can be your friends!
-	periwinkle_character: Really!? 
+	periwinkle_character (Happy): Really!?
 	albert_character: I'm sorry I kicked over your sandcastle, I just got really mad and I shouldn't have done that.
-	periwinkle_character: It's no big deal, now I know you're not just a meanie.
-	periwinkle_character: Oh!! I forgot all about Elm. I shouldn't have been so hard on him.
-	periwinkle_character: He seems really stressed out, I should talk to him.
+	periwinkle_character (Happy): It's no big deal, now I know you're not just a meanie.
+	periwinkle_character (Sad): Oh!! I forgot all about Elm. I shouldn't have been so hard on him.
+	periwinkle_character (Happy): He seems really stressed out, I should talk to him.
 	summer_character: We'll come with you!
-	periwinkle_character: Thanks guys, let's go.
+	periwinkle_character (Happy): Thanks guys, let's go.
 else:
-	periwinkle_character: I won
+	periwinkle_character (Sad): If this is your way of making new friends, you should go back to kindergarten.
+	periwinkle_character (Sad): Don't talk to me anymore.
