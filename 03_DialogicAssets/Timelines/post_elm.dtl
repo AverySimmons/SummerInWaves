@@ -1,4 +1,14 @@
 if {fight_won} == true:
-	you won
+	elm_character (Happy): Maybe taking a break from studying isn't so bad after all. You guys aren't as uneducated as I thought.
+	periwinkle_character: Don't be mean Elm!
+	elm_character: Ahem, what I meant was that I think seahorses and penguins are pretty cool too. Did you know that seahorse are weak swimmers? They don't go very fast despite being a fish. And also, did you know a long long time ago that giant penguins existed! They were super duper tall and heavy, imagine hugging a giant penguin like that. 
+	summer_character: Woah!! That's so cool! I wish I could go back in time to see that. 
+	albert_character: Haha, you're such a nerd! I probably swim better than seahorses!
+	elm_character: 	Anyways, I'm sorry for being mean to you the other day Periwinkle. Sometimes I let my ego get the best of me.
+	periwinkle_character: It's okay Elm, I forgive you. It was lonely without my best friend. 
+	summer_character: But now you have all of us! We'll be friends forever! 
+	albert_character: Yeah!!!! 
+	elm_character: Thanks for helping me guys, I see what I've beeing out on. 
 else:
-	I won
+	elm_character (Sad): Seven times nine is... seven times nine is... seven times nine is.... sixty - you made me lose count! Now I have to start over again.
+	elm_character (Sad): I can't afford to get distraced this time.
