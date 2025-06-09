@@ -1,7 +1,7 @@
 extends EnemyDisc
 
-const ELM_SPECIAL_MOVE_TIMER_LOWER = 4
-const ELM_SPECIAL_MOVE_TIMER_UPPER = 7
+const ELM_SPECIAL_MOVE_TIMER_LOWER = 9
+const ELM_SPECIAL_MOVE_TIMER_UPPER = 13
 const GRAVITATION_TIME = 3
 
 # Controls acceleration of pull. 1.0 would mean all sucked in discs receive idk yet tbh
