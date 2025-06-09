@@ -1,9 +1,193 @@
-[gd_scene load_steps=8 format=3 uid="uid://1bsnpqa6l6dy"]
+[gd_scene load_steps=31 format=3 uid="uid://1bsnpqa6l6dy"]
 
 [ext_resource type="PackedScene" uid="uid://w7qmaxkspqgv" path="res://02_Source/01_Overworld/Player/player.tscn" id="1_727id"]
 [ext_resource type="Script" uid="uid://ceinc6bkfw8xy" path="res://02_Source/01_Overworld/Level/level.gd" id="1_mrg8d"]
 [ext_resource type="Texture2D" uid="uid://b7as8ljnnfnhi" path="res://01_Assets/01_Sprites/backgrounds/overworld_background_empty.png" id="3_01gd7"]
 [ext_resource type="PackedScene" uid="uid://4s7rcod1o1yt" path="res://02_Source/01_Overworld/NPCs/npc.tscn" id="4_01gd7"]
+[ext_resource type="Texture2D" uid="uid://dttdcuaugvx46" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/prin_beach_spritesheet.png" id="5_j2uae"]
+[ext_resource type="Texture2D" uid="uid://b5to6imtbdkai" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/elm_beach_spritesheet.png" id="6_xphja"]
+[ext_resource type="Texture2D" uid="uid://dwwwrvsygie6e" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/al_beach_spritesheet.png" id="7_8qskt"]
+[ext_resource type="Texture2D" uid="uid://bkevfqqy04ry8" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/periwinkle_beach_spritesheet.png" id="8_qdwrx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jli0g"]
+size = Vector2(211, 211)
+
+[sub_resource type="Animation" id="Animation_jmbpx"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_mf0rx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsnhg"]
+_data = {
+&"RESET": SubResource("Animation_mf0rx"),
+&"idle": SubResource("Animation_jmbpx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdqyf"]
+size = Vector2(135, 130)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ralse"]
+radius = 75.0067
+
+[sub_resource type="Animation" id="Animation_vafma"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_fsdup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgmmt"]
+_data = {
+&"RESET": SubResource("Animation_fsdup"),
+&"idle": SubResource("Animation_vafma")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcfrq"]
+radius = 36.0625
+height = 108.894
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_84ggg"]
+radius = 57.0
+height = 196.0
+
+[sub_resource type="Animation" id="Animation_t3gy8"]
+resource_name = "default"
+length = 1.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_kfsai"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3570"]
+_data = {
+&"RESET": SubResource("Animation_kfsai"),
+&"default": SubResource("Animation_t3gy8")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr3bj"]
+radius = 28.0
+height = 108.0
+
+[sub_resource type="Animation" id="Animation_l74xi"]
+resource_name = "default"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_3ram8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4y47"]
+_data = {
+&"RESET": SubResource("Animation_3ram8"),
+&"default": SubResource("Animation_l74xi")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vk85"]
+radius = 24.0
+height = 118.0
 
 [sub_resource type="Animation" id="Animation_j2uae"]
 length = 0.001
@@ -107,29 +291,93 @@ texture = ExtResource("3_01gd7")
 position = Vector2(130.58, 106.867)
 dialogic_scene = "prin_timeline"
 
+[node name="CollisionShape2D" parent="Prin" index="0"]
+position = Vector2(5.92, -25.367)
+shape = SubResource("RectangleShape2D_jli0g")
+
 [node name="Sprite2D" parent="Prin" index="1"]
-modulate = Color(0.301961, 0.654902, 0.878431, 1)
+texture = ExtResource("5_j2uae")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Prin/Sprite2D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_fsnhg")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D" parent="Prin/StaticBody2D" index="0"]
+position = Vector2(4.92, -24.867)
+shape = SubResource("RectangleShape2D_fdqyf")
 
 [node name="Elm" parent="." instance=ExtResource("4_01gd7")]
 position = Vector2(175, 363)
 dialogic_scene = "elm_timeline"
 
+[node name="CollisionShape2D" parent="Elm" index="0"]
+position = Vector2(10, -18)
+shape = SubResource("CircleShape2D_ralse")
+
 [node name="Sprite2D" parent="Elm" index="1"]
-modulate = Color(0.278431, 0.890196, 0.101961, 1)
+texture = ExtResource("6_xphja")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Elm/Sprite2D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_mgmmt")
+}
+autoplay = "idle"
+
+[node name="CollisionShape2D" parent="Elm/StaticBody2D" index="0"]
+position = Vector2(12, -17)
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_mcfrq")
 
 [node name="Albert" parent="." instance=ExtResource("4_01gd7")]
 position = Vector2(816, 107)
 dialogic_scene = "albert_timeline"
 
+[node name="CollisionShape2D" parent="Albert" index="0"]
+position = Vector2(-13, 39)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_84ggg")
+
 [node name="Sprite2D" parent="Albert" index="1"]
-modulate = Color(1, 0.67451, 0.901961, 1)
+texture = ExtResource("7_8qskt")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Albert/Sprite2D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_t3570")
+}
+autoplay = "default"
+
+[node name="CollisionShape2D" parent="Albert/StaticBody2D" index="0"]
+position = Vector2(-17, 41)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nr3bj")
 
 [node name="Periwinkle" parent="." instance=ExtResource("4_01gd7")]
 position = Vector2(461, 83)
 dialogic_scene = "periwinkle_timeline"
 
+[node name="CollisionShape2D" parent="Periwinkle" index="0"]
+position = Vector2(3, 14)
+
 [node name="Sprite2D" parent="Periwinkle" index="1"]
-modulate = Color(0.659108, 0.51806, 1, 1)
+texture = ExtResource("8_qdwrx")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Periwinkle/Sprite2D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_u4y47")
+}
+autoplay = "default"
+
+[node name="CollisionShape2D" parent="Periwinkle/StaticBody2D" index="0"]
+position = Vector2(0, 17)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8vk85")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
