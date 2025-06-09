@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 			t.tween_property($Hand, "modulate", Color(1,1,1,1), 0.1)
 	
 	if Input.is_action_just_released("click") and is_pulling:
+		#sound
+		$FlickChargeUp.stop()
+		
 		is_pulling = false
 		$Indicator.visible = false
 		if get_global_mouse_position().distance_to(pull_pos) > 5 and cooldown_timer > cooldown_window:
@@ -44,6 +47,11 @@ func _physics_process(delta: float) -> void:
 		t.tween_property($Hand, "modulate", Color(1,1,1,0), 0.5)
 	
 	if is_pulling:
+		#sound
+		$FlickChargeUp.play()
+		$FlickChargeUp.pitch_scale = clamp((pull_pos.distance_to(get_global_mouse_position()) / 300), 0, 0.5)
+		#$FlickChargeUp.pitch_scale = (pull_pos.distance_to(get_global_mouse_position()) / 20)
+		
 		var rot_ang = get_global_mouse_position().direction_to(pull_pos).angle()
 		if pull_pos.distance_to(get_global_mouse_position()) > 10:
 			$Hand.rotation = rot_ang + PI / 2
@@ -52,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		var pull_dist = get_global_mouse_position().distance_to(pull_pos)
 		$Indicator.size.x = clamp(pull_dist, 40, 120)
 		$Indicator.material.set_shader_parameter("sizex", min(pull_dist, 120))
-	#sound effects
+	#sound
 	if cooldown_timer > cooldown_window and not cd_sound_played:
 		$CooldownReady.play()
 		cd_sound_played = true

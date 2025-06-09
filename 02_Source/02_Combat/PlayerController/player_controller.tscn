@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlgr35ohlr67a"]
+[gd_scene load_steps=15 format=3 uid="uid://dlgr35ohlr67a"]
 
 [ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/PlayerController/player_controller.gd" id="1_haeba"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="2_tankh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d06rr5him4xv2" path="res://02_Source/02_Combat/CombatManager/hand.tscn" id="4_pi3ok"]
 [ext_resource type="AudioStream" uid="uid://2np6k3vkg5mi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="5_cirp5"]
 [ext_resource type="AudioStream" uid="uid://ck4nco4d0s8jp" path="res://01_Assets/02_Audio/SoundEffects/CharacterVoice/Fshh1.wav" id="6_cirp5"]
+[ext_resource type="AudioStream" uid="uid://bboe5xls0oglg" path="res://01_Assets/02_Audio/SoundEffects/SquareSoundwave.wav" id="7_5yxpp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
 radius = 320.0
@@ -75,3 +76,8 @@ pitch_scale = 0.81
 [node name="NotReadyYet" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_cirp5")
 pitch_scale = 0.47
+
+[node name="FlickChargeUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5yxpp")
+volume_db = -8.0
+pitch_scale = 0.8
