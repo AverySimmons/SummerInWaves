@@ -61,6 +61,7 @@ var enemy_move_dir = 0
 var enemy_special_discs = []
 var ally_special_discs = 0
 var enemy_special_disc_chance = 0
+var enemy_sprite_index = 0
 
 
 var prin_phase2 = false
@@ -94,6 +95,7 @@ func _ready() -> void:
 			enemy_rot_acc = 0
 			enemy_special_discs = 0
 			enemy_special_disc_chance = 0
+			enemy_sprite_index = 3
 		1:
 			enemy_flinch = 0.5
 			enemy_max_rot_vel = PI / 2
@@ -104,6 +106,7 @@ func _ready() -> void:
 			enemy_special_discs = [enemy_al_scene]
 			ally_special_discs = 0
 			enemy_special_disc_chance = 0.3
+			enemy_sprite_index = 0
 		2:
 			enemy_flinch = 0.35
 			enemy_max_rot_vel = PI / 2
@@ -114,6 +117,7 @@ func _ready() -> void:
 			enemy_special_discs = [enemy_peri_scene]
 			ally_special_discs = 1
 			enemy_special_disc_chance = 0.3
+			enemy_sprite_index = 1
 		3:
 			enemy_flinch = 0.2
 			enemy_max_rot_vel = 1.5 * PI / 2
@@ -124,6 +128,7 @@ func _ready() -> void:
 			enemy_special_discs = [enemy_elm_scene]
 			ally_special_discs = 2
 			enemy_special_disc_chance = 0.3
+			enemy_sprite_index = 2
 		4:
 			enemy_flinch = 0.1
 			enemy_max_rot_vel = 1.5 * PI / 2
@@ -134,6 +139,7 @@ func _ready() -> void:
 			enemy_special_discs = [enemy_al_scene, enemy_peri_scene, enemy_elm_scene]
 			ally_special_discs = 2
 			enemy_special_disc_chance = 0.5
+			enemy_sprite_index = 3
 	
 	await get_tree().create_timer(0.5).timeout
 	spawn_starting_discs()
@@ -144,7 +150,7 @@ func spawn_starting_discs():
 		angle += TAU / enemy_starting_discs
 		var dir_vect = Vector2.from_angle(angle)
 		var new_disc: EnemyDisc = spawn_disc(center + dir_vect * 2000, \
-			Vector2.ZERO, 0, enemy_disc_scene, 30, 3)
+			Vector2.ZERO, enemy_sprite_index, enemy_disc_scene, 30, 3)
 		new_disc.despawn_timer += 1.75
 		var new_tween = create_tween().set_ease(Tween.EASE_IN)
 		new_tween.tween_property(new_disc, "position", center + dir_vect * 160, 1.75)
@@ -207,7 +213,7 @@ func spawn_disc(pos: Vector2, velocity: Vector2, sprite_index: int, type: Packed
 func _process(delta: float) -> void:
 	var t = create_tween()
 	t.tween_property($HealthBar, "material:shader_parameter/fill_percent", \
-		1 - len(enemy_live_discs()) / 10.0, 0.2)
+		1 - len(enemy_live_discs()) / 10.0, 0.4)
 
 #every frame
 func _physics_process(delta: float) -> void:
@@ -301,8 +307,10 @@ func enemy_action(delta):
 	else:
 		disc_type = enemy_special_discs.pick_random()
 	
+	var sprite_ind = -1 if is_special else enemy_sprite_index
+	
 	if enemy_shoot_timer >= enemy_shoot_rate:
-		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, -1, disc_type, default_rotation, 3)
+		spawn_disc(enemy_shoot_pos, enemy_shoot_vel, sprite_ind, disc_type, default_rotation, 3)
 		enemy_shoot_timer = 0
 
 
@@ -319,6 +327,8 @@ func combat_win_lose(is_win):
 		enemy_rot_acc = 2 * PI
 		return
 	combat_won = is_win
+	for d in enemy_live_discs():
+		d.remove_disc()
 	$AnimationPlayer.play("exit")
 
 func combat_exit():

@@ -45,5 +45,5 @@ func flick_disc() -> void:
 	var mouse_norm = get_global_mouse_position() - pull_pos
 	var disc_speed = 500 + min(mouse_norm.length(), 120) * 15
 	var disc_vel = mouse_norm.normalized() * disc_speed * -1
-	SignalBus.create_disc.emit(pull_pos, disc_vel, 4, player_disc_scene, TAU, 1)
+	SignalBus.create_disc.emit(pull_pos, disc_vel, -1, player_disc_scene, TAU, 1)
 	cooldown_timer = 0

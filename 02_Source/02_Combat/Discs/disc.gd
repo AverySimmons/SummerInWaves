@@ -5,6 +5,13 @@ extends Area2D
 const FRICTION_COEFFICIENT = 800
 const ROTATIONAL_FRICTION = 6
 
+var textures = [
+	preload("res://01_Assets/01_Sprites/button_sprites/al_evil_button.png"),
+	preload("res://01_Assets/01_Sprites/button_sprites/periwinkle_evil_button.png"),
+	preload("res://01_Assets/01_Sprites/button_sprites/elm_evil_button.png"),
+	preload("res://01_Assets/01_Sprites/button_sprites/prin_evil_button.png")
+]
+
 var removing = false
 var sprite_index = 0
 var has_entered_ring = false
@@ -23,8 +30,10 @@ var center_of_mass: Vector2 = position
 var timer: float
 
 func _ready() -> void:
+	if sprite_index != -1:
+		$Sprite2D.texture = textures[sprite_index]
+	print(sprite_index)
 	pass
-	#$Sprite2D.frame = sprite_index
 
 func _physics_process(delta: float) -> void:
 	var vel_dir = velocity.rotated(-rotation + PI / 2)
