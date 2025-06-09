@@ -28,7 +28,7 @@ gradient = SubResource("Gradient_4mbmo")
 width = 32
 height = 32
 
-[node name="AllyDisc2" instance=ExtResource("1_c4l2g")]
+[node name="AllyDisc3" instance=ExtResource("1_c4l2g")]
 script = ExtResource("2_h4vmu")
 
 [node name="Sprite2D" parent="." index="0"]

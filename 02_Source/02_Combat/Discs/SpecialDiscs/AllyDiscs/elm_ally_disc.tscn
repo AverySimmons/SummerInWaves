@@ -144,3 +144,4 @@ shape = SubResource("CircleShape2D_bdwpu")
 
 [node name="ElmGravBomb" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource("7_5f1t0")
+volume_db = -1.981
