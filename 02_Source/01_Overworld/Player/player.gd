@@ -8,6 +8,9 @@ const MAX_SPEED = 175
 @export var talking = false
 
 var facing_dir = ""
+var footsteps_timer = 0
+var footsteps_interval = 0.45
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -22,6 +25,11 @@ func _physics_process(delta: float) -> void:
 			$AnimationPlayer.play(facing_dir + "_idle")
 			facing_dir = ""
 		else:
+			#footstep sound logic
+			if footsteps_timer >= footsteps_interval:
+				$Footsteps.play()
+				footsteps_timer = 0
+			#direction logic
 			var input_ang = input_dir.angle()
 			var new_facing_dir = facing_dir
 			if input_ang < PI / 4 - 0.01 and input_ang > -PI / 4 + 0.01:
@@ -54,3 +62,5 @@ func _physics_process(delta: float) -> void:
 		
 		var npc: NPC = areas[0]
 		npc.talk()
+		
+	footsteps_timer += delta

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://w7qmaxkspqgv"]
+[gd_scene load_steps=17 format=3 uid="uid://w7qmaxkspqgv"]
 
 [ext_resource type="Script" uid="uid://cq04q3yj2ba1l" path="res://02_Source/01_Overworld/Player/player.gd" id="1_nq7d4"]
 [ext_resource type="Texture2D" uid="uid://bnfq5sa6bgdhc" path="res://01_Assets/01_Sprites/character_sprites/summer_spritesheet.png" id="2_1n1eg"]
+[ext_resource type="AudioStream" uid="uid://ke3f5qinwxdu" path="res://01_Assets/02_Audio/SoundEffects/BeachFootstep.wav" id="3_60ipv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwoec"]
 radius = 32.0
@@ -170,6 +171,11 @@ _data = {
 &"up_walk": SubResource("Animation_1xjy5")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8ywn3"]
+random_pitch = 1.6
+streams_count = 1
+stream_0/stream = ExtResource("3_60ipv")
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_nq7d4")
@@ -203,3 +209,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_sen7b")
 }
 speed_scale = 1.5
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_8ywn3")
+pitch_scale = 1.6
