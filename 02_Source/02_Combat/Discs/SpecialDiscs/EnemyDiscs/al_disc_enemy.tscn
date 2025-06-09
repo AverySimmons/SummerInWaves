@@ -32,6 +32,7 @@ max_velocity = 800.0
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_o3766")
+scale = Vector2(1, 1)
 texture = SubResource("ViewportTexture_nq4jn")
 
 [node name="Sprite2D" parent="Sprite2D/SubViewport" index="1"]
