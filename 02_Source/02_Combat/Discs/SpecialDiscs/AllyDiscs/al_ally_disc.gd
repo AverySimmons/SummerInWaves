@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	$IndicatorTrans/Indicator.material.set_shader_parameter("sizex", charge_len)
 	
 	
-	if is_charging:
+	if is_charging and not removing:
 		if has_overlapping_areas():
 			var colliding_discs = get_overlapping_areas()
 			for disc in colliding_discs:
