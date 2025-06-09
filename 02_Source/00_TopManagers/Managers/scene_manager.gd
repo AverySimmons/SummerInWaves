@@ -8,6 +8,8 @@ var currently_paused: bool = false
 var game_started = false
 var combat_music_playing = false
 
+var pause_animation = false
+
 #start with title screen as a child. when play button is pressed, emit a signal
 #scene manager will switch to game manager. it adds in game manager and deletes the title
 func _ready() -> void:
@@ -18,6 +20,7 @@ func _ready() -> void:
 	Dialogic.signal_event.connect(check_dialogue_pause_switch)
 	SignalBus.switch_game.connect(switch_game_state)
 	Dialogic.signal_event.connect(dialogic_signal)
+	SignalBus.settings_resumed.connect(pause_game)
 
 func play_start_game_anim():
 	if not game_started:
@@ -68,13 +71,19 @@ func switch_game_state(win):
 	combat_music_playing = not combat_music_playing
 
 func pause_game() -> void:
-	
+	if pause_animation: return
+	pause_animation = true
 	#logic when in dialogue pause
 	#if currently_paused:
 		#bring up the settings as normal. get_tree().paused will be true even though we still need to pause
 	
 	#basic logic when not in dialogue pause
 	if currently_paused:
+		
+		var t = create_tween()
+		t.tween_property($Settings, "offset", Vector2(0, 720), 0.2)
+		await t.finished
+		
 		#unpause the game
 		if not in_dialogue_pause: #in-combat dialogue is not up
 			get_tree().paused = false
@@ -87,8 +96,12 @@ func pause_game() -> void:
 		get_tree().paused = true
 		#bring up settings screen
 		var new_settings = settings_scene.instantiate()
+		new_settings.offset = Vector2(0, 720)
 		add_child(new_settings)
 		
 		currently_paused = true
 		
-		
+		var t = create_tween()
+		t.tween_property(new_settings, "offset", Vector2(0,0), 0.2)
+	
+	pause_animation = false

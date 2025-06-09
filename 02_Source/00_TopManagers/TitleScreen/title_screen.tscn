@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://ctaarlqem1cdi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="5_b6685"]
 
 [node name="TitleScreen" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_7i3xl")
 
 [node name="Titlescreen" type="Sprite2D" parent="."]
@@ -23,12 +24,10 @@ texture_hover = ExtResource("4_b6685")
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b6685")
-bus = &"Sound Effects"
 
 [node name="MenuClickLow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b6685")
 pitch_scale = 0.53
-bus = &"Sound Effects"
 
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
