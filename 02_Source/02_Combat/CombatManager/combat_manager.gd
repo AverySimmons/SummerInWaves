@@ -58,6 +58,8 @@ var ally_hand_shot = [
 	false
 ]
 
+var enemy_normal_count = 0
+
 var released_disc: bool = false
 
 var enemy_shoot_timer: float = 0
@@ -79,7 +81,7 @@ var enemy_rot_acc = 0
 var enemy_move_dir = 0
 var enemy_special_discs = []
 var ally_special_discs = 0
-var enemy_special_disc_chance = 0
+var enemy_normal_num = 0
 var enemy_sprite_index = 0
 
 var flinch_timer = 0
@@ -121,7 +123,7 @@ func _ready() -> void:
 			enemy_starting_discs = 8
 			enemy_rot_acc = 0
 			enemy_special_discs = 0
-			enemy_special_disc_chance = 0
+			enemy_normal_num = 1000
 			enemy_sprite_index = 3
 			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))
 		1:
@@ -133,7 +135,7 @@ func _ready() -> void:
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_al_scene]
 			ally_special_discs = 0
-			enemy_special_disc_chance = 0.3
+			enemy_normal_num = 3
 			enemy_sprite_index = 0
 			$HealthBar.material.set_shader_parameter("color", Color("fa5eff"))
 		2:
@@ -145,7 +147,7 @@ func _ready() -> void:
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_peri_scene]
 			ally_special_discs = 1
-			enemy_special_disc_chance = 0.3
+			enemy_normal_num = 3
 			enemy_sprite_index = 1
 			$HealthBar.material.set_shader_parameter("color", Color("a95eff"))
 		3:
@@ -157,7 +159,7 @@ func _ready() -> void:
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_elm_scene]
 			ally_special_discs = 2
-			enemy_special_disc_chance = 0.3
+			enemy_normal_num = 3
 			enemy_sprite_index = 2
 			$HealthBar.material.set_shader_parameter("color", Color("66e600"))
 		4:
@@ -169,7 +171,7 @@ func _ready() -> void:
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_al_scene, enemy_peri_scene, enemy_elm_scene]
 			ally_special_discs = 2
-			enemy_special_disc_chance = 0.5
+			enemy_normal_num = 3
 			enemy_sprite_index = 3
 			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))
 	
@@ -223,7 +225,7 @@ func disc_removed(is_enemy):
 		enemy_disc_destroyed()
 
 func choose_next_disc():
-	about_to_shoot_special = randf_range(0, 1) < enemy_special_disc_chance
+	about_to_shoot_special = enemy_normal_count == 0
 	if about_to_shoot_special and fight_num == 4:
 		var ind = randf_range(0, 2)
 		$EnemyShootPos.disc_sprite_index = ind + 1
@@ -231,6 +233,11 @@ func choose_next_disc():
 	
 	else:
 		$EnemyShootPos.disc_sprite_index = enemy_sprite_index + 1
+	
+	if enemy_normal_count == 0:
+		enemy_normal_count = enemy_normal_num
+	else:
+		enemy_normal_count -= 1
 
 func enemy_live_discs() -> Array[Disc]:
 	var discs_list = $Ring2.get_overlapping_areas() #TEMP ring2

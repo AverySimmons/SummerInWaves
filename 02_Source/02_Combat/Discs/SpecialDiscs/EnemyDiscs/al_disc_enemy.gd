@@ -15,10 +15,12 @@ var charge_speed: float
 
 func _ready() -> void:
 	super._ready()
-	get_new_point()
 	# Make it 2x heavier? Up to you guys
 	mass = mass*2
 	special_move_timer = randf_range(AL_SPECIAL_MOVE_TIMER_LOWER, AL_SPECIAL_MOVE_TIMER_UPPER)
+	
+	await get_tree().create_timer(2).timeout
+	get_new_point()
 	pass
 
 func _physics_process(delta: float) -> void:
