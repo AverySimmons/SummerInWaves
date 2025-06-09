@@ -23,8 +23,6 @@ func _physics_process(delta: float) -> void:
 
 func gravity_bomb() -> void:
 	#GRAVITY BOMB!!!!! Wow
-	#sound
-	$ElmGravBomb.play()
 	
 	var discs_in_range = $GravityBomb.get_overlapping_areas()
 	for disc in discs_in_range:
@@ -37,6 +35,9 @@ func gravity_bomb() -> void:
 
 func explode() -> void:
 	# Maybe a cool effect here? Idk
+	#sound
+	$ElmGravBomb.play()
+	
 	removing = true
 	monitorable = false
 	monitoring = false
