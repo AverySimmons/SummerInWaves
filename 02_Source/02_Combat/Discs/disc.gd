@@ -32,7 +32,6 @@ var timer: float
 func _ready() -> void:
 	if sprite_index != -1:
 		$Sprite2D.texture = textures[sprite_index]
-	print(sprite_index)
 	pass
 
 func _physics_process(delta: float) -> void:
