@@ -31,7 +31,10 @@ var timer: float
 
 func _ready() -> void:
 	if sprite_index != -1:
-		$Sprite2D.texture = textures[sprite_index]
+		if self is not EnemyDisc:
+			$Sprite2D.texture = textures[sprite_index]
+		else:
+			$Sprite2D/SubViewport/Sprite2D.texture = textures[sprite_index]
 	pass
 
 func _physics_process(delta: float) -> void:

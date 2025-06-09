@@ -12,7 +12,6 @@ var normal_mass: float
 
 func _ready() -> void:
 	super._ready()
-	$RedCircle.offset = Vector2(0, 0)
 	normal_mass = mass
 	special_move_timer = randf_range(ELM_SPECIAL_MOVE_TIMER_LOWER, ELM_SPECIAL_MOVE_TIMER_UPPER)
 	pass

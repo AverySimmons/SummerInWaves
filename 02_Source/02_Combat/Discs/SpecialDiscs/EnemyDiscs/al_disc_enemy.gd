@@ -16,7 +16,6 @@ var charge_speed: float
 func _ready() -> void:
 	super._ready()
 	# Make it 2x heavier? Up to you guys
-	$RedCircle.offset = Vector2(0, 0)
 	mass = mass*2
 	special_move_timer = randf_range(AL_SPECIAL_MOVE_TIMER_LOWER, AL_SPECIAL_MOVE_TIMER_UPPER)
 	

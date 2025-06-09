@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var accelerable_shake_intensity: float = 2.0
-@export var baseline_shake_intensity: float = 1.0
+@export var accelerable_shake_intensity: float = 1.0
+@export var baseline_shake_intensity: float = 0.5
 var actual_shake_intensity
 
 var target_node = null

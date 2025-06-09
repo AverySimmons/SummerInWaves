@@ -9,8 +9,6 @@ func _ready() -> void:
 	super._ready()
 	despawn_timer = despawn_timer_time
 	is_enemy = true
-	$RedCircle.scale = $Sprite2D.scale
-	$RedCircle.offset.y = 6
 	pass
 
 func _physics_process(delta: float) -> void:

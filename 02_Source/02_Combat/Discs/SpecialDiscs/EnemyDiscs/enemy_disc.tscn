@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d663dc5r8v4g"]
+[gd_scene load_steps=8 format=3 uid="uid://d663dc5r8v4g"]
 
 [ext_resource type="PackedScene" uid="uid://22tytw4062gl" path="res://02_Source/02_Combat/Discs/disc.tscn" id="1_jird0"]
 [ext_resource type="Script" uid="uid://fet6bp7fkba8" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.gd" id="2_fe2e2"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_fe2e2"]
-[ext_resource type="Texture2D" uid="uid://clwxpebuqcgs2" path="res://01_Assets/01_Sprites/button_sprites/enemy_button_outline.png" id="4_dq85p"]
+[ext_resource type="Texture2D" uid="uid://ckdsify4m033k" path="res://01_Assets/01_Sprites/button_sprites/enemy_button_outline.png" id="4_dq85p"]
+[ext_resource type="Texture2D" uid="uid://byc6b3rwgwv2d" path="res://01_Assets/01_Sprites/button_sprites/periwinkle's_main_button.png" id="5_g4xlj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe2e2"]
 resource_local_to_scene = true
@@ -11,11 +12,24 @@ shader = ExtResource("3_fe2e2")
 shader_parameter/strength = 1.0
 shader_parameter/direction = Vector2(1, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4xlj"]
+viewport_path = NodePath("Sprite2D/SubViewport")
+
 [node name="EnemyDisc" instance=ExtResource("1_jird0")]
 script = ExtResource("2_fe2e2")
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_fe2e2")
+texture = SubResource("ViewportTexture_g4xlj")
 
-[node name="RedCircle" type="Sprite2D" parent="." index="4"]
+[node name="SubViewport" type="SubViewport" parent="Sprite2D" index="0"]
+transparent_bg = true
+size = Vector2i(150, 150)
+
+[node name="RedCircle" type="Sprite2D" parent="Sprite2D/SubViewport" index="0"]
+position = Vector2(75, 75)
 texture = ExtResource("4_dq85p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/SubViewport" index="1"]
+position = Vector2(75, 75)
+texture = ExtResource("5_g4xlj")

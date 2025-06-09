@@ -11,7 +11,6 @@ var stored_velocity: Vector2
 
 func _ready() -> void:
 	super._ready()
-	$RedCircle.offset = Vector2(0, 0)
 	normal_mass = mass
 	special_move_timer = randf_range(PERI_SPECIAL_MOVE_TIMER_LOWER, PERI_SPECIAL_MOVE_TIMER_UPPER)
 	pass

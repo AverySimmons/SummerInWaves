@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bt3ol8s354ega" path="res://01_Assets/01_Sprites/button_sprites/al's_main_button.png" id="4_24f1p"]
 [ext_resource type="PackedScene" uid="uid://cx7ft31yqwsip" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_h4vmu"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="6_4mbmo"]
-[ext_resource type="AudioStream" uid="uid://bh7gloid4bm7i" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/AlGrunt.wav" id="7_kcwm7"]
-[ext_resource type="Texture2D" uid="uid://bwug0rkkaw8r7" path="res://01_Assets/01_Sprites/button_sprites/albert_crosshair.png" id="7_ldxki"]
+[ext_resource type="AudioStream" uid="uid://d3incety6ja02" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/AlGrunt.wav" id="7_kcwm7"]
+[ext_resource type="Texture2D" uid="uid://3ipjs1t4bipf" path="res://01_Assets/01_Sprites/button_sprites/albert_crosshair.png" id="7_ldxki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h4vmu"]
 resource_local_to_scene = true
