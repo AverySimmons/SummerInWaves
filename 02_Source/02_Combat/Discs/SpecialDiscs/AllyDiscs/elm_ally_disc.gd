@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
 	special_move_timer -= delta
-	if special_move_timer <= 0:
+	if special_move_timer <= 0 and not removing:
 		gravity_bomb() #GRAVITY BOMB!!!!!!!!!!!!!!!!!!!!!!!!!!!! So cool
 	
 	pass
@@ -37,6 +37,7 @@ func explode() -> void:
 	# Maybe a cool effect here? Idk
 	#sound
 	$ElmGravBomb.play()
+	print("I exploded")
 	
 	removing = true
 	monitorable = false

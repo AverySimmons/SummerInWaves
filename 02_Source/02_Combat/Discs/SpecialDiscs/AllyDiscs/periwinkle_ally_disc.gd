@@ -35,7 +35,7 @@ func bomb() -> void:
 func explode() -> void:
 	#sound
 	$PeriwinkleSplash.play()
-	print("I exploded")
+	#print("I exploded")
 	
 	removing = true
 	monitorable = false
