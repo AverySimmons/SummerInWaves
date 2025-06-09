@@ -15,12 +15,13 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
 	special_move_timer -= delta
-	if special_move_timer <= 0:
+	if special_move_timer <= 0 and not removing:
 		bomb()
 	
 	pass
 
 func bomb() -> void:
+	
 	var discs_in_range = $Bomb.get_overlapping_areas()
 	for disc in discs_in_range:
 		if disc is Disc:
@@ -32,11 +33,16 @@ func bomb() -> void:
 	return
 
 func explode() -> void:
+	#sound
+	$PeriwinkleSplash.play()
+	print("I exploded")
+	
 	removing = true
 	monitorable = false
 	monitoring = false
 	$Explosion/AnimationPlayer.play("boom")
-	await $Explosion/AnimationPlayer.animation_finished
+	#await $Explosion/AnimationPlayer.animation_finished
+	await $PeriwinkleSplash.finished
 	
 	queue_free()
 	return

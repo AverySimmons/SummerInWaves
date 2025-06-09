@@ -26,11 +26,11 @@ Sound:
 		// Enemey/Ally flick release (pitch shifted / joey wait)
 		
 		Ally special abilities:
-			Al charge same
-			Periwinkle Freeze (fortnite geyser)
-			Elm (Synth bomb. short)
+			// Al charge same
+			// Periwinkle bomb (fortnite geyser)
+			// Elm (Synth bomb. short)
 		Enemy special abilities
-			Al charge same
-			Periwinkle Freeze (super auto pets when you freeze)
-			Elm (Flourescent light. Constant noise.)
+			// Al charge same
+			// Periwinkle Freeze (super auto pets when you freeze)
+			// Elm (Flourescent light. Constant noise.)
 		

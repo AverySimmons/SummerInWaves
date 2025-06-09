@@ -23,6 +23,9 @@ func _physics_process(delta: float) -> void:
 
 func gravity_bomb() -> void:
 	#GRAVITY BOMB!!!!! Wow
+	#sound
+	$ElmGravBomb.play()
+	
 	var discs_in_range = $GravityBomb.get_overlapping_areas()
 	for disc in discs_in_range:
 		if disc is Disc:

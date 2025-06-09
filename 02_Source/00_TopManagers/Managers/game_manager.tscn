@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dcxuq81wlg456" path="res://02_Source/00_TopManagers/Managers/game_manager.gd" id="1_150wq"]
 [ext_resource type="Shader" uid="uid://chf5ir1c1cme0" path="res://02_Source/00_TopManagers/Managers/pokemon_transition.gdshader" id="2_3p7ol"]
 [ext_resource type="PackedScene" uid="uid://1bsnpqa6l6dy" path="res://02_Source/01_Overworld/Level/level.tscn" id="2_ekp6a"]
-[ext_resource type="Shader" uid="uid://dtjbn15eyev0o" path="res://02_Source/00_TopManagers/Managers/color_pokemon.gdshader" id="2_mds2e"]
+[ext_resource type="Shader" path="res://02_Source/00_TopManagers/Managers/color_pokemon.gdshader" id="2_mds2e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mds2e"]
 shader = ExtResource("2_3p7ol")

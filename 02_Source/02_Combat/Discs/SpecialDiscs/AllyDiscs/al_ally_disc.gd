@@ -75,8 +75,9 @@ func _physics_process(delta: float) -> void:
 
 func charge_to_target() -> void:
 	# Visuals maybe? For the charge
-	#
-	#
+	#sound
+	$AlChargeSound.play()
+	
 	charge_dir = (target.position - position).normalized()
 	is_charging = true
 	
