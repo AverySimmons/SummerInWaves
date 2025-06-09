@@ -4,9 +4,9 @@
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="2_tankh"]
 [ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="3_sdusc"]
 [ext_resource type="PackedScene" uid="uid://d06rr5him4xv2" path="res://02_Source/02_Combat/CombatManager/hand.tscn" id="4_pi3ok"]
-[ext_resource type="AudioStream" uid="uid://2np6k3vkg5mi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="5_cirp5"]
-[ext_resource type="AudioStream" uid="uid://ck4nco4d0s8jp" path="res://01_Assets/02_Audio/SoundEffects/CharacterVoice/Fshh1.wav" id="6_cirp5"]
-[ext_resource type="AudioStream" uid="uid://bboe5xls0oglg" path="res://01_Assets/02_Audio/SoundEffects/SquareSoundwave.wav" id="7_5yxpp"]
+[ext_resource type="AudioStream" uid="uid://ctaarlqem1cdi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="5_cirp5"]
+[ext_resource type="AudioStream" uid="uid://ceoppyv280n5b" path="res://01_Assets/02_Audio/SoundEffects/CharacterVoice/Fshh1.wav" id="6_cirp5"]
+[ext_resource type="AudioStream" uid="uid://j4lr1cae1isu" path="res://01_Assets/02_Audio/SoundEffects/SquareSoundwave.wav" id="7_5yxpp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
 radius = 320.0

@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://w02gd2qykv6o"]
+[gd_scene load_steps=15 format=3 uid="uid://w02gd2qykv6o"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_1k566"]
 [ext_resource type="Script" uid="uid://lcgwvme0qxi" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.gd" id="2_lhswv"]
-[ext_resource type="Texture2D" uid="uid://ckvwm3s4ltn3s" path="res://01_Assets/01_Sprites/button_sprites/elm_enemy_gravity_pull_spritesheet.png" id="3_0tv5r"]
+[ext_resource type="Texture2D" uid="uid://blg7josekuavj" path="res://01_Assets/01_Sprites/button_sprites/elm_enemy_gravity_pull_spritesheet.png" id="3_0tv5r"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_dbduf"]
-[ext_resource type="Texture2D" uid="uid://dbdfhye0k2jnh" path="res://01_Assets/01_Sprites/button_sprites/elm_evil_button.png" id="4_3igc1"]
+[ext_resource type="Texture2D" uid="uid://by808rbthim0a" path="res://01_Assets/01_Sprites/button_sprites/elm_evil_button.png" id="4_3igc1"]
 [ext_resource type="PackedScene" uid="uid://cx7ft31yqwsip" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_3igc1"]
-[ext_resource type="AudioStream" uid="uid://dc37iy1rn6un" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/ElmGravityPulling.wav" id="7_kgky2"]
+[ext_resource type="AudioStream" uid="uid://bjnkqe5wmy68g" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/ElmGravityPulling.wav" id="7_kgky2"]
 
 [sub_resource type="Animation" id="Animation_s8yk2"]
 length = 0.001
@@ -71,12 +71,6 @@ _data = {
 &"gravity_pull": SubResource("Animation_kgky2")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3igc1"]
-resource_local_to_scene = true
-shader = ExtResource("3_dbduf")
-shader_parameter/strength = 1.0
-shader_parameter/direction = Vector2(1, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgky2"]
 resource_local_to_scene = true
 shader = ExtResource("3_dbduf")
@@ -111,27 +105,26 @@ libraries = {
 }
 speed_scale = 1.5
 
-[node name="Sprite2D_SubViewport#Sprite2D" type="Sprite2D" parent="." index="1"]
-material = SubResource("ShaderMaterial_3igc1")
-position = Vector2(-5.96046e-08, 4)
-texture = ExtResource("4_3igc1")
-
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_kgky2")
+scale = Vector2(1, 1)
 texture = SubResource("ViewportTexture_s8yk2")
 
-[node name="CollisionShape2D" parent="." index="3"]
+[node name="Sprite2D" parent="Sprite2D/SubViewport" index="1"]
+texture = ExtResource("4_3igc1")
+
+[node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_3igc1")
 
-[node name="GravityRing" type="Area2D" parent="." index="4"]
+[node name="GravityRing" type="Area2D" parent="." index="3"]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityRing" index="0"]
 shape = SubResource("CircleShape2D_lhswv")
 
-[node name="ShakeComponent" parent="." index="5" instance=ExtResource("5_3igc1")]
+[node name="ShakeComponent" parent="." index="4" instance=ExtResource("5_3igc1")]
 
-[node name="ElmGravPull" type="AudioStreamPlayer2D" parent="." index="7"]
+[node name="ElmGravPull" type="AudioStreamPlayer2D" parent="." index="6"]
 stream = ExtResource("7_kgky2")
