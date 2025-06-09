@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlgr35ohlr67a"]
+[gd_scene load_steps=14 format=3 uid="uid://dlgr35ohlr67a"]
 
 [ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/PlayerController/player_controller.gd" id="1_haeba"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="2_tankh"]
 [ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="3_sdusc"]
 [ext_resource type="PackedScene" uid="uid://d06rr5him4xv2" path="res://02_Source/02_Combat/CombatManager/hand.tscn" id="4_pi3ok"]
+[ext_resource type="AudioStream" uid="uid://2np6k3vkg5mi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="5_cirp5"]
+[ext_resource type="AudioStream" uid="uid://ck4nco4d0s8jp" path="res://01_Assets/02_Audio/SoundEffects/CharacterVoice/Fshh1.wav" id="6_cirp5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
 radius = 320.0
@@ -23,6 +25,16 @@ shader = ExtResource("3_sdusc")
 shader_parameter/noise = SubResource("NoiseTexture2D_sdusc")
 shader_parameter/fill_percent = 0.5
 shader_parameter/color = Color(0.4, 0.901961, 1, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cglg3"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_cirp5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cirp5"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("6_cirp5")
 
 [node name="PlayerController" type="Node2D"]
 script = ExtResource("1_haeba")
@@ -53,3 +65,12 @@ color = Color(0.97, 0.79346, 0.1552, 1)
 [node name="Hand" parent="." instance=ExtResource("4_pi3ok")]
 modulate = Color(1, 1, 1, 0)
 free_rot = true
+
+[node name="CooldownReady" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_cglg3")
+volume_db = -11.196
+pitch_scale = 0.81
+
+[node name="NotReadyYet" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_cirp5")
+pitch_scale = 0.47

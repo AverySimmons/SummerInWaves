@@ -77,6 +77,7 @@ func _physics_process(delta: float) -> void:
 
 func remove_disc():
 	if removing: return
+	$DiscPoof.play()
 	monitorable = false
 	monitoring = false
 	removing = true

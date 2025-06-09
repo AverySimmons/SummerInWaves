@@ -26,7 +26,7 @@ Sound:
 		// Flick release
 		// Ally hand spawn sound (wind foosh)
 		// Enemey/Ally flick release (pitch shifted)
-		Disc fall
+		
 		Ally special abilities:
 			Al charge same
 			Periwinkle Freeze (fortnite geyser)
@@ -35,4 +35,4 @@ Sound:
 			Al charge same
 			Periwinkle Freeze (super auto pets when you freeze)
 			Elm (Flourescent light. Constant noise.)
-		Cooldown bar / On cooldown
+		

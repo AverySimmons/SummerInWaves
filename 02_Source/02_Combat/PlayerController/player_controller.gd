@@ -6,6 +6,7 @@ var pull_pos: Vector2 = Vector2.ZERO
 
 var cooldown_timer = 2
 var cooldown_window = 1
+var cd_sound_played = true
 
 var player_disc_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.tscn")
 
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 		$Indicator.visible = false
 		if get_global_mouse_position().distance_to(pull_pos) > 5 and cooldown_timer > cooldown_window:
 			flick_disc()
+		elif get_global_mouse_position().distance_to(pull_pos) > 5:
+			$NotReadyYet.play()
 		
 		$Hand.let_go()
 		var t = create_tween()
@@ -49,6 +52,11 @@ func _physics_process(delta: float) -> void:
 		var pull_dist = get_global_mouse_position().distance_to(pull_pos)
 		$Indicator.size.x = clamp(pull_dist, 40, 120)
 		$Indicator.material.set_shader_parameter("sizex", min(pull_dist, 120))
+	#sound effects
+	if cooldown_timer > cooldown_window and not cd_sound_played:
+		$CooldownReady.play()
+		cd_sound_played = true
+		
 	
 	cooldown_timer += delta
 
@@ -57,4 +65,5 @@ func flick_disc() -> void:
 	var disc_speed = 500 + min(mouse_norm.length(), 120) * 15
 	var disc_vel = mouse_norm.normalized() * disc_speed * -1
 	SignalBus.create_disc.emit(pull_pos, disc_vel, -1, player_disc_scene, TAU, 1)
+	cd_sound_played = false
 	cooldown_timer = 0

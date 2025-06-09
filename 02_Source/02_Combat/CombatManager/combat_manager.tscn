@@ -332,3 +332,7 @@ metadata/_edit_lock_ = true
 [node name="Hand2" parent="Hands" instance=ExtResource("5_avjet")]
 
 [node name="Hand3" parent="Hands" instance=ExtResource("5_avjet")]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(640, 360)
+current = true
