@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1r803xh8beb0"]
 
 [ext_resource type="Script" uid="uid://dhbghc5bhceui" path="res://02_Source/00_TopManagers/SettingsMenu/settings.gd" id="1_be54s"]
-[ext_resource type="Texture2D" uid="uid://dwhi345y6j5ec" path="res://01_Assets/01_Sprites/backgrounds/pause_menu.png" id="2_ufmkg"]
-[ext_resource type="Script" uid="uid://bdkm77xmu03ry" path="res://02_Source/00_TopManagers/SettingsMenu/volume_slider.gd" id="3_4v0vn"]
-[ext_resource type="Texture2D" uid="uid://c4g7sskpromrv" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_sound_slider_star.png" id="3_kidq7"]
-[ext_resource type="Texture2D" uid="uid://bvajn3ua13pn4" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_sound_slider_line.png" id="4_bo8j2"]
-[ext_resource type="Texture2D" uid="uid://8v1s216w6kmg" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_sound.png" id="5_dj667"]
-[ext_resource type="Texture2D" uid="uid://bu6lae2ekxc0" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_quit.png" id="7_n2x8i"]
-[ext_resource type="Texture2D" uid="uid://cvcv81gax27of" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_resume.png" id="8_kals0"]
-[ext_resource type="AudioStream" uid="uid://ctaarlqem1cdi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="9_n2x8i"]
+[ext_resource type="Texture2D" uid="uid://fcr8iqil7qlk" path="res://01_Assets/01_Sprites/backgrounds/pause_menu.png" id="2_ufmkg"]
+[ext_resource type="Script" path="res://02_Source/00_TopManagers/SettingsMenu/volume_slider.gd" id="3_4v0vn"]
+[ext_resource type="Texture2D" uid="uid://wd1b5q11v14i" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_sound_slider_star.png" id="3_kidq7"]
+[ext_resource type="Texture2D" uid="uid://dodinpjv1xy6c" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_sound_slider_line.png" id="4_bo8j2"]
+[ext_resource type="Texture2D" uid="uid://bygcjetiydqow" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_sound.png" id="5_dj667"]
+[ext_resource type="Texture2D" uid="uid://daqexh2sv7kc8" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_quit.png" id="7_n2x8i"]
+[ext_resource type="Texture2D" uid="uid://v6872gku80sl" path="res://01_Assets/01_Sprites/backgrounds/pause_menu_resume.png" id="8_kals0"]
+[ext_resource type="AudioStream" uid="uid://2np6k3vkg5mi" path="res://01_Assets/02_Audio/SoundEffects/MenuClick.wav" id="9_n2x8i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dj667"]
 

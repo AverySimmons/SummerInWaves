@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4h03grv3sige"]
+[gd_scene load_steps=10 format=3 uid="uid://d4h03grv3sige"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_purrb"]
 [ext_resource type="Script" uid="uid://humqapvq5060" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.gd" id="2_l71io"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_pg358"]
-[ext_resource type="Texture2D" uid="uid://ccy00ggxq8gdg" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_enemy_frozen.png" id="3_aipdl"]
-[ext_resource type="Texture2D" uid="uid://mfkemvfamyb0" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_evil_button.png" id="4_xrxsk"]
-[ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_xrxsk"]
+[ext_resource type="Texture2D" uid="uid://322xjha7yrio" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_enemy_frozen.png" id="3_aipdl"]
+[ext_resource type="Texture2D" uid="uid://c50etoon2bvdq" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_evil_button.png" id="4_xrxsk"]
+[ext_resource type="PackedScene" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_xrxsk"]
+[ext_resource type="AudioStream" uid="uid://84hirx1j0xsv" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/FreezeEffect.wav" id="7_ktwbl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pg358"]
 resource_local_to_scene = true
@@ -35,3 +36,6 @@ position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_xrxsk")
 
 [node name="ShakeComponent" parent="." index="4" instance=ExtResource("5_xrxsk")]
+
+[node name="PeriFreeze" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource("7_ktwbl")

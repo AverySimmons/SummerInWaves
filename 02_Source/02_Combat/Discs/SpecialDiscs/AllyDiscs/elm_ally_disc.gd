@@ -16,15 +16,13 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
 	special_move_timer -= delta
-	if special_move_timer <= 0:
+	if special_move_timer <= 0 and not removing:
 		gravity_bomb() #GRAVITY BOMB!!!!!!!!!!!!!!!!!!!!!!!!!!!! So cool
 	
 	pass
 
 func gravity_bomb() -> void:
 	#GRAVITY BOMB!!!!! Wow
-	#sound
-	$ElmGravBomb.play()
 	
 	var discs_in_range = $GravityBomb.get_overlapping_areas()
 	for disc in discs_in_range:
@@ -37,6 +35,10 @@ func gravity_bomb() -> void:
 
 func explode() -> void:
 	# Maybe a cool effect here? Idk
+	#sound
+	$ElmGravBomb.play()
+	print("I exploded")
+	
 	removing = true
 	monitorable = false
 	monitoring = false
