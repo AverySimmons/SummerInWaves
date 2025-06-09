@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://c0nq6dc4vkrc2" path="res://01_Assets/01_Sprites/backgrounds/combat_background_new.png" id="2_smkjc"]
 [ext_resource type="PackedScene" uid="uid://d06rr5him4xv2" path="res://02_Source/02_Combat/CombatManager/hand.tscn" id="5_avjet"]
 [ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="5_q0m3e"]
-[ext_resource type="AudioStream" uid="uid://ds6ridscoaog4" path="res://01_Assets/02_Audio/SoundEffects/OtherHandAppears.wav" id="6_q0m3e"]
-[ext_resource type="AudioStream" uid="uid://lka0lfyy2qki" path="res://01_Assets/02_Audio/SoundEffects/DiscCollision2.wav" id="7_avjet"]
-[ext_resource type="AudioStream" uid="uid://cy4adp0ffntuh" path="res://01_Assets/02_Audio/SoundEffects/DiscCollision1.wav" id="8_ujrxw"]
+[ext_resource type="AudioStream" uid="uid://cs4y0n1vmsnr1" path="res://01_Assets/02_Audio/SoundEffects/OtherHandAppears.wav" id="6_q0m3e"]
+[ext_resource type="AudioStream" uid="uid://dlal15ggj8uft" path="res://01_Assets/02_Audio/SoundEffects/DiscCollision2.wav" id="7_avjet"]
+[ext_resource type="AudioStream" uid="uid://q1s4ovirm3iv" path="res://01_Assets/02_Audio/SoundEffects/DiscCollision1.wav" id="8_ujrxw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_avjet"]
 
