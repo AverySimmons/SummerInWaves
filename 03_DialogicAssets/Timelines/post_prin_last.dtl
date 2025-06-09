@@ -11,7 +11,7 @@ if {fight_won} == true:
 	elm_character: Did you guys know that fireworks work using chemical reactions!
 	prin_character: I'll be there!
 else:
-	prin_character (Sad): Why didn't I try harder, I could have studied to much more. Then I wouldn't have had to come here and leave everything behind.
+	prin_character (Sad): Why didn't I try harder, I could have studied so much more. Then I wouldn't have had to come here and leave everything behind.
 	summer_character: But I would have missed you Prin...
 	prin_character (Sad): I know Summer, I know.
 	set {last_fight_lost} = 4.0
