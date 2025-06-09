@@ -2,6 +2,7 @@ extends Node2D
 
 var game_manager_scene: PackedScene = preload("res://02_Source/00_TopManagers/Managers/game_manager.tscn")
 var settings_scene: PackedScene = preload("res://02_Source/00_TopManagers/SettingsMenu/settings.tscn")
+var end_screen: PackedScene = preload("res://02_Source/01_Overworld/EndScreen/end_scene.tscn")
 var in_dialogue_pause: bool = false
 var currently_paused: bool = false
 
@@ -9,6 +10,8 @@ var game_started = false
 var combat_music_playing = false
 
 var pause_animation = false
+
+var end
 
 #start with title screen as a child. when play button is pressed, emit a signal
 #scene manager will switch to game manager. it adds in game manager and deletes the title
@@ -21,6 +24,15 @@ func _ready() -> void:
 	SignalBus.switch_game.connect(switch_game_state)
 	Dialogic.signal_event.connect(dialogic_signal)
 	SignalBus.settings_resumed.connect(pause_game)
+	SignalBus.game_complete.connect(finish_game)
+
+func finish_game():
+	get_tree().paused = true
+	$AnimationPlayer.play("complete_game")
+
+func swap_to_end():
+	get_children()[0].queue_free()
+	end = end_screen.instantiate()
 
 func play_start_game_anim():
 	if not game_started:

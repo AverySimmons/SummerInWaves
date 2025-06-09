@@ -59,6 +59,9 @@ func switch_scenes(win: bool) -> void:
 		
 		if win or GameData.kids_defeated == 0:
 			GameData.kids_defeated += 1
+		
+		if GameData.kids_defeated == 5:
+			SignalBus.game_complete.emit()
 	
 	else:
 		var img = get_viewport().get_texture().get_image()

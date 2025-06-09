@@ -11,3 +11,5 @@ signal dialogue_pause()
 signal disc_removed(was_enemy)
 
 signal settings_resumed()
+
+signal game_complete()
