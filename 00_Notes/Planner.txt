@@ -1,5 +1,47 @@
 Planner
 
+June 8 Things to do
+
+General:
+	Delete the busses (all sounds on master)
+	Playtest and tweak a ton
+	Figure out Prin special pieces, visual communication
+	Al piece dust particles?? Maybe?
+	
+	
+Implementation:
+	Enemy Flinch - 2A
+	Rematch dialogue
+	Go through all dialogue
+	Finalize level layout (jai will add more npcs)
+	Implement Elm and Periwinkle special piece animations
+	Al charge indicator visual
+	Tutorial dialogue - 1A
+
+Sound:
+	Overworld:
+		Talking (same sound and pitch shift)
+		Walking - 1B
+	Combat
+		Disc smack (joey task)
+		Flick charge (starwdew valley fishing) 2B
+		Flick release
+		Ally hand spawn sound (wind foosh)
+		Enemey/Ally flick release (pitch shifted)
+		Disc fall
+		Ally special abilities:
+			Al charge same
+			Periwinkle Freeze (fortnite geyser)
+			Elm (Synth bomb. short)
+		Enemy special abilities
+			Al charge same
+			Periwinkle Freeze (super auto pets when you freeze)
+			Elm (Flourescent light. Constant noise.)
+		Cooldown bar / On cooldown
+
+
+
+
 
 disc max speed
 discs disapearing
