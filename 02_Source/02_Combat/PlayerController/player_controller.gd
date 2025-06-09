@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_released("click") and is_pulling:
 		#sound
-		$FlickChargeUp.stop()
+		#$FlickChargeUp.stop()
 		
 		is_pulling = false
 		$Indicator.visible = false
@@ -48,8 +48,8 @@ func _physics_process(delta: float) -> void:
 	
 	if is_pulling:
 		#sound
-		$FlickChargeUp.play()
-		$FlickChargeUp.pitch_scale = clamp((pull_pos.distance_to(get_global_mouse_position()) / 200), 0., 1.) * 0.9 + 0.1
+		#$FlickChargeUp.play()
+		#$FlickChargeUp.pitch_scale = clamp((pull_pos.distance_to(get_global_mouse_position()) / 200), 0., 1.) * 0.9 + 0.1
 		#$FlickChargeUp.pitch_scale = (pull_pos.distance_to(get_global_mouse_position()) / 20)
 		
 		var rot_ang = get_global_mouse_position().direction_to(pull_pos).angle()
