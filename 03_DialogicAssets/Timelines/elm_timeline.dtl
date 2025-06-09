@@ -17,7 +17,7 @@ if GameData.kids_defeated == 3.0:
 		albert_character (Happy): That's not true! I like seahorses, they're cool as h-e-double hockey sticks.
 		summer_character: And I love penguins, especially rockhopper penguins! I dig their eyebrows!
 		periwinkle_character (Sad): Don't be so stubborn Elm! I hate it when you act so high and mighty!
-		elm_character (Happy): Seven times eight... Seven times eight is fifty-four... seven times nine... I'm doing high-level math don't distract me.
+		elm_character (Happy): Humph! I don't do that...Seven times eight... Seven times eight is fifty-four... seven times nine... I'm doing high-level math don't distract me.
 	[signal arg="switch to combat"]
 else:
 	elm_character (Sad): On top of everything else, Periwinkle won't talk to me anymore.

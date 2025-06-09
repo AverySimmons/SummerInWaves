@@ -1,7 +1,8 @@
 if {fight_won} == true:
 	elm_character (Happy): Maybe taking a break from studying isn't so bad after all. You guys aren't as uneducated as I thought.
 	periwinkle_character: Don't be mean Elm!
-	elm_character: Ahem, what I meant was that I think seahorses and penguins are pretty cool too. Did you know that seahorse are weak swimmers? They don't go very fast despite being a fish. And also, did you know a long long time ago that giant penguins existed! They were super duper tall and heavy, imagine hugging a giant penguin like that.
+	elm_character: Ahem, what I meant was that I think seahorses and penguins are pretty cool too. Did you know that seahorse are weak swimmers? They don't go very fast despite being a fish. 
+	elm_character: And also, did you know a long long time ago that giant penguins existed! They were super duper tall and heavy, imagine hugging a giant penguin like that.
 	summer_character: Woah!! That's so cool! I wish I could go back in time to see that.
 	albert_character: Haha, you're such a nerd! I probably swim better than seahorses!
 	elm_character: Anyways, I'm sorry for being mean to you the other day Periwinkle. Sometimes I let my ego get the best of me.
