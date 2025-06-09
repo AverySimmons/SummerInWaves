@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwkm6aj13xr52"]
+[gd_scene load_steps=18 format=3 uid="uid://cwkm6aj13xr52"]
 
 [ext_resource type="Script" uid="uid://hkyex4ym4kdr" path="res://02_Source/02_Combat/CombatManager/combat_manager.gd" id="1_tpnlr"]
 [ext_resource type="PackedScene" uid="uid://dlgr35ohlr67a" path="res://02_Source/02_Combat/PlayerController/player_controller.tscn" id="2_7631d"]
 [ext_resource type="Texture2D" uid="uid://c0nq6dc4vkrc2" path="res://01_Assets/01_Sprites/backgrounds/combat_background_new.png" id="2_smkjc"]
 [ext_resource type="PackedScene" uid="uid://d06rr5him4xv2" path="res://02_Source/02_Combat/CombatManager/hand.tscn" id="5_avjet"]
 [ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="5_q0m3e"]
+[ext_resource type="AudioStream" uid="uid://cs4y0n1vmsnr1" path="res://01_Assets/02_Audio/SoundEffects/OtherHandAppears.wav" id="6_q0m3e"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_avjet"]
 
@@ -254,6 +255,10 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_4wrav"]
 font_size = 400
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_avjet"]
+streams_count = 1
+stream_0/stream = ExtResource("6_q0m3e")
+
 [node name="CombatManager" type="Node2D"]
 script = ExtResource("1_tpnlr")
 pause = true
@@ -338,3 +343,8 @@ metadata/_edit_lock_ = true
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 position = Vector2(640, 360)
 current = true
+
+[node name="HandSpawn" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_avjet")
+volume_db = 24.0
+attenuation = 0.1
