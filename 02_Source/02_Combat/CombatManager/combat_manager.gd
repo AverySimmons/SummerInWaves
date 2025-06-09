@@ -226,7 +226,7 @@ func disc_removed(is_enemy):
 		enemy_disc_destroyed()
 
 func choose_next_disc():
-	about_to_shoot_special = enemy_normal_count == 0
+	about_to_shoot_special = (enemy_normal_count == 0)
 	if about_to_shoot_special and fight_num == 4:
 		var ind = randi_range(0, 2)
 		$EnemyShootPos.disc_sprite_index = ind + 1

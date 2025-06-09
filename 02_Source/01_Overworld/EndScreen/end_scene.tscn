@@ -1,9 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0grejyxqccor"]
+[gd_scene load_steps=5 format=3 uid="uid://c0grejyxqccor"]
 
 [ext_resource type="Texture2D" uid="uid://c31t67dswia75" path="res://01_Assets/01_Sprites/backgrounds/final_scene_fireworks.png" id="1_e6nb1"]
+
+[sub_resource type="Animation" id="Animation_e6nb1"]
+resource_name = "de"
+length = 13.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wk0ei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wk0ei"]
+_data = {
+&"RESET": SubResource("Animation_wk0ei"),
+&"de": SubResource("Animation_e6nb1")
+}
 
 [node name="EndScene" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("1_e6nb1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wk0ei")
+}
+autoplay = "de"

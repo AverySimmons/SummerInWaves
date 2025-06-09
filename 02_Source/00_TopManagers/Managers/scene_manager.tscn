@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://hysp38t3sb1" path="res://02_Source/00_TopManagers/TitleScreen/title_screen.tscn" id="2_tn0lg"]
 [ext_resource type="AudioStream" uid="uid://bgcyr1gc1a8l3" path="res://01_Assets/02_Audio/Music/Summer Overworld Draft.wav" id="3_tn0lg"]
 [ext_resource type="AudioStream" uid="uid://cwq27cygjjaju" path="res://01_Assets/02_Audio/SoundEffects/WavesAmbience.ogg" id="4_uerde"]
-[ext_resource type="AudioStream" uid="uid://c34a77ma5dscu" path="res://01_Assets/02_Audio/Music/Combat Main Loop.wav" id="5_ed7ms"]
+[ext_resource type="AudioStream" uid="uid://unk0iv0yw14l" path="res://01_Assets/02_Audio/Music/Combat Main Loop.ogg" id="5_qrqa2"]
 [ext_resource type="AudioStream" uid="uid://g4uw3tfsuto7" path="res://01_Assets/02_Audio/Music/Combat Intro.wav" id="6_qrqa2"]
 [ext_resource type="AudioStream" uid="uid://c0mkud67kgcqd" path="res://01_Assets/02_Audio/SoundEffects/FireworkBackground.ogg" id="7_qrqa2"]
 
@@ -399,6 +399,54 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Music/WaveAmbience:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Music/Overworld:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Music/Overworld:stream_paused")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Music/WaveAmbience:stream_paused")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qrqa2"]
 resource_name = "start_game"
@@ -495,10 +543,58 @@ tracks/3/path = NodePath("Music/Fireworks:volume_db")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2.03, 3),
+"times": PackedFloat32Array(2.03, 4.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-20.0, 0.0]
+"values": [-20.0, 10.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Music/WaveAmbience:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -20.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Music/Overworld:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -20.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Music/Overworld:stream_paused")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.98),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Music/WaveAmbience:stream_paused")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w6yhh"]
@@ -532,7 +628,7 @@ stream = ExtResource("4_uerde")
 autoplay = true
 
 [node name="CombatMain" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("5_ed7ms")
+stream = ExtResource("5_qrqa2")
 
 [node name="CombatIntro" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("6_qrqa2")
