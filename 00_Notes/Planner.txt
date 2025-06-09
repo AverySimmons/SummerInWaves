@@ -1,12 +1,31 @@
 Planner
 
+Final:
+Font
+Textbox style
+NPCs delete themselves
+Disc hit sound
+Elm pieces not spawning
+Beach NPC dialogue
+Upload itch io
+Ending
+Charge target
+Controls text
+Rework enemy movement
+Enemy sounds
+Visual clarity of prin specials
+
+
+Tweaking
+
+
 June 8 Things to do
 
 General:
 	// Delete the busses (all sounds on master)
 	Playtest and tweak a ton
 	Figure out Prin special pieces, visual communication
-	Al piece dust particles?? Maybe?
+	--Al piece dust particles?? Maybe?
 	
 	
 Implementation:
@@ -21,7 +40,7 @@ Implementation:
 	// Fix freeze on spacebar talk - 5A
 	// Fix starting hand rotation - 6A
 	// 3 2 1 GO!
-	Fix pokemon transition
+	--Fix pokemon transition
 	// Settings
 
 Sound:

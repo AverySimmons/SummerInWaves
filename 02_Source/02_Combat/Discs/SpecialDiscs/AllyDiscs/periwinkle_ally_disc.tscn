@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_ytlm1"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_2160p"]
 [ext_resource type="Script" uid="uid://dhm11kcs33r5p" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.gd" id="2_ben0x"]
-[ext_resource type="PackedScene" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_ben0x"]
-[ext_resource type="Texture2D" uid="uid://e8mv706xequn" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_ally_splash_spritesheet.png" id="5_phjnt"]
-[ext_resource type="AudioStream" uid="uid://dfebjhsbihlku" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/Splash.wav" id="6_hxvcy"]
+[ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_ben0x"]
+[ext_resource type="Texture2D" uid="uid://wauxfva8madq" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_ally_splash_spritesheet.png" id="5_phjnt"]
+[ext_resource type="AudioStream" uid="uid://tvfaqge6ae08" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/Splash.wav" id="6_hxvcy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ben0x"]
 resource_local_to_scene = true

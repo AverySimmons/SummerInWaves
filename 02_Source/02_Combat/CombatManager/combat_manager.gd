@@ -170,7 +170,7 @@ func _ready() -> void:
 			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_al_scene, enemy_peri_scene, enemy_elm_scene]
-			ally_special_discs = 2
+			ally_special_discs = 3
 			enemy_normal_num = 3
 			enemy_sprite_index = 3
 			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))
@@ -227,7 +227,7 @@ func disc_removed(is_enemy):
 func choose_next_disc():
 	about_to_shoot_special = enemy_normal_count == 0
 	if about_to_shoot_special and fight_num == 4:
-		var ind = randf_range(0, 2)
+		var ind = randi_range(0, 2)
 		$EnemyShootPos.disc_sprite_index = ind + 1
 		about_to_shoot_special_ind = ind
 	

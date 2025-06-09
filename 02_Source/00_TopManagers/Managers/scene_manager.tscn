@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://2pk7osbygpv1" path="res://02_Source/00_TopManagers/Managers/scene_manager.gd" id="1_bi5nd"]
 [ext_resource type="PackedScene" uid="uid://hysp38t3sb1" path="res://02_Source/00_TopManagers/TitleScreen/title_screen.tscn" id="2_tn0lg"]
 [ext_resource type="AudioStream" uid="uid://bgcyr1gc1a8l3" path="res://01_Assets/02_Audio/Music/Summer Overworld Draft.wav" id="3_tn0lg"]
-[ext_resource type="AudioStream" uid="uid://ukialisu8oup" path="res://01_Assets/02_Audio/SoundEffects/WavesAmbience.ogg" id="4_uerde"]
-[ext_resource type="AudioStream" uid="uid://b5ljfira2wf37" path="res://01_Assets/02_Audio/Music/Combat Main Loop.wav" id="5_ed7ms"]
-[ext_resource type="AudioStream" uid="uid://celnlvqej15fg" path="res://01_Assets/02_Audio/Music/Combat Intro.wav" id="6_qrqa2"]
+[ext_resource type="AudioStream" uid="uid://cwq27cygjjaju" path="res://01_Assets/02_Audio/SoundEffects/WavesAmbience.ogg" id="4_uerde"]
+[ext_resource type="AudioStream" uid="uid://c34a77ma5dscu" path="res://01_Assets/02_Audio/Music/Combat Main Loop.wav" id="5_ed7ms"]
+[ext_resource type="AudioStream" uid="uid://g4uw3tfsuto7" path="res://01_Assets/02_Audio/Music/Combat Intro.wav" id="6_qrqa2"]
 
 [sub_resource type="Animation" id="Animation_uerde"]
 length = 0.001

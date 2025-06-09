@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_npmn5"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_bdwpu"]
 [ext_resource type="Script" uid="uid://vvsrvvobnt5m" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/elm_ally_disc.gd" id="2_li34u"]
-[ext_resource type="Texture2D" uid="uid://b5w2avywrwjf3" path="res://01_Assets/01_Sprites/button_sprites/elm_ally_gravity_bomb_spritesheet.png" id="3_f5d8s"]
-[ext_resource type="PackedScene" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_li34u"]
+[ext_resource type="Texture2D" uid="uid://daelcgwa8d2eq" path="res://01_Assets/01_Sprites/button_sprites/elm_ally_gravity_bomb_spritesheet.png" id="3_f5d8s"]
+[ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_li34u"]
 [ext_resource type="Texture2D" uid="uid://d31x57blnfy3p" path="res://01_Assets/01_Sprites/button_sprites/elm's_main_button.png" id="4_owy6a"]
-[ext_resource type="AudioStream" uid="uid://b5iqmdmldys8t" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/ElmGravityBoom.wav" id="7_5f1t0"]
+[ext_resource type="AudioStream" uid="uid://v0jp5hnli14l" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/ElmGravityBoom.wav" id="7_5f1t0"]
 
 [sub_resource type="Animation" id="Animation_1oop8"]
 length = 0.001
