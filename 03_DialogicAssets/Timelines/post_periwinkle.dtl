@@ -7,6 +7,7 @@ if {fight_won} == true:
 	periwinkle_character (Happy): He seems really stressed out, I should talk to him.
 	summer_character: We'll come with you!
 	periwinkle_character (Happy): Thanks guys, let's go.
+	PERIWINKLE HAS JOINED THE PARTY.
 else:
 	periwinkle_character (Sad): If this is your way of making new friends, you should go back to kindergarten.
 	periwinkle_character (Sad): Don't talk to me anymore.

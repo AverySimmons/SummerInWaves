@@ -9,6 +9,7 @@ if {fight_won} == true:
 	summer_character: But now you have all of us! We'll be friends forever!
 	albert_character: Yeah!!!!
 	elm_character: Thanks for helping me guys, I see what I've beeing out on.
+	ELM HAS JOINED THE PARTY.
 else:
 	elm_character (Sad): Seven times nine is... seven times nine is... seven times nine is.... sixty - you made me lose count! Now I have to start over again.
 	elm_character (Sad): I can't afford to get distraced this time.
