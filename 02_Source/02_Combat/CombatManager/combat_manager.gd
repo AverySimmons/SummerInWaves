@@ -436,10 +436,10 @@ func combat_win_lose(is_win):
 		Dialogic.start("prin_tutorial").process_mode = Node.PROCESS_MODE_ALWAYS
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		SignalBus.dialogue_pause.emit()
-		enemy_flinch = 0.1
+		enemy_flinch = 0.
 		enemy_max_rot_vel = 1.5 * PI / 2
-		enemy_shoot_rate = 0.75
-		enemy_shoot_speed_mod = 800
+		enemy_shoot_rate = 0.3
+		enemy_shoot_speed_mod = 600
 		enemy_starting_discs = 4
 		enemy_rot_acc = 2 * PI
 		return
