@@ -1,8 +1,8 @@
 extends EnemyDisc
 
-const PERI_SPECIAL_MOVE_TIMER_LOWER = 4
-const PERI_SPECIAL_MOVE_TIMER_UPPER = 7
-const WALL_TIME = 3
+const PERI_SPECIAL_MOVE_TIMER_LOWER = 8
+const PERI_SPECIAL_MOVE_TIMER_UPPER = 13
+const WALL_TIME = 5
 
 var mass_increase: float = 10000
 var wall_timer: float = 0
