@@ -35,6 +35,9 @@ directories/dtl_directory={
 "albert_tutorial": "res://03_DialogicAssets/Timelines/albert_tutorial.dtl",
 "elm_timeline": "res://03_DialogicAssets/Timelines/elm_timeline.dtl",
 "empty_timeline": "res://03_DialogicAssets/Timelines/empty_timeline.dtl",
+"freaks_timeline": "res://03_DialogicAssets/Timelines/freaks_timeline.dtl",
+"granny_timeline": "res://03_DialogicAssets/Timelines/granny_timeline.dtl",
+"napper_timeline": "res://03_DialogicAssets/Timelines/napper_timeline.dtl",
 "periwinkle_timeline": "res://03_DialogicAssets/Timelines/periwinkle_timeline.dtl",
 "post_albert": "res://03_DialogicAssets/Timelines/post_albert.dtl",
 "post_elm": "res://03_DialogicAssets/Timelines/post_elm.dtl",
@@ -43,7 +46,9 @@ directories/dtl_directory={
 "post_prin_last": "res://03_DialogicAssets/Timelines/post_prin_last.dtl",
 "prin_timeline": "res://03_DialogicAssets/Timelines/prin_timeline.dtl",
 "prin_tutorial": "res://03_DialogicAssets/Timelines/prin_tutorial.dtl",
-"summer_tutorial": "res://03_DialogicAssets/Timelines/summer_tutorial.dtl"
+"sand_timeline": "res://03_DialogicAssets/Timelines/sand_timeline.dtl",
+"summer_tutorial": "res://03_DialogicAssets/Timelines/summer_tutorial.dtl",
+"teens_timeline": "res://03_DialogicAssets/Timelines/teens_timeline.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://03_DialogicAssets/Styles/primary_style.tres"]

@@ -1,13 +1,18 @@
-[gd_scene load_steps=31 format=3 uid="uid://1bsnpqa6l6dy"]
+[gd_scene load_steps=45 format=3 uid="uid://1bsnpqa6l6dy"]
 
 [ext_resource type="PackedScene" uid="uid://w7qmaxkspqgv" path="res://02_Source/01_Overworld/Player/player.tscn" id="1_727id"]
 [ext_resource type="Script" uid="uid://ceinc6bkfw8xy" path="res://02_Source/01_Overworld/Level/level.gd" id="1_mrg8d"]
 [ext_resource type="Texture2D" uid="uid://b7as8ljnnfnhi" path="res://01_Assets/01_Sprites/backgrounds/overworld_background_empty.png" id="3_01gd7"]
 [ext_resource type="PackedScene" uid="uid://4s7rcod1o1yt" path="res://02_Source/01_Overworld/NPCs/npc.tscn" id="4_01gd7"]
-[ext_resource type="Texture2D" uid="uid://dqd4vtdvkxfom" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/prin_beach_spritesheet.png" id="5_j2uae"]
-[ext_resource type="Texture2D" uid="uid://bqamvkr6khdmc" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/elm_beach_spritesheet.png" id="6_xphja"]
-[ext_resource type="Texture2D" uid="uid://by8wkkmlvlqcv" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/al_beach_spritesheet.png" id="7_8qskt"]
-[ext_resource type="Texture2D" uid="uid://cftqkusixabeg" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/periwinkle_beach_spritesheet.png" id="8_qdwrx"]
+[ext_resource type="Texture2D" uid="uid://dttdcuaugvx46" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/prin_beach_spritesheet.png" id="5_j2uae"]
+[ext_resource type="Texture2D" uid="uid://b5to6imtbdkai" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/elm_beach_spritesheet.png" id="6_xphja"]
+[ext_resource type="Texture2D" uid="uid://dwwwrvsygie6e" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/al_beach_spritesheet.png" id="7_8qskt"]
+[ext_resource type="Texture2D" uid="uid://bkevfqqy04ry8" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/periwinkle_beach_spritesheet.png" id="8_qdwrx"]
+[ext_resource type="Texture2D" uid="uid://mdarxljlaneg" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/beach_npc_granny.png" id="9_8qskt"]
+[ext_resource type="Texture2D" uid="uid://dtjmndjsmj64g" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/beach_npc_insand.png" id="10_qdwrx"]
+[ext_resource type="Texture2D" uid="uid://cuyer53f2xq0u" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/beach_npc_freaks.png" id="11_jmbpx"]
+[ext_resource type="Texture2D" uid="uid://bgw18yjcgi7gh" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/beach_npc_napper.png" id="12_mf0rx"]
+[ext_resource type="Texture2D" uid="uid://cmtk6dqws7qsg" path="res://01_Assets/01_Sprites/character_sprites/overworld_sprites/beach_npc_teens.png" id="13_fsnhg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jli0g"]
 size = Vector2(211, 211)
@@ -275,6 +280,33 @@ _data = {
 &"enter_from_combat": SubResource("Animation_01gd7")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmbpx"]
+size = Vector2(195, 262)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf0rx"]
+size = Vector2(137, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsnhg"]
+size = Vector2(291, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ralse"]
+size = Vector2(187, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vafma"]
+size = Vector2(238, 328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsdup"]
+size = Vector2(148, 257)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgmmt"]
+size = Vector2(334, 328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcfrq"]
+size = Vector2(236, 257)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84ggg"]
+size = Vector2(2649, 170)
+
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_mrg8d")
@@ -394,7 +426,104 @@ offset_bottom = 720.0
 mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
+[node name="Granny" parent="." instance=ExtResource("4_01gd7")]
+position = Vector2(208, 137)
+dialogic_scene = "granny_timeline"
+
+[node name="Sprite2D" parent="Granny" index="1"]
+texture = ExtResource("9_8qskt")
+
+[node name="CollisionShape2D" parent="Granny/StaticBody2D" index="0"]
+position = Vector2(-1, 40)
+
+[node name="SandNPCs" parent="." instance=ExtResource("4_01gd7")]
+position = Vector2(505, 129)
+dialogic_scene = "sand_timeline"
+
+[node name="CollisionShape2D" parent="SandNPCs" index="0"]
+position = Vector2(-1.5, -19)
+shape = SubResource("RectangleShape2D_jmbpx")
+
+[node name="Sprite2D" parent="SandNPCs" index="1"]
+texture = ExtResource("10_qdwrx")
+
+[node name="CollisionShape2D" parent="SandNPCs/StaticBody2D" index="0"]
+position = Vector2(-0.5, -18)
+shape = SubResource("RectangleShape2D_mf0rx")
+
+[node name="Freaks" parent="." instance=ExtResource("4_01gd7")]
+position = Vector2(906, 126)
+dialogic_scene = "freaks_timeline"
+
+[node name="CollisionShape2D" parent="Freaks" index="0"]
+position = Vector2(4.5, 49)
+shape = SubResource("RectangleShape2D_fsnhg")
+
+[node name="Sprite2D" parent="Freaks" index="1"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_jmbpx")
+
+[node name="CollisionShape2D" parent="Freaks/StaticBody2D" index="0"]
+position = Vector2(10.5, 44.5)
+shape = SubResource("RectangleShape2D_ralse")
+
+[node name="Napper" parent="." instance=ExtResource("4_01gd7")]
+position = Vector2(1925, 377)
+dialogic_scene = "napper_timeline"
+
+[node name="CollisionShape2D" parent="Napper" index="0"]
+position = Vector2(5, -17)
+shape = SubResource("RectangleShape2D_vafma")
+
+[node name="Sprite2D" parent="Napper" index="1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_mf0rx")
+
+[node name="CollisionShape2D" parent="Napper/StaticBody2D" index="0"]
+position = Vector2(8, -21.5)
+shape = SubResource("RectangleShape2D_fsdup")
+
+[node name="Teens" parent="." instance=ExtResource("4_01gd7")]
+position = Vector2(2271, 253)
+dialogic_scene = "teens_timeline"
+
+[node name="CollisionShape2D" parent="Teens" index="0"]
+position = Vector2(-2, -17)
+shape = SubResource("RectangleShape2D_mgmmt")
+
+[node name="Sprite2D" parent="Teens" index="1"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_fsnhg")
+
+[node name="CollisionShape2D" parent="Teens/StaticBody2D" index="0"]
+position = Vector2(3, -21.5)
+shape = SubResource("RectangleShape2D_mcfrq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1265, 22)
+shape = SubResource("RectangleShape2D_84ggg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2645, 774)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_84ggg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-85, 846)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_84ggg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1, 563, 102, 587, 342, 536, 576, 618, 781, 560, 955, 592, 1283, 480, 1578, 586, 1836, 535, 2077, 608, 2292, 555, 2460, 585, 2565, 566, 2567, 747, -35, 737)
+
 [editable path="Prin"]
 [editable path="Elm"]
 [editable path="Albert"]
 [editable path="Periwinkle"]
+[editable path="Granny"]
+[editable path="SandNPCs"]
+[editable path="Freaks"]
+[editable path="Napper"]
+[editable path="Teens"]
