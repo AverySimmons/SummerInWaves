@@ -50,7 +50,7 @@ func charge_to_center_ability() -> void:
 	# Charge visuals maybe?
 	#
 	#
-	var vector_to_center = Vector2(640, 320) - global_position
 	velocity = charge_speed * charge_dir
+	await get_tree().create_timer(1.5).timeout
 	get_new_point()
 	return
