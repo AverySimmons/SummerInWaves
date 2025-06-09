@@ -128,7 +128,7 @@ func _ready() -> void:
 			enemy_sprite_index = 3
 			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))
 		1:
-			enemy_flinch = 0.5
+			enemy_flinch = 1
 			enemy_max_rot_vel = PI / 2
 			enemy_shoot_rate = 3
 			enemy_shoot_speed_mod = 600
@@ -140,7 +140,7 @@ func _ready() -> void:
 			enemy_sprite_index = 0
 			$HealthBar.material.set_shader_parameter("color", Color("fa5eff"))
 		2:
-			enemy_flinch = 0.35
+			enemy_flinch = 0.8
 			enemy_max_rot_vel = PI / 2
 			enemy_shoot_rate = 2
 			enemy_shoot_speed_mod = 700
@@ -152,7 +152,7 @@ func _ready() -> void:
 			enemy_sprite_index = 1
 			$HealthBar.material.set_shader_parameter("color", Color("a95eff"))
 		3:
-			enemy_flinch = 0.2
+			enemy_flinch = 0.6
 			enemy_max_rot_vel = 1.5 * PI / 2
 			enemy_shoot_rate = 1.5
 			enemy_shoot_speed_mod = 800
@@ -164,9 +164,9 @@ func _ready() -> void:
 			enemy_sprite_index = 2
 			$HealthBar.material.set_shader_parameter("color", Color("66e600"))
 		4:
-			enemy_flinch = 0.1
+			enemy_flinch = 0.4
 			enemy_max_rot_vel = 1.5 * PI / 2
-			enemy_shoot_rate = 4
+			enemy_shoot_rate = 1.1
 			enemy_shoot_speed_mod = 800
 			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel

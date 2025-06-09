@@ -109,7 +109,7 @@ radius = 150.0
 [node name="AllyDisc2" instance=ExtResource("1_npmn5")]
 script = ExtResource("2_li34u")
 min_gravity_bomb_strength = 500.0
-gravity_bomb_strength = 1.6
+gravity_bomb_strength = 7.5
 
 [node name="Implosion" type="Sprite2D" parent="." index="0"]
 visible = false
