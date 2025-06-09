@@ -1,5 +1,9 @@
-[gd_scene format=3 uid="uid://c0grejyxqccor"]
+[gd_scene load_steps=2 format=3 uid="uid://c0grejyxqccor"]
+
+[ext_resource type="Texture2D" uid="uid://c31t67dswia75" path="res://01_Assets/01_Sprites/backgrounds/final_scene_fireworks.png" id="1_e6nb1"]
 
 [node name="EndScene" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_e6nb1")

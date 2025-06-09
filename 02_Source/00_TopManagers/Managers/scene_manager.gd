@@ -34,6 +34,9 @@ func swap_to_end():
 	get_children()[0].queue_free()
 	end = end_screen.instantiate()
 
+func quit_game():
+	get_tree().quit()
+
 func play_start_game_anim():
 	if not game_started:
 		$AnimationPlayer.play("start_game")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2b74evgx5hdt"]
+[gd_scene load_steps=18 format=3 uid="uid://b2b74evgx5hdt"]
 
 [ext_resource type="Script" uid="uid://2pk7osbygpv1" path="res://02_Source/00_TopManagers/Managers/scene_manager.gd" id="1_bi5nd"]
 [ext_resource type="PackedScene" uid="uid://hysp38t3sb1" path="res://02_Source/00_TopManagers/TitleScreen/title_screen.tscn" id="2_tn0lg"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cwq27cygjjaju" path="res://01_Assets/02_Audio/SoundEffects/WavesAmbience.ogg" id="4_uerde"]
 [ext_resource type="AudioStream" uid="uid://c34a77ma5dscu" path="res://01_Assets/02_Audio/Music/Combat Main Loop.wav" id="5_ed7ms"]
 [ext_resource type="AudioStream" uid="uid://g4uw3tfsuto7" path="res://01_Assets/02_Audio/Music/Combat Intro.wav" id="6_qrqa2"]
+[ext_resource type="AudioStream" uid="uid://c0mkud67kgcqd" path="res://01_Assets/02_Audio/SoundEffects/FireworkBackground.ogg" id="7_qrqa2"]
 
 [sub_resource type="Animation" id="Animation_uerde"]
 length = 0.001
@@ -444,7 +445,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_1an3d"]
 resource_name = "complete_game"
-length = 6.0
+length = 16.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -453,10 +454,10 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 3, 6, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -465,11 +466,14 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.5, 16),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"swap_to_end"
+}, {
+"args": [],
+"method": &"quit_game"
 }]
 }
 tracks/2/type = "value"
@@ -535,6 +539,7 @@ stream = ExtResource("6_qrqa2")
 volume_db = -13.0
 
 [node name="Fireworks" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("7_qrqa2")
 
 [node name="MusicPlayer" type="AnimationPlayer" parent="."]
 libraries = {
