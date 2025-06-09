@@ -2,7 +2,7 @@ summer_character: Hi!
 summer_character: I need your help to cheer up my sister.
 summer_character: Left click and drag on the sand to flick a button.
 summer_character: That orange bar at the bottom is your cooldown-
-summer_character: And the blue bar at the top is my sister's happiness!
+summer_character: And the bar at the top is my sister's happiness!
 summer_character: Try to get it full by getting rid of all these worry buttons...
-summer_character: And be carful not to let it run out!
+summer_character: And be careful not to let the happiness meter run out!
 [signal arg="unpause combat"]

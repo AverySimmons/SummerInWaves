@@ -16,12 +16,12 @@ if GameData.kids_defeated == 4.0:
 	else:
 		summer_character: Prin! I made some new friends,
 		albert_character: I'm Al!
-		periwinkle_character: Hi... I'm Periwinkle
-		elm_character: Nice to meet you Prin, I'm Elm
+		periwinkle_character: Hi... I'm Periwinkle.
+		elm_character: Nice to meet you Prin, I'm Elm.
 		prin_character: I wish my friends were here too...
 		periwinkle_character: We can be your friends!
 		prin_character (Sad): You don't understand, I failed my highschool entrance exam, and now I'm so far away from home.
-		elm_character: Hey sometimes I do bad in my classes, I got a B+ last week
+		elm_character: Hey sometimes I do bad in my classes, I got a B+ last week.
 		prin_character (Sad): You guys don't get it.
 		albert_character: Get what?
 		prin_character (Sad): ...
