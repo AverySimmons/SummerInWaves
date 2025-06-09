@@ -1,7 +1,7 @@
 extends EnemyDisc
 
 const PERI_SPECIAL_MOVE_TIMER_LOWER = 8
-const PERI_SPECIAL_MOVE_TIMER_UPPER = 13
+const PERI_SPECIAL_MOVE_TIMER_UPPER = 11
 const WALL_TIME = 5
 
 var mass_increase: float = 10000
@@ -11,7 +11,7 @@ var stored_velocity: Vector2
 
 func _ready() -> void:
 	super._ready()
-	normal_mass = mass
+	normal_mass = mass * 1.5
 	special_move_timer = randf_range(PERI_SPECIAL_MOVE_TIMER_LOWER, PERI_SPECIAL_MOVE_TIMER_UPPER)
 	pass
 
