@@ -49,6 +49,18 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if is_charging:
+		if has_overlapping_areas():
+			var colliding_discs = get_overlapping_areas()
+			for disc in colliding_discs:
+				if disc.mass > 10000:
+					is_charging = false
+					velocity = -charge_dir * strength_of_charge
+		elif $PlayspaceCheck.has_overlapping_areas():
+			velocity = charge_dir * strength_of_charge
+		return
+
+	
+	if is_charging:
 		if $PlayspaceCheck.has_overlapping_areas():
 			velocity = charge_dir * strength_of_charge
 		return
