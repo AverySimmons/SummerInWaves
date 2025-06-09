@@ -144,7 +144,7 @@ func _ready() -> void:
 			enemy_max_rot_vel = PI / 2
 			enemy_shoot_rate = 2
 			enemy_shoot_speed_mod = 700
-			enemy_starting_discs = 3
+			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_peri_scene]
 			ally_special_discs = 1
@@ -156,7 +156,7 @@ func _ready() -> void:
 			enemy_max_rot_vel = 1.5 * PI / 2
 			enemy_shoot_rate = 1.5
 			enemy_shoot_speed_mod = 800
-			enemy_starting_discs = 3
+			enemy_starting_discs = 4
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_elm_scene]
 			ally_special_discs = 2
@@ -166,9 +166,9 @@ func _ready() -> void:
 		4:
 			enemy_flinch = 0.4
 			enemy_max_rot_vel = 1.5 * PI / 2
-			enemy_shoot_rate = 2.5
+			enemy_shoot_rate = 2.7
 			enemy_shoot_speed_mod = 800
-			enemy_starting_discs = 4
+			enemy_starting_discs = 5
 			enemy_rot_acc = enemy_max_rot_vel
 			enemy_special_discs = [enemy_al_scene, enemy_peri_scene, enemy_elm_scene]
 			ally_special_discs = 3
