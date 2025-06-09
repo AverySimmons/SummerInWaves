@@ -52,7 +52,11 @@ func pull_back(s):
 	$Sprite2D.frame = 1
 	$Sprite2D2.visible = true
 	$Sprite2D2.scale = Vector2(s, s)
+	if sprite_index == 3:
+		$Sprite2D.position = Vector2(-57, 105)
 
 func let_go():
 	$Sprite2D.frame = 0
 	$Sprite2D2.visible = false
+	if sprite_index == 3:
+		$Sprite2D.position = Vector2(-57, 80)

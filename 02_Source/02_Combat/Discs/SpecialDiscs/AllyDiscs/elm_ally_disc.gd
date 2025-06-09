@@ -34,7 +34,9 @@ func gravity_bomb() -> void:
 
 func explode() -> void:
 	# Maybe a cool effect here? Idk
-	#
-	#
+	removing = true
+	monitorable = false
+	monitoring = false
+	$Implosion/AnimationPlayer.play("boom")
+	await $Implosion/AnimationPlayer.animation_finished
 	queue_free()
-	return

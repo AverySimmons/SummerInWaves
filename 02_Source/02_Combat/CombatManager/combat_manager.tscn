@@ -259,10 +259,12 @@ script = ExtResource("1_tpnlr")
 pause = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(640, 360)
 texture = ExtResource("2_smkjc")
 
 [node name="HealthBar" type="ColorRect" parent="."]
+z_index = -1
 material = SubResource("ShaderMaterial_ujrxw")
 offset_left = 905.0
 offset_top = 233.0

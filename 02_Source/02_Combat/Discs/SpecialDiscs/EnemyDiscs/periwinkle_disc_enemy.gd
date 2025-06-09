@@ -22,9 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	special_move_timer -= delta
 	if special_move_timer <= 0:
-		# Visuals begin?
-		#
-		#
+		$Freeze.visible = true
 		mass = mass * mass_increase
 		
 		stored_velocity = velocity
@@ -41,9 +39,7 @@ func _physics_process(delta: float) -> void:
 	
 	# After ability done
 	if wall_timer_was_positive && wall_timer <= 0:
-		# Visuals end?
-		#
-		#
+		$Freeze.visible = false
 		mass = normal_mass
 		velocity = stored_velocity
 		

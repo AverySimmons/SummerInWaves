@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 			$Hand.global_position = pull_pos
 			$Hand.rotation = pull_pos.angle_to_point(Vector2(640, 360)) + PI / 2
 			var t = create_tween()
-			t.tween_property($Hand, "modulate", Color(1,1,1,1), 0.2)
+			t.tween_property($Hand, "modulate", Color(1,1,1,1), 0.1)
 	
 	if Input.is_action_just_released("click") and is_pulling:
 		is_pulling = false

@@ -24,12 +24,14 @@ func _physics_process(delta: float) -> void:
 		mass = mass * mass_increase
 		gravitation_timer = GRAVITATION_TIME
 		special_move_timer = randf_range(ELM_SPECIAL_MOVE_TIMER_LOWER, ELM_SPECIAL_MOVE_TIMER_UPPER)
+		$GravityPull/AnimationPlayer.play("gravity_pull")
 	
 	if gravitation_timer >= 0:
 		gravity_ability(delta)
 		gravitation_timer -= delta
 	else:
 		mass = normal_mass
+		$GravityPull/AnimationPlayer.play("RESET")
 	pass
 
 func gravity_ability(delta: float) -> void:

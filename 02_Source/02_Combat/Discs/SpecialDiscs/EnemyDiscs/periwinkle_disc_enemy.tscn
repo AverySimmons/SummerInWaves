@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4h03grv3sige"]
+[gd_scene load_steps=9 format=3 uid="uid://d4h03grv3sige"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_purrb"]
 [ext_resource type="Script" uid="uid://humqapvq5060" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.gd" id="2_l71io"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_pg358"]
+[ext_resource type="Texture2D" uid="uid://ccy00ggxq8gdg" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_enemy_frozen.png" id="3_aipdl"]
 [ext_resource type="Texture2D" uid="uid://mfkemvfamyb0" path="res://01_Assets/01_Sprites/button_sprites/periwinkle_evil_button.png" id="4_xrxsk"]
 [ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_xrxsk"]
 
@@ -19,14 +20,18 @@ radius = 54.0
 script = ExtResource("2_l71io")
 max_velocity = 800.0
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Freeze" type="Sprite2D" parent="." index="0"]
+visible = false
+texture = ExtResource("3_aipdl")
+
+[node name="Sprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_pg358")
 position = Vector2(-1, 4)
 scale = Vector2(1, 1)
 texture = ExtResource("4_xrxsk")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_xrxsk")
 
-[node name="ShakeComponent" parent="." index="3" instance=ExtResource("5_xrxsk")]
+[node name="ShakeComponent" parent="." index="4" instance=ExtResource("5_xrxsk")]

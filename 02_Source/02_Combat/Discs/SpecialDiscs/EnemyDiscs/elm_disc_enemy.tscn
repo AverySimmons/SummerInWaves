@@ -1,10 +1,74 @@
-[gd_scene load_steps=9 format=3 uid="uid://w02gd2qykv6o"]
+[gd_scene load_steps=13 format=3 uid="uid://w02gd2qykv6o"]
 
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_1k566"]
 [ext_resource type="Script" uid="uid://lcgwvme0qxi" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.gd" id="2_lhswv"]
+[ext_resource type="Texture2D" uid="uid://blg7josekuavj" path="res://01_Assets/01_Sprites/button_sprites/elm_enemy_gravity_pull_spritesheet.png" id="3_0tv5r"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_dbduf"]
 [ext_resource type="Texture2D" uid="uid://by808rbthim0a" path="res://01_Assets/01_Sprites/button_sprites/elm_evil_button.png" id="4_3igc1"]
 [ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_3igc1"]
+
+[sub_resource type="Animation" id="Animation_kgky2"]
+resource_name = "gravity_pull"
+length = 0.2
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s8yk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yppgi"]
+_data = {
+&"RESET": SubResource("Animation_s8yk2"),
+&"gravity_pull": SubResource("Animation_kgky2")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3igc1"]
 resource_local_to_scene = true
@@ -22,20 +86,35 @@ radius = 110.0
 script = ExtResource("2_lhswv")
 max_velocity = 800.0
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="GravityPull" type="Sprite2D" parent="." index="0"]
+visible = false
+z_index = -1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_0tv5r")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GravityPull" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_yppgi")
+}
+speed_scale = 1.5
+
+[node name="Sprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_3igc1")
 scale = Vector2(1, 1)
 texture = ExtResource("4_3igc1")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_3igc1")
 
-[node name="GravityRing" type="Area2D" parent="." index="3"]
+[node name="GravityRing" type="Area2D" parent="." index="4"]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityRing" index="0"]
 shape = SubResource("CircleShape2D_lhswv")
 
-[node name="ShakeComponent" parent="." index="4" instance=ExtResource("5_3igc1")]
+[node name="ShakeComponent" parent="." index="5" instance=ExtResource("5_3igc1")]

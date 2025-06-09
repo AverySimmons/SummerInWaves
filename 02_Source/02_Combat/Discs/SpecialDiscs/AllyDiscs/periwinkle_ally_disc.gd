@@ -32,8 +32,11 @@ func bomb() -> void:
 	return
 
 func explode() -> void:
-	# Maybe explosion here?
-	#
-	#
+	removing = true
+	monitorable = false
+	monitoring = false
+	$Explosion/AnimationPlayer.play("boom")
+	await $Explosion/AnimationPlayer.animation_finished
+	
 	queue_free()
 	return
