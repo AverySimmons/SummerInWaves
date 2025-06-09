@@ -305,3 +305,11 @@ offset_right = 1330.0
 offset_bottom = 774.0
 color = Color(1, 1, 1, 0)
 metadata/_edit_lock_ = true
+
+[node name="Hands" type="Node2D" parent="."]
+
+[node name="Hand" parent="Hands" instance=ExtResource("5_avjet")]
+
+[node name="Hand2" parent="Hands" instance=ExtResource("5_avjet")]
+
+[node name="Hand3" parent="Hands" instance=ExtResource("5_avjet")]

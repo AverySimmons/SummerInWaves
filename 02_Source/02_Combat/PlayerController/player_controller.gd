@@ -21,18 +21,29 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("click"):
 		if mouse_dist > 315:
+			$Indicator.visible = true
 			is_pulling = true
 			pull_pos = get_global_mouse_position()
-			$Indicator.visible = true
+			$Hand.pull_back(0.7)
+			$Hand.global_position = pull_pos
+			$Hand.rotation = pull_pos.angle_to_point(Vector2(640, 360)) + PI / 2
+			var t = create_tween()
+			t.tween_property($Hand, "modulate", Color(1,1,1,1), 0.2)
 	
 	if Input.is_action_just_released("click") and is_pulling:
 		is_pulling = false
 		$Indicator.visible = false
 		if get_global_mouse_position().distance_to(pull_pos) > 5 and cooldown_timer > cooldown_window:
 			flick_disc()
+		
+		$Hand.let_go()
+		var t = create_tween()
+		t.tween_property($Hand, "modulate", Color(1,1,1,0), 0.5)
 	
 	if is_pulling:
 		var rot_ang = get_global_mouse_position().direction_to(pull_pos).angle()
+		if pull_pos != get_global_mouse_position():
+			$Hand.rotation = rot_ang + PI / 2
 		$Indicator.global_position = pull_pos - Vector2(0, 20).rotated(rot_ang)
 		$Indicator.rotation = rot_ang
 		var pull_dist = get_global_mouse_position().distance_to(pull_pos)

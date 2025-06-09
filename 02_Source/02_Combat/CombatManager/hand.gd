@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var free_rot = false
+
 var sprite_index = 0 :
 	set(val):
 		$Sprite2D.texture = sprites[val]
@@ -28,12 +30,16 @@ var disc_sprites = [
 	preload("res://01_Assets/01_Sprites/button_sprites/al_evil_button.png"),
 	preload("res://01_Assets/01_Sprites/button_sprites/periwinkle_evil_button.png"),
 	preload("res://01_Assets/01_Sprites/button_sprites/elm_evil_button.png"),
-	preload("res://01_Assets/01_Sprites/button_sprites/prin_evil_button.png")
+	preload("res://01_Assets/01_Sprites/button_sprites/prin_evil_button.png"),
+	preload("res://01_Assets/01_Sprites/button_sprites/al's_main_button.png"),
+	preload("res://01_Assets/01_Sprites/button_sprites/periwinkle's_main_button.png"),
+	preload("res://01_Assets/01_Sprites/button_sprites/elm's_main_button.png")
 ]
 
 func _process(delta: float) -> void:
-	var center = Vector2(640, 360)
-	rotation = global_position.angle_to_point(center) + PI / 2
+	if not free_rot:
+		var center = Vector2(640, 360)
+		rotation = global_position.angle_to_point(center) + PI / 2
 
 func pull_back(s):
 	$Sprite2D.frame = 1

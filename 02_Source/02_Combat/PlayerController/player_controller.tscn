@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlgr35ohlr67a"]
+[gd_scene load_steps=10 format=3 uid="uid://dlgr35ohlr67a"]
 
 [ext_resource type="Script" uid="uid://caxcq0xmaejij" path="res://02_Source/02_Combat/PlayerController/player_controller.gd" id="1_haeba"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="2_tankh"]
 [ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="3_sdusc"]
+[ext_resource type="PackedScene" uid="uid://d06rr5him4xv2" path="res://02_Source/02_Combat/CombatManager/hand.tscn" id="4_pi3ok"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmsl"]
 radius = 320.0
@@ -48,3 +49,7 @@ offset_top = 123.0
 offset_right = 263.231
 offset_bottom = 353.769
 color = Color(0.97, 0.79346, 0.1552, 1)
+
+[node name="Hand" parent="." instance=ExtResource("4_pi3ok")]
+modulate = Color(1, 1, 1, 0)
+free_rot = true

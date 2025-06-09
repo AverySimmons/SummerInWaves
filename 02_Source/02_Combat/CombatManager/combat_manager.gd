@@ -22,7 +22,6 @@ var enemy_al_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/Enemy
 var enemy_peri_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/periwinkle_disc_enemy.tscn")
 var enemy_elm_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/elm_disc_enemy.tscn")
 
-
 var ally_scenes = [
 	preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.tscn"),
 	preload("res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/periwinkle_ally_disc.tscn"),
@@ -39,6 +38,24 @@ var ally_timers = [
 	5,
 	9,
 	12
+]
+
+var ally_next_angles = [
+	randf_range(0, TAU),
+	randf_range(0, TAU),
+	randf_range(0, TAU)
+]
+
+@onready var ally_hands = [
+	$Hands/Hand,
+	$Hands/Hand2,
+	$Hands/Hand3
+]
+
+var ally_hand_shot = [
+	false,
+	false,
+	false
 ]
 
 var released_disc: bool = false
@@ -86,6 +103,12 @@ func _ready() -> void:
 	GameData.combat_manager = self
 	SignalBus.create_disc.connect(spawn_disc)
 	fight_num = GameData.kids_defeated
+	
+	for i in 3:
+		ally_hands[i].sprite_index = i + 1
+		ally_hands[i].disc_sprite_index = i + 5
+		ally_hands[i].modulate.a = 0
+	
 	
 	match fight_num:
 		0:
@@ -185,7 +208,7 @@ func choose_next_disc():
 		$EnemyShootPos.disc_sprite_index = ind + 1
 		about_to_shoot_special_ind = ind
 	
-	if not about_to_shoot_special:
+	else:
 		$EnemyShootPos.disc_sprite_index = enemy_sprite_index + 1
 
 func enemy_live_discs() -> Array[Disc]:
@@ -292,12 +315,23 @@ func ally_action(delta):
 		
 		if ally_timers[i] <= 0:
 			ally_timers[i] = randf_range(5, 7)
-			var spawn_pos = center + Vector2(400, 0).rotated(randf_range(0, TAU))
+			var spawn_pos = center + Vector2(400, 0).rotated(ally_next_angles[i])
+			ally_next_angles[i] = randf_range(0, TAU)
 			var vel = spawn_pos.direction_to(center) * 700
 			ally_discs[i] = spawn_disc(spawn_pos, vel, -1, ally_scenes[i], TAU, 4)
+			ally_hand_shot[i] = false
+			ally_hands[i].let_go()
+			var t = create_tween()
+			t.tween_property(ally_hands[i], "modulate", Color(1,1,1,0), 0.5)
 		
 		else:
 			ally_timers[i] -= delta
+			if not ally_hand_shot[i] and ally_timers[i] < 1:
+				ally_hand_shot[i] = true
+				ally_hands[i].position = center + Vector2(400, 0).rotated(ally_next_angles[i])
+				ally_hands[i].pull_back(1)
+				var t = create_tween()
+				t.tween_property(ally_hands[i], "modulate", Color(1,1,1,1), 0.3)
 
 func enemy_action(delta):
 	if enemy_move_timer <= 0:

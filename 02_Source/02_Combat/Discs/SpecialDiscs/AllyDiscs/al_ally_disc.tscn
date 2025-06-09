@@ -17,6 +17,7 @@ script = ExtResource("2_h4vmu")
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_h4vmu")
+scale = Vector2(1, 1)
 texture = ExtResource("4_24f1p")
 
 [node name="ShakeComponent" parent="." index="3" instance=ExtResource("4_h4vmu")]
