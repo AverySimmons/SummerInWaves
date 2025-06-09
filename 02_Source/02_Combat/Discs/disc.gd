@@ -69,8 +69,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Momentum
 	if collision_cooldown <= 0 && has_overlapping_areas():
-		#sound call
-		disc_collision_sound(velocity)
 		
 		instigate_collision()
 		collision_cooldown = 0.1
@@ -127,6 +125,8 @@ func instigate_single_collision(other_disc: Disc) -> void:
 	#print('Disc A Rotational Velocity', rotational_velocity)
 	#print('Disc B Rotational Velocity', other_disc.rotational_velocity)
 	radius = $CollisionShape2D.shape.radius
+	#sound call
+	disc_collision_sound(velocity - other_disc.velocity)
 	fix_penetration(other_disc)
 	var collision_point: Vector2 = find_collision_point(other_disc)
 	var vector_from_center_of_mass: Vector2 = collision_point - center_of_mass
