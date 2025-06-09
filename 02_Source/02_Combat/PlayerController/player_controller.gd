@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	
 	if is_pulling:
 		var rot_ang = get_global_mouse_position().direction_to(pull_pos).angle()
-		if pull_pos != get_global_mouse_position():
+		if pull_pos.distance_to(get_global_mouse_position()) > 10:
 			$Hand.rotation = rot_ang + PI / 2
 		$Indicator.global_position = pull_pos - Vector2(0, 20).rotated(rot_ang)
 		$Indicator.rotation = rot_ang

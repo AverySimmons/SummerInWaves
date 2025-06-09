@@ -13,10 +13,14 @@ Implementation:
 	// Enemy Flinch - 2A
 	// Rematch dialogue - 3A
 	Go through all dialogue
+	// Implement beach npcs - 4A
 	Finalize level layout (jai will add more npcs)
 	Implement Elm and Periwinkle special piece animations
 	Al charge indicator visual
 	// Tutorial dialogue - 1A
+	// Fix freeze on spacebar talk - 5A
+	// Fix starting hand rotation - 6A
+	3 2 1 GO!
 
 Sound:
 	Overworld:
