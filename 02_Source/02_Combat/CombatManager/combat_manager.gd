@@ -178,6 +178,9 @@ func _ready() -> void:
 	await get_tree().create_timer(3).timeout
 	
 	if fight_num != 0:
+		#sound effect
+		$HandSpawn.play()
+		
 		var t = create_tween()
 		t.tween_property($EnemyShootPos, "modulate", Color(1,1,1,1), 0.5)
 
@@ -357,6 +360,9 @@ func ally_action(delta):
 		else:
 			ally_timers[i] -= delta
 			if not ally_hand_shot[i] and ally_timers[i] < 1:
+				#sound effect
+				$HandSpawn.play()
+				
 				ally_hand_shot[i] = true
 				ally_hands[i].position = center + Vector2(400, 0).rotated(ally_next_angles[i])
 				ally_hands[i].pull_back(1)
@@ -405,6 +411,9 @@ func combat_win_lose(is_win):
 	if fight_num == 0 and is_win and not prin_phase2:
 		prin_phase2 = true
 		await get_tree().create_timer(1).timeout
+		#sound effect
+		$HandSpawn.play()
+		
 		var t = create_tween()
 		t.tween_property($EnemyShootPos, "modulate", Color(1,1,1,1), 0.5)
 		await t.finished

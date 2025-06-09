@@ -23,9 +23,8 @@ Sound:
 	Combat
 		Disc smack (joey task)
 		// Flick charge (starwdew valley fishing) 2B
-		// Flick release
-		// Ally hand spawn sound (wind foosh)
-		// Enemey/Ally flick release (pitch shifted)
+		// Flick release (Wait on joey)
+		// Enemey/Ally flick release (pitch shifted / joey wait)
 		
 		Ally special abilities:
 			Al charge same
