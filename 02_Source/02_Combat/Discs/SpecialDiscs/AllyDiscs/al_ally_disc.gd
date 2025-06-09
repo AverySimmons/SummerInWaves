@@ -57,8 +57,8 @@ func _physics_process(delta: float) -> void:
 					var collision_point: Vector2 = find_collision_point(disc)
 					var dir_from_collision_point: Vector2 = (collision_point - center_of_mass).normalized()
 					velocity = -dir_from_collision_point * strength_of_charge
-				elif $PlayspaceCheck.has_overlapping_areas():
-					velocity = charge_dir * strength_of_charge
+		if $PlayspaceCheck.has_overlapping_areas() && is_charging:
+			velocity = charge_dir * strength_of_charge
 		return
 
 	
