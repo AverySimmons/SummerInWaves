@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://hkyex4ym4kdr" path="res://02_Source/02_Combat/CombatManager/combat_manager.gd" id="1_tpnlr"]
 [ext_resource type="PackedScene" uid="uid://dlgr35ohlr67a" path="res://02_Source/02_Combat/PlayerController/player_controller.tscn" id="2_7631d"]
 [ext_resource type="Texture2D" uid="uid://c0nq6dc4vkrc2" path="res://01_Assets/01_Sprites/backgrounds/combat_background_new.png" id="2_smkjc"]
-[ext_resource type="Texture2D" uid="uid://cdxn6j0nxpyru" path="res://01_Assets/01_Sprites/button_sprites/button_spritesheet.png" id="5_4wrav"]
 [ext_resource type="PackedScene" uid="uid://d06rr5him4xv2" path="res://02_Source/02_Combat/CombatManager/hand.tscn" id="5_avjet"]
 [ext_resource type="Shader" uid="uid://cu7du4707ihlq" path="res://02_Source/02_Combat/PlayerController/cooldown_bar.gdshader" id="5_q0m3e"]
 
@@ -53,38 +52,50 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Countdown:frame")
+tracks/2/path = NodePath("Countdown:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Countdown:visible")
+tracks/3/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/4/path = NodePath("Countdown:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Countdown:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_nb4pp"]
@@ -118,40 +129,52 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Countdown:frame")
+tracks/2/path = NodePath("Countdown:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5.5, 6, 6.5, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Countdown:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(3, 5.5, 7.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"start_combat"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Countdown:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5.5, 6, 6.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1", "GO!"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Countdown:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.5, 6, 6.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_4wrav"]
@@ -228,6 +251,9 @@ _data = {
 &"exit": SubResource("Animation_4wrav")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_4wrav"]
+font_size = 400
+
 [node name="CombatManager" type="Node2D"]
 script = ExtResource("1_tpnlr")
 pause = true
@@ -280,11 +306,14 @@ libraries = {
 }
 autoplay = "entry"
 
-[node name="Countdown" type="Sprite2D" parent="."]
+[node name="Countdown" type="Label" parent="."]
 visible = false
-position = Vector2(640, 360)
-texture = ExtResource("5_4wrav")
-hframes = 5
+offset_left = 265.0
+offset_top = 60.0
+offset_right = 1015.0
+offset_bottom = 660.0
+label_settings = SubResource("LabelSettings_4wrav")
+horizontal_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

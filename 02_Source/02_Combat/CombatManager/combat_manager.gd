@@ -299,7 +299,8 @@ func _physics_process(delta: float) -> void:
 	if pause: return
 	
 	if flinch_timer == 0:
-		$EnemyShootPos.modulate = Color(1,1,1,1)
+		if fight_num != 0:
+			$EnemyShootPos.modulate = Color(1,1,1,1)
 		enemy_action(delta)
 	ally_action(delta)
 	

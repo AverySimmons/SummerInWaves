@@ -20,7 +20,8 @@ Implementation:
 	// Tutorial dialogue - 1A
 	// Fix freeze on spacebar talk - 5A
 	// Fix starting hand rotation - 6A
-	3 2 1 GO!
+	// 3 2 1 GO!
+	Fix pokemon transition
 
 Sound:
 	Overworld:
