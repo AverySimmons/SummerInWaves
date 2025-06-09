@@ -13,9 +13,9 @@ void fragment() {
 	uv.y = uv.x;
 	uv.x = t;
 	float ang = atan(uv.y, uv.x);
-	
+
 	float mask = step((ang / TAU), percent - 0.5);
-	
+
 	COLOR.a = mask;
 }
 
