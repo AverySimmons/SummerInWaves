@@ -65,10 +65,10 @@ func _physics_process(delta: float) -> void:
 		$Indicator.size.x = clamp(pull_dist, 40, 120)
 		$Indicator.material.set_shader_parameter("sizex", min(pull_dist, 200))
 	#sound
-	if cooldown_timer > cooldown_window and not cd_sound_played:
-		$CooldownReady.play()
-		cd_sound_played = true
-		
+	#if cooldown_timer > cooldown_window and not cd_sound_played:
+		#$CooldownReady.play()
+		#cd_sound_played = true
+		#
 	
 	cooldown_timer += delta
 
