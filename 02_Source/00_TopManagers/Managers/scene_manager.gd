@@ -12,6 +12,7 @@ var combat_music_playing = false
 var pause_animation = false
 
 var end
+var game
 
 #start with title screen as a child. when play button is pressed, emit a signal
 #scene manager will switch to game manager. it adds in game manager and deletes the title
@@ -31,7 +32,7 @@ func finish_game():
 	$AnimationPlayer.play("complete_game")
 
 func swap_to_end():
-	get_children()[0].queue_free()
+	game.queue_free()
 	end = end_screen.instantiate()
 
 func quit_game():
@@ -62,6 +63,7 @@ func start_game() -> void:
 	$TitleScreen.queue_free()
 	
 	$MusicPlayer.play("start_overworld")
+	game = new_game_manager
 
 func check_dialogue_pause_switch(arg: String) -> void:
 	if arg == "unpause combat":
