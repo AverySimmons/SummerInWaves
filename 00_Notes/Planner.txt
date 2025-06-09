@@ -11,7 +11,7 @@ General:
 	
 Implementation:
 	// Enemy Flinch - 2A
-	Rematch dialogue - 3A
+	// Rematch dialogue - 3A
 	Go through all dialogue
 	Finalize level layout (jai will add more npcs)
 	Implement Elm and Periwinkle special piece animations
