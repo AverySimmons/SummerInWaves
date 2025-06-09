@@ -386,7 +386,7 @@ func ally_action(delta):
 
 func enemy_action(delta):
 	if enemy_move_timer <= 0:
-		enemy_move_dir = randi_range(-1, 1)
+		enemy_move_dir = randf_range(-1, 1)
 		enemy_move_timer = randf_range(0.5, 2)
 	
 	enemy_rot_velocity += enemy_rot_acc * enemy_move_dir
