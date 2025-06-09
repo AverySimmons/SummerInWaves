@@ -1,7 +1,7 @@
 extends EnemyDisc
 
-const ELM_SPECIAL_MOVE_TIMER_LOWER = 9
-const ELM_SPECIAL_MOVE_TIMER_UPPER = 13
+const ELM_SPECIAL_MOVE_TIMER_LOWER = 7
+const ELM_SPECIAL_MOVE_TIMER_UPPER = 9
 const GRAVITATION_TIME = 3
 
 # Controls acceleration of pull. 1.0 would mean all sucked in discs receive idk yet tbh
@@ -12,7 +12,7 @@ var normal_mass: float
 
 func _ready() -> void:
 	super._ready()
-	normal_mass = mass
+	normal_mass = mass * 1.5
 	special_move_timer = randf_range(ELM_SPECIAL_MOVE_TIMER_LOWER, ELM_SPECIAL_MOVE_TIMER_UPPER)
 	pass
 
