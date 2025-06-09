@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://d663dc5r8v4g" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/enemy_disc.tscn" id="1_wn0b8"]
 [ext_resource type="Script" uid="uid://c3dbd41jccrsh" path="res://02_Source/02_Combat/Discs/SpecialDiscs/EnemyDiscs/al_disc_enemy.gd" id="2_uap4v"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="3_o2lp2"]
-[ext_resource type="Texture2D" uid="uid://b51evffvhqs3o" path="res://01_Assets/01_Sprites/button_sprites/al_evil_button.png" id="4_ru6er"]
+[ext_resource type="Texture2D" uid="uid://cu1uhuw2mt3xt" path="res://01_Assets/01_Sprites/button_sprites/al_evil_button.png" id="4_ru6er"]
 [ext_resource type="PackedScene" uid="uid://cx7ft31yqwsip" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="5_ru6er"]
 [ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="6_vnyu1"]
-[ext_resource type="AudioStream" uid="uid://lnl2ycdso1yj" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/AlGrunt.wav" id="7_eb2s4"]
+[ext_resource type="AudioStream" uid="uid://bh7gloid4bm7i" path="res://01_Assets/02_Audio/SoundEffects/SpecialPieces/AlGrunt.wav" id="7_eb2s4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ru6er"]
 resource_local_to_scene = true
