@@ -14,7 +14,7 @@ Button collision - Done
 Countdown tick
 Albert charge sound
 Elm gravity bomb sound
-Periwinkle taunt sound
+Periwinkle freeze sound - hearthstone freeze vibe
 Button disolve sound
 Button fall off sound
 
