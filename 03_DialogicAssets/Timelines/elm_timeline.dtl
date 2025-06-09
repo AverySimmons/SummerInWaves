@@ -12,7 +12,7 @@ if GameData.kids_defeated == 3.0:
 		elm_character (Sad): You don't understand! I'm like a tiny boat barely kept afloat in an ocean of math.
 		elm_character (Sad): Last week I got a B+ and I can't let that happen again.
 		summer_character: You should take it easy, you're not doing the test right now so why let it scare you?
-		periwinkle_character (Happy): Don't worry about the test Elm, you'll do fine! You're smartest person I know.
+		periwinkle_character (Happy): Don't worry about the test Elm, you'll do fine! You're the smartest person I know.
 		elm_character (Happy): Periwinkle? Why are you hanging out with these jellyfish-brains ! They don't understand marine biology like we do.
 		albert_character (Happy): That's not true! I like seahorses, they're cool as h-e-double hockey sticks.
 		summer_character: And I love penguins, especially rockhopper penguins! I dig their eyebrows!
