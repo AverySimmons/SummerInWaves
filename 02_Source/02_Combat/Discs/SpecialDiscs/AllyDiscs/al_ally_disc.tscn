@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://u48dwr2jv2dw"]
+[gd_scene load_steps=12 format=3 uid="uid://u48dwr2jv2dw"]
 
 [ext_resource type="PackedScene" uid="uid://l0sga2a5nm76" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/ally_disc.tscn" id="1_c4l2g"]
 [ext_resource type="Shader" uid="uid://dqn78uc5nin8t" path="res://02_Source/02_Combat/Discs/disc.gdshader" id="2_b7tvo"]
 [ext_resource type="Script" uid="uid://bb8q2hrc08mvo" path="res://02_Source/02_Combat/Discs/SpecialDiscs/AllyDiscs/al_ally_disc.gd" id="2_h4vmu"]
 [ext_resource type="Texture2D" uid="uid://bt3ol8s354ega" path="res://01_Assets/01_Sprites/button_sprites/al's_main_button.png" id="4_24f1p"]
 [ext_resource type="PackedScene" uid="uid://70rxdhr6uyo1" path="res://04_Components/01_DiscComponents/ShakeComponent.tscn" id="4_h4vmu"]
+[ext_resource type="Shader" uid="uid://3gbijh05ochx" path="res://02_Source/02_Combat/PlayerController/player_controller.gdshader" id="6_4mbmo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h4vmu"]
 resource_local_to_scene = true
@@ -14,6 +15,17 @@ shader_parameter/direction = Vector2(1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_24f1p"]
 radius = 54.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcwm7"]
+shader = ExtResource("6_4mbmo")
+shader_parameter/sizex = 120.0
+
+[sub_resource type="Gradient" id="Gradient_4mbmo"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kcwm7"]
+gradient = SubResource("Gradient_4mbmo")
+width = 32
+height = 32
 
 [node name="AllyDisc" instance=ExtResource("1_c4l2g")]
 script = ExtResource("2_h4vmu")
@@ -27,3 +39,17 @@ texture = ExtResource("4_24f1p")
 shape = SubResource("CircleShape2D_24f1p")
 
 [node name="ShakeComponent" parent="." index="3" instance=ExtResource("4_h4vmu")]
+
+[node name="IndicatorTrans" type="Node2D" parent="." index="4"]
+
+[node name="Indicator" type="ColorRect" parent="IndicatorTrans" index="0"]
+z_index = -1
+material = SubResource("ShaderMaterial_kcwm7")
+offset_top = -30.0
+offset_right = 120.0
+offset_bottom = 30.0
+color = Color(1, 0.221789, 0.513195, 0.529412)
+
+[node name="Target" type="Sprite2D" parent="." index="5"]
+z_index = 1
+texture = SubResource("GradientTexture2D_kcwm7")

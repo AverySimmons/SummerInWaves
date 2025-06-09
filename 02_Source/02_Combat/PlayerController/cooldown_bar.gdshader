@@ -54,12 +54,12 @@ void fragment() {
 	
 	float bar_fill_mask = step(dist, 0.07 + ran * 0.2) * fill_math;
 	
-	float bar_outline_mask = step(abs(0.13 - dist), 0.02);
+	float bar_outline_mask = step(abs(0.1 - dist), 0.015);
 	
 	float final_mask = bar_fill_mask + bar_outline_mask;
 	
 	COLOR.a = final_mask;
-	COLOR.rgb = vec3(0.7, 0.6, 0.) * bar_outline_mask;
+	COLOR.rgb = color * bar_outline_mask;
 	COLOR.rgb += color * bar_fill_mask;
 }
 

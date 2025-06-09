@@ -10,6 +10,8 @@ var cd_sound_played = true
 
 var player_disc_scene = preload("res://02_Source/02_Combat/Discs/SpecialDiscs/player_disc.tscn")
 
+var cur_t = null
+
 func _ready() -> void:
 	$Indicator.visible = false
 
@@ -28,8 +30,9 @@ func _physics_process(delta: float) -> void:
 			$Hand.pull_back(0.7)
 			$Hand.global_position = pull_pos
 			$Hand.rotation = pull_pos.angle_to_point(Vector2(640, 360)) + PI / 2
-			var t = create_tween()
-			t.tween_property($Hand, "modulate", Color(1,1,1,1), 0.1)
+			if cur_t: cur_t.kill()
+			cur_t = create_tween()
+			cur_t.tween_property($Hand, "modulate", Color(1,1,1,1), 0.1)
 	
 	if Input.is_action_just_released("click") and is_pulling:
 		#sound
@@ -43,8 +46,9 @@ func _physics_process(delta: float) -> void:
 			$NotReadyYet.play()
 		
 		$Hand.let_go()
-		var t = create_tween()
-		t.tween_property($Hand, "modulate", Color(1,1,1,0), 0.5)
+		if cur_t: cur_t.kill()
+		var cur_t = create_tween()
+		cur_t.tween_property($Hand, "modulate", Color(1,1,1,0), 0.5)
 	
 	if is_pulling:
 		#sound

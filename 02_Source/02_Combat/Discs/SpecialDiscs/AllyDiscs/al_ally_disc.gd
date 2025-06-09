@@ -26,8 +26,26 @@ func _ready() -> void:
 	target = find_target()
 	pass
 
+func _process(delta: float) -> void:
+	if target:
+		$Target.global_position = target.global_position
+		$Target.visible = true
+	else:
+		$Target.visible = false
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
+	
+	var endpoint = charge_dir 
+	if not is_charging:
+		if target: endpoint = target.global_position
+		else: endpoint = Vector2(640, 360)
+	
+	$IndicatorTrans.global_rotation = global_position.angle_to_point(endpoint)
+	var charge_len = (1. - clamp(special_move_timer / (AL_SPECIAL_MOVE_TIMER_LOWER - 2), 0, 1)) * 200
+	$IndicatorTrans/Indicator.size.x = charge_len
+	$IndicatorTrans/Indicator.material.set_shader_parameter("sizex", charge_len)
+	
 	
 	if is_charging:
 		if $PlayspaceCheck.has_overlapping_areas():

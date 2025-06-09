@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bqlesmndf068d" path="res://01_Assets/01_Sprites/button_sprites/summer's_main_button.png" id="3_0skw1"]
 
 [node name="Hand" type="Node2D"]
+z_index = 2
 script = ExtResource("1_jdx02")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

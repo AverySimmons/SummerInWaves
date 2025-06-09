@@ -15,7 +15,7 @@ void fragment() {
 
 	float shaft_mask = step(abs(uv.y), 0.5) * (1. - section_mask);
 
-	COLOR.a = arrow_mask + shaft_mask;
+	COLOR.a = (arrow_mask + shaft_mask) * COLOR.a;
 }
 
 //void light() {

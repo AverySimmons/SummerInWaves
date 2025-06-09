@@ -123,6 +123,7 @@ func _ready() -> void:
 			enemy_special_discs = 0
 			enemy_special_disc_chance = 0
 			enemy_sprite_index = 3
+			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))
 		1:
 			enemy_flinch = 0.5
 			enemy_max_rot_vel = PI / 2
@@ -134,6 +135,7 @@ func _ready() -> void:
 			ally_special_discs = 0
 			enemy_special_disc_chance = 0.3
 			enemy_sprite_index = 0
+			$HealthBar.material.set_shader_parameter("color", Color("fa5eff"))
 		2:
 			enemy_flinch = 0.35
 			enemy_max_rot_vel = PI / 2
@@ -145,6 +147,7 @@ func _ready() -> void:
 			ally_special_discs = 1
 			enemy_special_disc_chance = 0.3
 			enemy_sprite_index = 1
+			$HealthBar.material.set_shader_parameter("color", Color("a95eff"))
 		3:
 			enemy_flinch = 0.2
 			enemy_max_rot_vel = 1.5 * PI / 2
@@ -156,6 +159,7 @@ func _ready() -> void:
 			ally_special_discs = 2
 			enemy_special_disc_chance = 0.3
 			enemy_sprite_index = 2
+			$HealthBar.material.set_shader_parameter("color", Color("66e600"))
 		4:
 			enemy_flinch = 0.1
 			enemy_max_rot_vel = 1.5 * PI / 2
@@ -167,6 +171,7 @@ func _ready() -> void:
 			ally_special_discs = 2
 			enemy_special_disc_chance = 0.5
 			enemy_sprite_index = 3
+			$HealthBar.material.set_shader_parameter("color", Color("00dfe3"))
 	
 	$EnemyShootPos.sprite_index = enemy_sprite_index + 1
 	choose_next_disc()
@@ -340,7 +345,7 @@ func _physics_process(delta: float) -> void:
 func enemy_disc_destroyed():
 	if fight_num == 0: return
 	flinch_timer += enemy_flinch
-	$EnemyShootPos.modulate = Color(0.7,0.7,0.7,0.7)
+	$EnemyShootPos.modulate = Color(0.4,0.4,0.4,0.4)
 
 func ally_action(delta):
 	for i in range(ally_special_discs):
