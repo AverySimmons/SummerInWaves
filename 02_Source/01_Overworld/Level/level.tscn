@@ -312,7 +312,7 @@ y_sort_enabled = true
 script = ExtResource("1_mrg8d")
 
 [node name="Player" parent="." instance=ExtResource("1_727id")]
-position = Vector2(640, 360)
+position = Vector2(220, 369)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -100
@@ -320,7 +320,7 @@ position = Vector2(1280, 360)
 texture = ExtResource("3_01gd7")
 
 [node name="Prin" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(476, 457)
+position = Vector2(810, 473)
 dialogic_scene = "prin_timeline"
 
 [node name="CollisionShape2D" parent="Prin" index="0"]
@@ -342,7 +342,7 @@ position = Vector2(4.92, -24.867)
 shape = SubResource("RectangleShape2D_fdqyf")
 
 [node name="Elm" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(1820, 140)
+position = Vector2(2027, 416)
 dialogic_scene = "elm_timeline"
 
 [node name="CollisionShape2D" parent="Elm" index="0"]
@@ -365,7 +365,7 @@ rotation = 0.785398
 shape = SubResource("CapsuleShape2D_mcfrq")
 
 [node name="Albert" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(1222, 300)
+position = Vector2(1208, 305)
 dialogic_scene = "albert_timeline"
 
 [node name="CollisionShape2D" parent="Albert" index="0"]
@@ -427,7 +427,7 @@ mouse_filter = 1
 color = Color(1, 1, 1, 0)
 
 [node name="Granny" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(208, 137)
+position = Vector2(1598, 119)
 dialogic_scene = "granny_timeline"
 
 [node name="Sprite2D" parent="Granny" index="1"]
@@ -437,7 +437,7 @@ texture = ExtResource("9_8qskt")
 position = Vector2(-1, 40)
 
 [node name="SandNPCs" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(505, 129)
+position = Vector2(2026, 150)
 dialogic_scene = "sand_timeline"
 
 [node name="CollisionShape2D" parent="SandNPCs" index="0"]
@@ -452,7 +452,7 @@ position = Vector2(-0.5, -18)
 shape = SubResource("RectangleShape2D_mf0rx")
 
 [node name="Freaks" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(906, 126)
+position = Vector2(1757, 402)
 dialogic_scene = "freaks_timeline"
 
 [node name="CollisionShape2D" parent="Freaks" index="0"]
@@ -468,7 +468,7 @@ position = Vector2(10.5, 44.5)
 shape = SubResource("RectangleShape2D_ralse")
 
 [node name="Napper" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(1925, 377)
+position = Vector2(453, 252)
 dialogic_scene = "napper_timeline"
 
 [node name="CollisionShape2D" parent="Napper" index="0"]
@@ -484,7 +484,7 @@ position = Vector2(8, -21.5)
 shape = SubResource("RectangleShape2D_fsdup")
 
 [node name="Teens" parent="." instance=ExtResource("4_01gd7")]
-position = Vector2(2271, 253)
+position = Vector2(2331, 368)
 dialogic_scene = "teens_timeline"
 
 [node name="CollisionShape2D" parent="Teens" index="0"]

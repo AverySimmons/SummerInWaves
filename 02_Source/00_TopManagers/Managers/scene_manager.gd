@@ -32,9 +32,9 @@ func finish_game():
 	$AnimationPlayer.play("complete_game")
 
 func swap_to_end():
-	game.queue_free()
 	end = end_screen.instantiate()
 	add_child(end)
+	game.queue_free()
 
 func quit_game():
 	get_tree().quit()
@@ -51,10 +51,6 @@ func dialogic_signal(arg):
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		pause_game()
-	#debug testing for dialogue pause
-	if not currently_paused:
-		if Input.is_action_just_pressed("ui_text_newline"):
-			dialogue_pause_switch()
 
 func start_game() -> void:
 	var new_game_manager = game_manager_scene.instantiate()
