@@ -1,2 +1,3 @@
 # SummerInWaves
-# Submission for the Besties Game Jam 2025. Help the visitors of the beach by playing a marbles-based game with them! Cool art, music, physics system, and gameplay.
+Submission for the Besties Game Jam 2025. Help the visitors of the beach by playing a marbles-based game with them! Cool art, music, physics system, and gameplay.
+Playable link: https://stagandseek.itch.io/summer-in-waves
